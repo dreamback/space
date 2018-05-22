@@ -19,40 +19,48 @@
     <link rel="stylesheet" href="ydui/dist/ydui.px.css">
 </head>
 
-<body class="white">
+<body>
     <div id="appCtrl" v-locak>
-        <yd-navbar title="注册">
+        <yd-navbar title="保单验真">
             <a href="#" slot="left">
                 <yd-navbar-back-icon></yd-navbar-back-icon>
             </a>
         </yd-navbar>
-        <div class="form-login">
-        	<div class="login-logo"></div>
-            <yd-cell-group>
-                <yd-cell-item>
-                	<i slot="icon" class="login-icon login-phone"></i>
-                	<yd-input slot="right" v-model="mobile" type="tel" placeholder="请输入手机号码"></yd-input>
-                </yd-cell-item>
-                <yd-cell-item>
-                    <i slot="icon" class="login-icon login-psw"></i>
-                    <yd-input slot="right" v-model="code" placeholder="短信验证码"></yd-input>
-                    <yd-sendcode slot="right" 
-                         v-model="start" 
-                         @click.native="sendCode" 
-                         type="warning"
-                    ></yd-sendcode>
-                </yd-cell-item>
-                <yd-cell-item>
-                	<i slot="icon" class="login-icon login-psw"></i>
-                    <yd-input slot="right" type="password" v-model="psw" :max="20" placeholder="设置6~20位之间的密码"></yd-input>
-                </yd-cell-item>
-            </yd-cell-group>
-            <yd-button size="large" type="primary" @click.native="submit">立即注册</yd-button>
-            <p style="text-align:center;padding-top: 20px;">
-            	<span class="cGray">已有账号？</span>
-            	<a class="cGold">立即登录</a>
-            </p>
-        </div>
+       <div class="truly-content">
+           丰收经纪销售的产品均经过以下保险公司授权可通过访问其官网或拨打电话验证保单真伪
+       </div>
+       <div class="truly-list">
+           <a href="http://www.pingan.cn/policy/" class="cGray">
+                <img src="images/pingan_logo_1.png" alt="" width="46">
+               <p>中国平安</p>
+               <p>官网验真：http://www.pingan.cn/policy/</p>
+               <p>官方热线：95555</p>
+           </a>
+           <a href="http://www.pingan.cn/policy/" class="cGray">
+                <img src="images/pingan_logo_1.png" alt="" width="46">
+               <p>中国平安</p>
+               <p>官网验真：http://www.pingan.cn/policy/</p>
+               <p>官方热线：95555</p>
+           </a>
+           <a href="http://www.pingan.cn/policy/" class="cGray">
+                <img src="images/pingan_logo_1.png" alt="" width="46">
+               <p>中国平安</p>
+               <p>官网验真：http://www.pingan.cn/policy/</p>
+               <p>官方热线：95555</p>
+           </a>
+           <a href="http://www.pingan.cn/policy/" class="cGray">
+                <img src="images/pingan_logo_1.png" alt="" width="46">
+               <p>中国平安</p>
+               <p>官网验真：http://www.pingan.cn/policy/</p>
+               <p>官方热线：95555</p>
+           </a>
+           <a href="http://www.pingan.cn/policy/" class="cGray">
+                <img src="images/pingan_logo_1.png" alt="" width="46">
+               <p>中国平安</p>
+               <p>官网验真：http://www.pingan.cn/policy/</p>
+               <p>官方热线：95555</p>
+           </a>
+       </div>
     </div>
     <script src="js/vue.min.js"></script>
     <script src="ydui/dist/ydui.px.js"></script>
@@ -62,47 +70,11 @@
 
         data: function(){
         	return {
-        		mobile:'',
-        		psw:'',
-                code:'',
-
-                start: false
+        	
         	}
         },
 
         methods:{
-        	submit: function(){
-        		if(!this.mobile){
-        			this.$dialog.toast({mes: '请输入手机号码、'});
-        			return;
-        		}
-                if(!/^0?(13|15|18|14|16|17|19)[0-9]{9}$/.test(this.mobile)){
-                    this.$dialog.toast({mes: '手机号码格式有误'});
-                    return;
-                }
-        		if(!this.psw){
-        			this.$dialog.toast({mes: '请输入登录密码'});
-        			return;
-        		}
-        		if(this.psw.length<6||this.psw.length>20){
-        			this.$dialog.toast({mes: '6~20位之间的密码'});
-        			return;
-        		}
-        	},
-
-            sendCode() {
-                setTimeout(() => {//这里该ajax
-
-                    vm.start = true;
-
-                    vm.$dialog.toast({
-                        mes: '已发送',
-                        icon: 'success',
-                        timeout: 1500
-                    });
-
-                }, 1000);
-            }
 
         }
     })
