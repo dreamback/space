@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="ydui/dist/ydui.px.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+        <yd-navbar title="保单验真">
+            <a href="#" slot="left">
+                <yd-navbar-back-icon></yd-navbar-back-icon>
+            </a>
+        </yd-navbar>
+        <yd-tab active-color="#A17E41" :callback="tabChange" horizontal-scroll>
+            <yd-tab-panel v-for="el in tabs" :label="el.label"></yd-tab-panel>
+        </yd-tab>
+        <div class="list-filter">
+            <div class="bd">
+                <ul>
+                    <li class="">综合排序<i class=""></i></li>
+                    <li class="">年龄<i class=""></i></li>
+                    <li class="">保险公司<i class=""></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script src="ydui/dist/ydui.px.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function() {
+            return {
+                tabs: [{
+                    id: 1001,
+                    label: '全部'
+                }, {
+                    id: 1002,
+                    label: '医疗'
+                }, {
+                    id: 1003,
+                    label: '健康'
+                }, {
+                    id: 1004,
+                    label: '意外'
+                }, {
+                    id: 1005,
+                    label: '旅行'
+                }, {
+                    id: 1006,
+                    label: '车险'
+                }, {
+                    id: 1007,
+                    label: '财险'
+                }]
+            }
+        },
+
+        methods: {
+            tabChange: function(label, index) {
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

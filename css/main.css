@@ -1,59 +1,42 @@
 /*首页*/
-.home-banner img{width: 100%;}
-
-.notice{padding: 0 15px;height: 34px;line-height: 34px;border-bottom: 1px solid #E5E5E5;background: #fff;display: -webkit-flex;
-display: -moz-flex;
-display: -ms-flex;
-display: -o-flex;
-display: flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;  color: #666;}
-.notice i{display: inline-block;width: 15px;height: 15px;background-image: url('../images/notice_icon.png');-webkit-background-size: cover;
-background-size: cover;margin-right: 8px;}
-
+.home-banner img{width:100%;}
+.notice{padding:0 15px;height:34px;line-height:34px;border-bottom:1px solid #E5E5E5;background:#fff;display:-webkit-flex;display:-moz-flex;display:-ms-flex;display:-o-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;color:#666;}
+.notice i{display:inline-block;width:15px;height:15px;background-image:url('../images/notice_icon.png');-webkit-background-size:cover;background-size:cover;margin-right:8px;}
 .imenu-list{background-color:#fff;min-height:156px;}
 .imenu-list .item{display:-webkit-box;display:-webkit-flex;display:flex;}
-.imenu-list .item>a{display:block;-webkit-box-flex:1;-webkit-flex:1;flex:1;-webkit-box-align:center;-webkit-align-items:center;align-items:center;text-align:center;font-size:0;padding:10px 0;color:#444;color: #aaa;}
+.imenu-list .item>a{display:block;-webkit-box-flex:1;-webkit-flex:1;flex:1;-webkit-box-align:center;-webkit-align-items:center;align-items:center;text-align:center;font-size:0;padding:10px 0;color:#444;color:#aaa;}
 .imenu-list .item>a:active{background-color:#f2f2f2;}
 .imenu-list .item>a:last-child{border-right:none;}
 .imenu-list .index-icon{display:inline-block;width:40px;height:40px;background-image:url('../images/menus_ico.png');-webkit-background-size:40px auto;background-size:40px auto;}
 .imenu-list .item p{font-size:12px;}
-.index-icon-1{background-position: 0 0px;}
-.index-icon-2{background-position: 0 -40px;}
-.index-icon-3{background-position: 0 -80px;}
-.index-icon-4{background-position: 0 -120px;}
-.index-icon-5{background-position: 0 -160px;}
-.index-icon-6{background-position: 0 -200px;}
-.index-icon-7{background-position: 0 -240px;}
-.index-icon-8{background-position: 0 -280px;}
-
-.hot-product,
-.cooper,
-.prodcut-list{padding:10px;background: #fff;margin-top: 10px;}
-.title-bar{font-size: 14px;border-left: 4px solid #A17E41;padding-left: 10px;height: 16px;line-height: 16px;vertical-align: bottom;}
-
-.hot-product ul{display: -webkit-flex;
-display: -moz-flex;
-display: -ms-flex;
-display: -o-flex;
-display: flex;margin-top: 10px;}
-.hot-product ul li{flex: 1;}
-.hot-product ul li a{display: block;}
-.hot-product ul li a:first-child{margin-right: 5px;}
-.hot-product ul li a:last-child{margin-left: 5px;}
-.hot-product ul li a:active{background: #f2f2f2;}
-.hot-product img{width: 100%;}
-.hot-product .desc{border: 1px solid #EEEEEE;border-top: none;padding: 10px 15px 20px;}
-.hot-product h2{font-size: 14px;padding-bottom: 3px;}
-
-.hot-product .seller{padding-top: 10px;}
-.hot-product .seller .right{font-size: 12px;}
-
-.prodcut-list>ul>li{margin-top: 10px;}
-.prodcut-list>ul>li>a{display: block;position: relative;background-size: cover;height: 156px;}
-.prodcut-list>ul>li>a>img{display: block;width: 100%;}
-.prodcut-list>ul>li>a>.desc{position: absolute;width: 100%;height: 100%;top: 0;left: 0;color: #fff;}
-.prodcut-list .desc{padding: 0 20px;}
-.prodcut-list .desc h2{font-size: 18px;padding-bottom: 8px;padding-top: 12px;}
-.prodcut-list .desc li{line-height: 30px;padding-left: 25px;font-size: 12px;background: url('../images/list_checibox.png') 0 50% no-repeat;}
+.index-icon-1{background-position:0 0px;}
+.index-icon-2{background-position:0 -40px;}
+.index-icon-3{background-position:0 -80px;}
+.index-icon-4{background-position:0 -120px;}
+.index-icon-5{background-position:0 -160px;}
+.index-icon-6{background-position:0 -200px;}
+.index-icon-7{background-position:0 -240px;}
+.index-icon-8{background-position:0 -280px;}
+.hot-product,.cooper,.prodcut-list{padding:10px;background:#fff;margin-top:10px;}
+.title-bar{font-size:14px;border-left:4px solid #A17E41;padding-left:10px;height:16px;line-height:16px;vertical-align:bottom;}
+.hot-product ul{display:-webkit-flex;display:-moz-flex;display:-ms-flex;display:-o-flex;display:flex;margin-top:10px;}
+.hot-product ul li{flex:1;}
+.hot-product ul li a{display:block;}
+.hot-product ul li a:first-child{margin-right:5px;}
+.hot-product ul li a:last-child{margin-left:5px;}
+.hot-product ul li a:active{background:#f2f2f2;}
+.hot-product img{width:100%;}
+.hot-product .desc{border:1px solid #EEEEEE;border-top:none;padding:10px 15px 20px;}
+.hot-product h2{font-size:14px;padding-bottom:3px;}
+.hot-product .seller{padding-top:10px;}
+.hot-product .seller .right{font-size:12px;}
+.prodcut-list>ul>li{margin-top:10px;}
+.prodcut-list>ul>li>a{display:block;position:relative;background-size:cover;height:156px;}
+.prodcut-list>ul>li>a>img{display:block;width:100%;}
+.prodcut-list>ul>li>a>.desc{position:absolute;width:100%;height:100%;top:0;left:0;color:#fff;}
+.prodcut-list .desc{padding:0 20px;}
+.prodcut-list .desc h2{font-size:18px;padding-bottom:8px;padding-top:12px;}
+.prodcut-list .desc li{line-height:30px;padding-left:25px;font-size:12px;background:url('../images/list_checibox.png') 0 50% no-repeat;}
 
 /* .cooper ul{display: -webkit-flex;
 display: -moz-flex;
@@ -68,32 +51,41 @@ display: flex;margin-top: 10px;}
 .cooper li:nth-child(1) a:active{background: #E5D8B9;}
 .cooper li:nth-child(2) a:active{background: #BCE3EA;}
 .cooper li:nth-child(3) a:active{background: #C1E5B9;} */
-.sevice-list{margin-top: 10px;background: #fff;padding: 10px;}
-.sevice-list ul{display: -webkit-box;display: -webkit-flex;display: flex;padding-top: 10px;padding-bottom: 10px;}
-.sevice-list li{-webkit-box-flex:1;-webkit-flex:1;flex:1;display: -webkit-box;-webkit-box-align: center;-webkit-align-items: center;align-items: center;padding-top: 10px;}
-.sevice-list li i{display: block;width: 45px;height: 45px;background-size: 45px auto;background-image: url('../images/sevice_ico.png');border: 1px solid #A17E41;border-radius: 25px;margin-right: 10px;}
-.sevice-list li .i1{background-position: 0 0;}
-.sevice-list li .i2{background-position: 0 -45px;}
-.sevice-list li .i3{background-position: 0 -90px;}
-.sevice-list li .i4{background-position: 0 -135px;}
-.sevice-list li h3{font-size: 16px;}
-.sevice-list li p{color: #999;font-size: 12px;}
+.sevice-list{margin-top:10px;background:#fff;padding:10px;}
+.sevice-list ul{display:-webkit-box;display:-webkit-flex;display:flex;padding-top:10px;padding-bottom:10px;}
+.sevice-list li{-webkit-box-flex:1;-webkit-flex:1;flex:1;display:-webkit-box;-webkit-box-align:center;-webkit-align-items:center;align-items:center;padding-top:10px;}
+.sevice-list li i{display:block;width:45px;height:45px;background-size:45px auto;background-image:url('../images/sevice_ico.png');border:1px solid #A17E41;border-radius:25px;margin-right:10px;}
+.sevice-list li .i1{background-position:0 0;}
+.sevice-list li .i2{background-position:0 -45px;}
+.sevice-list li .i3{background-position:0 -90px;}
+.sevice-list li .i4{background-position:0 -135px;}
+.sevice-list li h3{font-size:16px;}
+.sevice-list li p{color:#999;font-size:12px;}
 
 /* 登录 */
-.form-login{margin: 20px;}
-.login-icon{display: block;width: 20px;height: 20px;background-image: url('../images/login_ico.png');background-size: 20px auto;}
-.login-psw{background-position: 0 -20px;}
-.form-login .forget{padding-top: 10px;}
-.login-logo{width: 105px;height: 26px;background-size: cover;background-image: url('../images/login_logo.png');margin: 60px auto 30px;}
-/* 保单验真 */
-.truly-content{
-	background-color: #1b76ff;
-	background-image: -webkit-linear-gradient(right, #167eff, #43fffd);
-	background-image: linear-gradient(to left, #167eff, #43fffd);
-	color: #fff;font-size: 14px;padding: 10px 30px;
-}
+.form-login{margin:20px;}
+.login-icon{display:block;width:20px;height:20px;background-image:url('../images/login_ico.png');background-size:20px auto;}
+.login-psw{background-position:0 -20px;}
+.form-login .forget{padding-top:10px;}
+.login-logo{width:105px;height:26px;background-size:cover;background-image:url('../images/login_logo.png');margin:60px auto 30px;}
 
-.truly-list a{display: block;margin-bottom: 10px;background: #fff;padding: 5px 10px;font-size: 16px;position: relative;}
-.truly-list a p{padding: 5px 0;}
-.truly-list a img{position: absolute;right: 20px;top: 20px;}
-.truly-list a:active{background: #f1f1f1;}
+/* 保单验真 */
+.truly-content{background-color:#1b76ff;background-image:-webkit-linear-gradient(right,#167eff,#43fffd);background-image:linear-gradient(to left,#167eff,#43fffd);color:#fff;font-size:14px;padding:10px 30px;}
+.truly-list a{display:block;margin-bottom:10px;background:#fff;padding:5px 10px;font-size:16px;position:relative;}
+.truly-list a p{padding:5px 0;}
+.truly-list a img{position:absolute;right:20px;top:20px;}
+.truly-list a:active{background:#f1f1f1;}
+.list-filter-wrapper{height:32px;}
+.list-filter{height:32px;width:100%;position:relative;}
+.list-filter::after{content:"";position:absolute;z-index:3;bottom:0;left:0;width:100%;border-bottom:1px solid #b2b2b2;-webkit-transform:scaleY(.5);transform:scaleY(.5);-webkit-transform-origin:0 0;transform-origin:0 0}
+.list-filter .bd{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;height:32px;background-color:#fff;}
+.list-filter ul{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;}
+.list-filter li{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;text-align:center;font-size:14px;position:relative;}
+.list-filter i{display:inline-block;width:1em;height:1em;position:relative;bottom:-2px;right:-4px;}
+.list-filter i:after{content:'';display:inline-block;width:0;height:0;overflow:hidden;border-width:4px;position:absolute;}
+.list-filter i:after{border-color:#838282 transparent transparent;border-style:solid dashed dashed;bottom:0;left:0;}
+.list-filter li.on{color:#D7980B;}
+.list-filter li.on i.desc:after{/*降序*/
+border-color:#EC0A0A transparent transparent;}
+.list-filter.border li .label{height:32px;line-height:32px;display:inline-block;}
+.list-filter.border li.on .label{border-bottom:1px solid #DBA350;}
