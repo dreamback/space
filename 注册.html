@@ -16,38 +16,40 @@
     <meta name="x5-page-mode" content="app">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="ydui/dist/ydui.px.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
 </head>
 
 <body class="white">
     <div id="appCtrl" v-locak>
-        <yd-navbar title="注册">
-            <a href="#" slot="left">
-                <yd-navbar-back-icon></yd-navbar-back-icon>
+        <mt-header title="注册">
+            <a href="javascript:;" @click="location.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
             </a>
-        </yd-navbar>
+        </mt-header>
         <div class="form-login">
-        	<div class="login-logo"></div>
-            <yd-cell-group>
-                <yd-cell-item>
-                	<i slot="icon" class="login-icon login-phone"></i>
-                	<yd-input slot="right" v-model="mobile" type="tel" placeholder="请输入手机号码"></yd-input>
-                </yd-cell-item>
-                <yd-cell-item>
+        	    <div class="login-logo"></div>
+
+                <mt-field 
+                placeholder="请输入手机号码/姓名" 
+                v-model="mobile">
+                    <i slot="icon" class="login-icon"></i>
+                </mt-field>
+
+                <mt-field 
+                placeholder="短信验证码"
+                v-model="code">
                     <i slot="icon" class="login-icon login-psw"></i>
-                    <yd-input slot="right" v-model="code" placeholder="短信验证码"></yd-input>
-                    <yd-sendcode slot="right" 
-                         v-model="start" 
-                         @click.native="sendCode" 
-                         type="warning"
-                    ></yd-sendcode>
-                </yd-cell-item>
-                <yd-cell-item>
-                	<i slot="icon" class="login-icon login-psw"></i>
-                    <yd-input slot="right" type="password" v-model="psw" :max="20" placeholder="设置6~20位之间的密码"></yd-input>
-                </yd-cell-item>
-            </yd-cell-group>
-            <yd-button size="large" type="primary" @click.native="submit">立即注册</yd-button>
+                    <mt-countdown style="min-width:120px " :send="send"></mt-countdown>
+                </mt-field>
+
+                <mt-field 
+                placeholder="设置6~20位之间的密码"
+                type="password" v-model="psw">
+                    <i slot="icon" class="login-icon login-psw"></i>
+                </mt-field>
+            <div style="padding:15px">
+                <mt-button size="large" type="primary" @click.native="submit">立即注册</mt-button>
+            </div>
             <p style="text-align:center;padding-top: 20px;">
             	<span class="cGray">已有账号？</span>
             	<a class="cGold">立即登录</a>
@@ -55,7 +57,7 @@
         </div>
     </div>
     <script src="js/vue.min.js"></script>
-    <script src="ydui/dist/ydui.px.js"></script>
+    <script src="mint/lib/index.js"></script>
     <script>
     var vm = new Vue({
         el: '#appCtrl',
@@ -73,35 +75,49 @@
         methods:{
         	submit: function(){
         		if(!this.mobile){
-        			this.$dialog.toast({mes: '请输入手机号码、'});
+        			this.$toast('请输入手机号码、');
         			return;
         		}
                 if(!/^0?(13|15|18|14|16|17|19)[0-9]{9}$/.test(this.mobile)){
-                    this.$dialog.toast({mes: '手机号码格式有误'});
+                    this.$toast('手机号码格式有误');
                     return;
                 }
         		if(!this.psw){
-        			this.$dialog.toast({mes: '请输入登录密码'});
+        			this.$toast('请输入登录密码');
         			return;
         		}
         		if(this.psw.length<6||this.psw.length>20){
-        			this.$dialog.toast({mes: '6~20位之间的密码'});
+        			this.$toast('6~20位之间的密码');
         			return;
         		}
         	},
 
-            sendCode() {
+            sendCode: function() {
                 setTimeout(() => {//这里该ajax
 
                     vm.start = true;
 
-                    vm.$dialog.toast({
+                    vm.toast({
                         mes: '已发送',
                         icon: 'success',
                         timeout: 1500
                     });
 
                 }, 1000);
+            },
+
+            send: function(success, fail){
+                if(!this.mobile){
+                    this.$toast('请输入手机号码、');
+                    return;
+                }
+                if(!/^0?(13|15|18|14|16|17|19)[0-9]{9}$/.test(this.mobile)){
+                    this.$toast('手机号码格式有误');
+                    return;
+                }
+
+                success();//ajax发送短信的时候调用success 进入倒计时
+                //fail();//发送失败的时候调用，解除按钮的disable
             }
 
         }

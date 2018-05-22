@@ -16,16 +16,16 @@
     <meta name="x5-page-mode" content="app">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="ydui/dist/ydui.px.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
 </head>
 
 <body>
     <div id="appCtrl" v-locak>
-        <yd-navbar title="保单验真">
-            <a href="#" slot="left">
-                <yd-navbar-back-icon></yd-navbar-back-icon>
+        <mt-header title="保单验真">
+            <a href="javascript:;" @click="location.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
             </a>
-        </yd-navbar>
+        </mt-header>
        <div class="truly-content">
            丰收经纪销售的产品均经过以下保险公司授权可通过访问其官网或拨打电话验证保单真伪
        </div>
@@ -63,7 +63,7 @@
        </div>
     </div>
     <script src="js/vue.min.js"></script>
-    <script src="ydui/dist/ydui.px.js"></script>
+    <script src="mint/lib/index.js"></script>
     <script>
     var vm = new Vue({
         el: '#appCtrl',

@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 226);
+/******/ 	return __webpack_require__(__webpack_require__.s = 216);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,26 +167,16 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 108:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 145:
+/***/ 135:
 /***/ (function(module, exports, __webpack_require__) {
 
-function injectStyle (ssrContext) {
-  __webpack_require__(108)
-}
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(76),
+  __webpack_require__(67),
   /* template */
-  __webpack_require__(179),
+  __webpack_require__(184),
   /* styles */
-  injectStyle,
+  null,
   /* scopeId */
   null,
   /* moduleIdentifier (server only) */
@@ -198,62 +188,68 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 179:
+/***/ 184:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mint-palette-button",
-    class: {
-      expand: _vm.expanded, 'mint-palette-button-active': _vm.transforming
+  return _c('mt-button', {
+    attrs: {
+      "type": "primary",
+      "disabled": _vm.disabled,
+      "plain": ""
     },
-    on: {
-      "animationend": _vm.onMainAnimationEnd,
-      "webkitAnimationEnd": _vm.onMainAnimationEnd,
-      "mozAnimationEnd": _vm.onMainAnimationEnd
+    nativeOn: {
+      "click": function($event) {
+        return _vm.submit($event)
+      }
     }
-  }, [_c('div', {
-    staticClass: "mint-sub-button-container"
-  }, [_vm._t("default")], 2), _vm._v(" "), _c('div', {
-    staticClass: "mint-main-button",
-    style: (_vm.mainButtonStyle),
-    on: {
-      "touchstart": _vm.toggle
-    }
-  }, [_vm._v("\n    " + _vm._s(_vm.content) + "\n  ")])])
+  }, [_vm._v("\n    " + _vm._s(_vm.change) + "\n")])
 },staticRenderFns: []}
 
 /***/ }),
 
-/***/ 226:
+/***/ 200:
+/***/ (function(module, exports) {
+
+module.exports = require("mint-ui/lib/button");
+
+/***/ }),
+
+/***/ 201:
+/***/ (function(module, exports) {
+
+module.exports = require("mint-ui/lib/button/style.css");
+
+/***/ }),
+
+/***/ 216:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(35);
+module.exports = __webpack_require__(24);
 
 
 /***/ }),
 
-/***/ 35:
+/***/ 24:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_palette_button_vue__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_palette_button_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_palette_button_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_palette_button_vue___default.a; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_countdown_vue__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_countdown_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_countdown_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_countdown_vue___default.a; });
 
 
 
 /***/ }),
 
-/***/ 76:
+/***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_button_index_js__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_button_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_button_index_js__);
 //
 //
 //
@@ -264,102 +260,71 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+if (true) {
+  __webpack_require__(201);
+}
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'mt-palette-button',
+  name: "mt-countdown",
 
-  data: function() {
+  props: {
+    send: {
+      type: Function,
+      default: function () {}
+    }
+  },
+
+  components: { "mt-button": __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_button_index_js___default.a },
+
+  data: function data() {
     return {
-      transforming: false,    // 是否正在执行动画
-      expanded: false           // 是否已经展开子按钮
+      interval: null,
+      disabled: false,
+      time: "免费获取"
     };
   },
 
-  props: {
-    content: {
-      type: String,
-      default: ''
-    },
-
-    offset: {
-      type: Number,           // 扇面偏移角，默认是四分之π，配合默认方向lt
-      default: Math.PI / 4
-    },
-
-    direction: {
-      type: String,
-      default: 'lt'           // lt t rt this.radius rb b lb l 取值有8个方向，左上、上、右上、右、右下、下、左下、左，默认为左上
-    },
-
-    radius: {
-      type: Number,
-      default: 90
-    },
-
-    mainButtonStyle: {
-      type: String,           // 应用到 mint-main-button 上的 class
-      default: ''
-    }
-  },
-  methods: {
-    toggle: function toggle(event) {
-      if (!this.transforming) {
-        if (this.expanded) {
-          this.collapse(event);
-        } else {
-          this.expand(event);
+  computed: {
+    change: function change() {
+      var value = this.time;
+      if (!isNaN(value)) {
+        if (this.flag == true) {
+          return ("重新发送" + value + "S");
         }
-      }
-    },
-
-    onMainAnimationEnd: function onMainAnimationEnd(event) {
-      this.transforming = false;
-      this.$emit('expanded');
-    },
-
-    expand: function expand(event) {
-      this.expanded = true;
-      this.transforming = true;
-      this.$emit('expand', event);
-    },
-
-    collapse: function collapse(event) {
-      this.expanded = false;
-      this.$emit('collapse', event);
-    }
-  },
-  mounted: function mounted() {
-    var this$1 = this;
-
-    this.slotChildren = [];
-    for (var i = 0; i < this.$slots.default.length; i++) {
-      if (this$1.$slots.default[i].elm.nodeType !== 3) {
-        this$1.slotChildren.push(this$1.$slots.default[i]);
+        return value + "s";
+      } else {
+        return value;
       }
     }
-
-    var css = '';
-    var direction_arc = Math.PI * (3 + Math.max(['lt', 't', 'rt', 'r', 'rb', 'b', 'lb', 'l'].indexOf(this.direction), 0)) / 4;
-    for (var i$1 = 0; i$1 < this.slotChildren.length; i$1++) {
-      var arc = (Math.PI - this$1.offset * 2) / (this$1.slotChildren.length - 1) * i$1 + this$1.offset + direction_arc;
-      var x = (Math.cos(arc) * this$1.radius).toFixed(2);
-      var y = (Math.sin(arc) * this$1.radius).toFixed(2);
-      var item_css = '.expand .palette-button-' + this$1._uid + '-sub-' + i$1 + '{transform:translate(' + x + 'px,' + y + 'px) rotate(720deg);transition-delay:' + 0.03 * i$1 + 's}';
-      css += item_css;
-
-      this$1.slotChildren[i$1].elm.className += (' palette-button-' + this$1._uid + '-sub-' + i$1);
-    }
-
-    this.styleNode = document.createElement('style');
-    this.styleNode.type = 'text/css';
-    this.styleNode.rel = 'stylesheet';
-    this.styleNode.title = 'palette button style';
-    this.styleNode.appendChild(document.createTextNode(css));
-    document.getElementsByTagName('head')[0].appendChild(this.styleNode);
   },
 
-  destroyed: function destroyed() {
-    if (this.styleNode) {
-      this.styleNode.parentNode.removeChild(this.styleNode);
+  methods: {
+    submit: function submit() {
+      var this$1 = this;
+
+      this.disabled = true;
+      this.send(
+        function (_) {
+          this$1.timedown();
+        },
+        function (_) {
+          this$1.disabled = false;
+        }
+      );
+    },
+
+    timedown: function timedown() {
+      var this$1 = this;
+
+      this.time = 60;
+      this.interval = setInterval(function () {
+        this$1.time--;
+        if (this$1.time <= 0) {
+          this$1.time = "获取验证码";
+          this$1.disabled = false;
+          clearInterval(this$1.interval);
+        }
+      }, 1000);
     }
   }
 });
