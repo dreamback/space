@@ -216,22 +216,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: {
       'is-fixed': _vm.fixed
     }
-  }, [(!_vm.homeBack) ? _c('div', {
+  }, [_c('div', {
     staticClass: "mint-header-button is-left"
-  }, [_vm._t("left")], 2) : _c('div', {
-    staticClass: "mint-header-button is-left"
-  }, [_c('mt-button', {
-    attrs: {
-      "icon": "back"
-    },
-    on: {
-      "click": function($event) {
-        _vm.$router.push({
-          path: '/'
-        })
-      }
-    }
-  }, [_vm._v("首页")])], 1), _vm._v(" "), _c('h1', {
+  }, [_vm._t("left")], 2), _vm._v(" "), _c('h1', {
     staticClass: "mint-header-title",
     domProps: {
       "textContent": _vm._s(_vm.title)
@@ -287,9 +274,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /**
@@ -319,32 +303,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       type:Boolean,
       default: false
     },
-    title: String,
-    autoTitle:{
-      type: Boolean,
-      default: true
-    }
-  },
-  computed:{
-    homeBack: function (){
-      return this.$store.state.routeChain.length==2;
-    }
+    title: String
   },
   methods:{
-    setTitle: function setTitle(){
-      if(this.title&&this.autoTitle){
-        this.timeout&&clearTimeout(this.timeout);
-        // this.timeout = setTimeout(_=>{
-          __WEBPACK_IMPORTED_MODULE_0_vue___default.a.$utils.setAppTitle(this.title);
-        // },50)
-      }
-    }
-  },
-  activated: function activated(){
-    this.setTitle();
-  },
-  mounted: function mounted(){
-    this.setTitle();
+
   }
 });
 

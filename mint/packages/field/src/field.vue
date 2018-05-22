@@ -7,6 +7,7 @@
       'is-textarea': type === 'textarea',
       'is-nolabel': !label
     }]">
+    <slot name="icon"></slot>
     <textarea
       @change="$emit('change', currentValue)"
       ref="textarea"

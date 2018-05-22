@@ -267,7 +267,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "title": _vm.label
     }
-  }, [(_vm.type === 'textarea') ? _c('textarea', {
+  }, [_vm._t("icon"), _vm._v(" "), (_vm.type === 'textarea') ? _c('textarea', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -354,7 +354,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "mint-field-other"
-  }, [_vm._t("default")], 2)])
+  }, [_vm._t("default")], 2)], 2)
 },staticRenderFns: []}
 
 /***/ }),
@@ -402,6 +402,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_src_utils_clickoutside__ = __webpack_require__(10);
+//
 //
 //
 //

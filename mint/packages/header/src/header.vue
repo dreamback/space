@@ -3,11 +3,8 @@
   <header
     class="mint-header"
     :class="{ 'is-fixed': fixed }">
-    <div class="mint-header-button is-left" v-if="!homeBack">
+    <div class="mint-header-button is-left">
       <slot name="left"></slot>
-    </div>
-    <div class="mint-header-button is-left" v-else>
-      <mt-button icon="back" @click="$router.push({path:'/'})">首页</mt-button>
     </div>
     <h1 class="mint-header-title" v-text="title"></h1>
     <div class="mint-header-button is-right">
@@ -46,32 +43,10 @@ export default {
       type:Boolean,
       default: false
     },
-    title: String,
-    autoTitle:{
-      type: Boolean,
-      default: true
-    }
-  },
-  computed:{
-    homeBack: function (){
-      return this.$store.state.routeChain.length==2;
-    }
+    title: String
   },
   methods:{
-    setTitle(){
-      if(this.title&&this.autoTitle){
-        this.timeout&&clearTimeout(this.timeout);
-        // this.timeout = setTimeout(_=>{
-          vue.$utils.setAppTitle(this.title);
-        // },50)
-      }
-    }
-  },
-  activated(){
-    this.setTitle();
-  },
-  mounted(){
-    this.setTitle();
+
   }
 };
 </script>
