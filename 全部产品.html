@@ -208,7 +208,7 @@
                 this.currentSortName = '';
                 this.currentAgeName = '';
                 this.currentBrandName = '';
-
+                this.dataList = [];
                 this.fetchData();
             },
 
@@ -219,6 +219,7 @@
                 this.currentSortName = val.label;
                 this.sortVisible=false;
                 this.pageParams.pageNo = 0;
+                this.dataList = [];
                 this.fetchData();
             },
 
@@ -227,6 +228,7 @@
                 this.currentAgeName = val.label;
                 this.ageVisible=false;
                 this.pageParams.pageNo = 0;
+                this.dataList = [];
                 this.fetchData();
             },
 
@@ -235,6 +237,7 @@
                 this.currentBrandName = val.label;
                 this.brandVisible=false;
                 this.pageParams.pageNo = 0;
+                this.dataList = [];
                 this.fetchData();
             },
 
@@ -245,9 +248,10 @@
                 this.loading = true;
                 // $.ajax({
                 //     url:'http://www.baidu.com',
+                //     dataType:'json',
                 //     data: this.pageParams,
                 //     success: function(res){
-                //     模拟异步价值
+                //     模拟异步数据
                     setTimeout(function(){
                         var res = [{
                             img:'images/products-list.jpg',

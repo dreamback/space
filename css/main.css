@@ -105,3 +105,35 @@ border-color:#EC0A0A transparent transparent;}
 .products-list .desc p{font-size: 14px;}
 
 .spinner-wrapper{display: -webkit-box;display: -webkit-flex;display: flex;justify-content: space-around;padding: 10px;}
+
+/* 我的 */
+.mine-header{height: 160px;background-image: url('../images/mine_banner_bg.png');background-size: cover;display: -webkit-box;display: -webkit-flex;display: flex;-webkit-box-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-webkit-align-items: center;align-items: center;}
+.mine-header .avator{width: 50px;height: 50px;border-radius: 25px;margin: 0 auto 10px;}
+.mine-header .avator img{width: 50px;height: 50px;}
+.mine-header p,
+.mine-header p a{color: #fff;}
+
+.double-link{display: -webkit-box;display: -webkit-flex;display: flex;}
+.double-link a{display: block;-webkit-box-flex:1;-webkit-flex:1;flex:1;background: #fff;display: -webkit-box;display: -webkit-flex;display: flex;-webkit-box-align: center;-webkit-align-items: center;align-items: center;padding:8px 15px;}
+.double-link a:active,
+.order-menus a:active{background: #f1f1f1;}
+.double-link a:first-child{border-right: 1px solid #eee;}
+.double-link i{display: inline-block;width: 30px;height: 30px;background-image: url('../images/mine_n_ico.png');background-size: 30px auto;margin-right: 10px;}
+.double-link i.i2{background-position: 0 -30px;}
+
+.order-menus{display: -webkit-box;display: -webkit-flex;display: flex;margin-top: 10px;background: #fff;}
+.order-menus a{display: block;-webkit-box-flex:1;-webkit-flex:1;flex:1;text-align: center;padding: 8px 0 5px;}
+.order-menus a i{display: inline-block;width: 30px;height: 30px;background-image: url('../images/mine_l_ico.png');background-size: 30px auto;}
+.order-menus a i.i1{background-position: 0 0px;}
+.order-menus a i.i2{background-position: 0 -30px;}
+.order-menus a i.i3{background-position: 0 -60px;}
+.order-menus a i.i4{background-position: 0 -90px;}
+
+.mine-menus {margin-top: 10px;}
+.mine-menus i.icon{display: inline-block;width: 25px;height: 25px;background-size: 25px auto;background-image: url('../images/mine_menus_ico.png');position: relative;margin-right: 5px;vertical-align: middle;position: relative;top: -2px;}
+.mine-menus i.icon-claims{background-position: 0 0;}
+.mine-menus i.icon-true{background-position: 0 -25px;}
+.mine-menus i.icon-gift{background-position: 0 -50px;}
+.mine-menus i.icon-service{background-position: 0 -75px;}
+.mine-menus i.icon-saft{background-position: 0 -100px;}
+.mine-menus i.icon-setting{background-position: 0 -125px;}

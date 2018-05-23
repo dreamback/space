@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+        <mt-header title="我的">
+            <a href="javascript:;" @click="location.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+
+        <div class="mine-header">
+            <div>
+                <div class="avator">
+                    <img src="images/avator.png" alt="">
+                </div>
+                <p><a href="">登录</a> / <a href="">注册</a></p>
+            </div>
+        </div>
+
+        <div class="double-link">
+            <a href="">
+                <i class="i1"></i>
+                <div>
+                    <h3>实名认证</h3>
+                    <p class="cGray">未认证</p>
+                </div>
+            </a>
+            <a href="">
+                <i class="i2"></i>
+                <div>
+                    <h3>优惠券</h3>
+                    <p class="cGray">暂无可用优惠券</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="order-menus">
+            <a href="">
+                <i class="i1"></i>
+                <p class="cGray">保障中</p>
+            </a>
+            <a href="">
+                <i class="i2"></i>
+                <p class="cGray">待支付</p>
+            </a>
+            <a href="">
+                <i class="i3"></i>
+                <p class="cGray">待续费</p>
+            </a>
+            <a href="">
+                <i class="i4"></i>
+                <p class="cGray">我的保单</p>
+            </a>
+        </div>
+        <div class="mine-menus">
+            <mt-cell
+              title="<i class='icon icon-claims'></i>申请理赔"
+              to="//www.baidu.com"
+              is-link>
+            </mt-cell>
+        </div>
+        <div class="mine-menus">
+            <mt-cell
+              style="margin-top:10px"
+              title="<i class='icon icon-true'></i>保单验真"
+              to="//www.baidu.com"
+              is-link>
+            </mt-cell>
+            <mt-cell
+              title="<i class='icon icon-gift'></i>我的礼包"
+              to="//www.baidu.com"
+              is-link>
+            </mt-cell>
+            <mt-cell
+              title="<i class='icon icon-service'></i>我的客服"
+              to="//www.baidu.com"
+              is-link>
+            </mt-cell>
+            <mt-cell
+              title="<i class='icon icon-saft'></i>保障"
+              to="//www.baidu.com"
+              is-link>
+            </mt-cell>
+        </div>
+        <div class="mine-menus">
+            <mt-cell
+              style="margin-top:10px"
+              title="<i class='icon icon-setting'></i>设置"
+              to="//www.baidu.com"
+              is-link>
+            </mt-cell>
+        </div>
+       
+       <div class="fix-nav">
+            <div class="fix-nav-wrap">
+                <a href="#!/" class="active">
+                    <i class="icon icon-home"></i>
+                    <p>首页</p>
+                </a>
+                <a href="">
+                    <i class="icon icon-customize"></i>
+                    <p>助手</p>
+                </a>
+                <a href="">
+                    <i class="icon icon-laims"></i>
+                    <p>理赔</p>
+                </a>
+                <a href="">
+                    <i class="icon icon-mine"></i>
+                    <p>我的</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+        		
+        	}
+        },
+
+        methods:{
+
+
+        }
+    })
+    </script>
+</body>
+
+</html>
