@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 207);
+/******/ 	return __webpack_require__(__webpack_require__.s = 237);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,7 +174,7 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 10:
+/***/ 11:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -224,24 +224,24 @@ var clickoutsideContext = '@@clickoutsideContext';
 
 /***/ }),
 
-/***/ 108:
+/***/ 125:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 129:
+/***/ 147:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(108)
+  __webpack_require__(125)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(64),
+  __webpack_require__(71),
   /* template */
-  __webpack_require__(175),
+  __webpack_require__(203),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -252,99 +252,6 @@ var Component = __webpack_require__(0)(
 
 module.exports = Component.exports
 
-
-/***/ }),
-
-/***/ 175:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('x-cell', {
-    directives: [{
-      name: "clickoutside",
-      rawName: "v-clickoutside:touchstart",
-      value: (_vm.swipeMove),
-      expression: "swipeMove",
-      arg: "touchstart"
-    }],
-    ref: "cell",
-    staticClass: "mint-cell-swipe",
-    attrs: {
-      "title": _vm.title,
-      "icon": _vm.icon,
-      "label": _vm.label,
-      "to": _vm.to,
-      "is-link": _vm.isLink,
-      "value": _vm.value
-    },
-    nativeOn: {
-      "click": function($event) {
-        _vm.swipeMove()
-      },
-      "touchstart": function($event) {
-        return _vm.startDrag($event)
-      },
-      "touchmove": function($event) {
-        return _vm.onDrag($event)
-      },
-      "touchend": function($event) {
-        return _vm.endDrag($event)
-      }
-    }
-  }, [_c('div', {
-    ref: "right",
-    staticClass: "mint-cell-swipe-buttongroup",
-    attrs: {
-      "slot": "right"
-    },
-    slot: "right"
-  }, _vm._l((_vm.right), function(btn) {
-    return _c('a', {
-      staticClass: "mint-cell-swipe-button",
-      style: (btn.style),
-      domProps: {
-        "innerHTML": _vm._s(btn.content)
-      },
-      on: {
-        "click": function($event) {
-          $event.stopPropagation();
-          btn.handler && btn.handler(), _vm.swipeMove()
-        }
-      }
-    })
-  })), _vm._v(" "), _c('div', {
-    ref: "left",
-    staticClass: "mint-cell-swipe-buttongroup",
-    attrs: {
-      "slot": "left"
-    },
-    slot: "left"
-  }, _vm._l((_vm.left), function(btn) {
-    return _c('a', {
-      staticClass: "mint-cell-swipe-button",
-      style: (btn.style),
-      domProps: {
-        "innerHTML": _vm._s(btn.content)
-      },
-      on: {
-        "click": function($event) {
-          $event.stopPropagation();
-          btn.handler && btn.handler(), _vm.swipeMove()
-        }
-      }
-    })
-  })), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.$slots.title) ? _c('span', {
-    attrs: {
-      "slot": "title"
-    },
-    slot: "title"
-  }, [_vm._t("title")], 2) : _vm._e(), _vm._v(" "), (_vm.$slots.icon) ? _c('span', {
-    attrs: {
-      "slot": "icon"
-    },
-    slot: "icon"
-  }, [_vm._t("icon")], 2) : _vm._e()], 2)
-},staticRenderFns: []}
 
 /***/ }),
 
@@ -544,23 +451,116 @@ function setStyle(element, styleName, value) {
 
 /***/ }),
 
-/***/ 207:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 203:
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__(21);
-
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('x-cell', {
+    directives: [{
+      name: "clickoutside",
+      rawName: "v-clickoutside:touchstart",
+      value: (_vm.swipeMove),
+      expression: "swipeMove",
+      arg: "touchstart"
+    }],
+    ref: "cell",
+    staticClass: "mint-cell-swipe",
+    attrs: {
+      "title": _vm.title,
+      "icon": _vm.icon,
+      "label": _vm.label,
+      "to": _vm.to,
+      "is-link": _vm.isLink,
+      "value": _vm.value
+    },
+    nativeOn: {
+      "click": function($event) {
+        _vm.swipeMove()
+      },
+      "touchstart": function($event) {
+        return _vm.startDrag($event)
+      },
+      "touchmove": function($event) {
+        return _vm.onDrag($event)
+      },
+      "touchend": function($event) {
+        return _vm.endDrag($event)
+      }
+    }
+  }, [_c('div', {
+    ref: "right",
+    staticClass: "mint-cell-swipe-buttongroup",
+    attrs: {
+      "slot": "right"
+    },
+    slot: "right"
+  }, _vm._l((_vm.right), function(btn) {
+    return _c('a', {
+      staticClass: "mint-cell-swipe-button",
+      style: (btn.style),
+      domProps: {
+        "innerHTML": _vm._s(btn.content)
+      },
+      on: {
+        "click": function($event) {
+          $event.stopPropagation();
+          btn.handler && btn.handler(), _vm.swipeMove()
+        }
+      }
+    })
+  })), _vm._v(" "), _c('div', {
+    ref: "left",
+    staticClass: "mint-cell-swipe-buttongroup",
+    attrs: {
+      "slot": "left"
+    },
+    slot: "left"
+  }, _vm._l((_vm.left), function(btn) {
+    return _c('a', {
+      staticClass: "mint-cell-swipe-button",
+      style: (btn.style),
+      domProps: {
+        "innerHTML": _vm._s(btn.content)
+      },
+      on: {
+        "click": function($event) {
+          $event.stopPropagation();
+          btn.handler && btn.handler(), _vm.swipeMove()
+        }
+      }
+    })
+  })), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.$slots.title) ? _c('span', {
+    attrs: {
+      "slot": "title"
+    },
+    slot: "title"
+  }, [_vm._t("title")], 2) : _vm._e(), _vm._v(" "), (_vm.$slots.icon) ? _c('span', {
+    attrs: {
+      "slot": "icon"
+    },
+    slot: "icon"
+  }, [_vm._t("icon")], 2) : _vm._e()], 2)
+},staticRenderFns: []}
 
 /***/ }),
 
-/***/ 21:
+/***/ 22:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_cell_swipe_vue___default.a; });
 
+
+
+/***/ }),
+
+/***/ 237:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(22);
 
 
 /***/ }),
@@ -579,7 +579,7 @@ module.exports = require("mint-ui/lib/cell/style.css");
 
 /***/ }),
 
-/***/ 64:
+/***/ 71:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -587,7 +587,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_dom__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_cell_index_js__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_cell_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_cell_index_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_clickoutside__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_clickoutside__ = __webpack_require__(11);
 //
 //
 //

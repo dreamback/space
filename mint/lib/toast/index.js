@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 235);
+/******/ 	return __webpack_require__(__webpack_require__.s = 268);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,165 +174,7 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 107:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 159:
-/***/ (function(module, exports, __webpack_require__) {
-
-function injectStyle (ssrContext) {
-  __webpack_require__(107)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(94),
-  /* template */
-  __webpack_require__(174),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 174:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('transition', {
-    attrs: {
-      "name": "mint-toast-pop"
-    }
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.visible),
-      expression: "visible"
-    }],
-    staticClass: "mint-toast",
-    class: _vm.customClass,
-    style: ({
-      'padding': _vm.iconClass === '' ? '10px' : '20px'
-    })
-  }, [(_vm.iconClass !== '') ? _c('i', {
-    staticClass: "mint-toast-icon",
-    class: _vm.iconClass
-  }) : _vm._e(), _vm._v(" "), _c('span', {
-    staticClass: "mint-toast-text",
-    style: ({
-      'padding-top': _vm.iconClass === '' ? '0' : '10px'
-    }),
-    domProps: {
-      "innerHTML": _vm._s(_vm.message)
-    }
-  })])])
-},staticRenderFns: []}
-
-/***/ }),
-
-/***/ 235:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(49);
-
-
-/***/ }),
-
-/***/ 49:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_toast_js__ = __webpack_require__(59);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_toast_js__["a"]; });
-
-
-
-/***/ }),
-
-/***/ 59:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-
-
-var ToastConstructor = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__webpack_require__(159));
-var toastPool = [];
-
-var getAnInstance = function () {
-  if (toastPool.length > 0) {
-    var instance = toastPool[0];
-    toastPool.splice(0, 1);
-    return instance;
-  }
-  return new ToastConstructor({
-    el: document.createElement('div')
-  });
-};
-
-var returnAnInstance = function (instance) {
-  if (instance) {
-    toastPool.push(instance);
-  }
-};
-
-var removeDom = function (event) {
-  if (event.target.parentNode) {
-    event.target.parentNode.removeChild(event.target);
-  }
-};
-
-ToastConstructor.prototype.close = function() {
-  this.visible = false;
-  this.$el.addEventListener('transitionend', removeDom);
-  this.closed = true;
-  returnAnInstance(this);
-};
-
-var Toast = function (options) {
-  if ( options === void 0 ) options = {};
-
-  var duration = options.duration || 3000;
-
-  var instance = getAnInstance();
-  instance.closed = false;
-  clearTimeout(instance.timer);
-  instance.message = typeof options === 'string' ? options : options.message;
-  instance.position = options.position || 'middle';
-  instance.className = options.className || '';
-  instance.iconClass = options.iconClass || '';
-
-  document.body.appendChild(instance.$el);
-  __WEBPACK_IMPORTED_MODULE_0_vue___default.a.nextTick(function() {
-    instance.visible = true;
-    instance.$el.removeEventListener('transitionend', removeDom);
-    ~duration && (instance.timer = setTimeout(function() {
-      if (instance.closed) { return; }
-      instance.close();
-    }, duration));
-  });
-  return instance;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Toast);
-
-
-/***/ }),
-
-/***/ 94:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -446,6 +288,164 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   }
 });
+
+
+/***/ }),
+
+/***/ 124:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 180:
+/***/ (function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(124)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(104),
+  /* template */
+  __webpack_require__(202),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 202:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('transition', {
+    attrs: {
+      "name": "mint-toast-pop"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.visible),
+      expression: "visible"
+    }],
+    staticClass: "mint-toast",
+    class: _vm.customClass,
+    style: ({
+      'padding': _vm.iconClass === '' ? '10px' : '20px'
+    })
+  }, [(_vm.iconClass !== '') ? _c('i', {
+    staticClass: "mint-toast-icon",
+    class: _vm.iconClass
+  }) : _vm._e(), _vm._v(" "), _c('span', {
+    staticClass: "mint-toast-text",
+    style: ({
+      'padding-top': _vm.iconClass === '' ? '0' : '10px'
+    }),
+    domProps: {
+      "innerHTML": _vm._s(_vm.message)
+    }
+  })])])
+},staticRenderFns: []}
+
+/***/ }),
+
+/***/ 268:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(53);
+
+
+/***/ }),
+
+/***/ 53:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_toast_js__ = __webpack_require__(65);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_toast_js__["a"]; });
+
+
+
+/***/ }),
+
+/***/ 65:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+var ToastConstructor = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__webpack_require__(180));
+var toastPool = [];
+
+var getAnInstance = function () {
+  if (toastPool.length > 0) {
+    var instance = toastPool[0];
+    toastPool.splice(0, 1);
+    return instance;
+  }
+  return new ToastConstructor({
+    el: document.createElement('div')
+  });
+};
+
+var returnAnInstance = function (instance) {
+  if (instance) {
+    toastPool.push(instance);
+  }
+};
+
+var removeDom = function (event) {
+  if (event.target.parentNode) {
+    event.target.parentNode.removeChild(event.target);
+  }
+};
+
+ToastConstructor.prototype.close = function() {
+  this.visible = false;
+  this.$el.addEventListener('transitionend', removeDom);
+  this.closed = true;
+  returnAnInstance(this);
+};
+
+var Toast = function (options) {
+  if ( options === void 0 ) options = {};
+
+  var duration = options.duration || 3000;
+
+  var instance = getAnInstance();
+  instance.closed = false;
+  clearTimeout(instance.timer);
+  instance.message = typeof options === 'string' ? options : options.message;
+  instance.position = options.position || 'middle';
+  instance.className = options.className || '';
+  instance.iconClass = options.iconClass || '';
+
+  document.body.appendChild(instance.$el);
+  __WEBPACK_IMPORTED_MODULE_0_vue___default.a.nextTick(function() {
+    instance.visible = true;
+    instance.$el.removeEventListener('transitionend', removeDom);
+    ~duration && (instance.timer = setTimeout(function() {
+      if (instance.closed) { return; }
+      instance.close();
+    }, duration));
+  });
+  return instance;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Toast);
 
 
 /***/ })

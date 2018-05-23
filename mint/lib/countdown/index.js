@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 210);
+/******/ 	return __webpack_require__(__webpack_require__.s = 240);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,14 +167,14 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 132:
+/***/ 150:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(67),
+  __webpack_require__(74),
   /* template */
-  __webpack_require__(179),
+  __webpack_require__(207),
   /* styles */
   null,
   /* scopeId */
@@ -188,7 +188,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 179:
+/***/ 207:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -208,34 +208,34 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 194:
+/***/ 224:
 /***/ (function(module, exports) {
 
 module.exports = require("mint-ui/lib/button");
 
 /***/ }),
 
-/***/ 195:
+/***/ 225:
 /***/ (function(module, exports) {
 
 module.exports = require("mint-ui/lib/button/style.css");
 
 /***/ }),
 
-/***/ 210:
+/***/ 240:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(24);
+module.exports = __webpack_require__(25);
 
 
 /***/ }),
 
-/***/ 24:
+/***/ 25:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_countdown_vue__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_countdown_vue__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_countdown_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_countdown_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_countdown_vue___default.a; });
 
@@ -243,12 +243,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 67:
+/***/ 74:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_button_index_js__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_button_index_js__ = __webpack_require__(224);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_button_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_button_index_js__);
 //
 //
@@ -262,7 +262,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (true) {
-  __webpack_require__(195);
+  __webpack_require__(225);
 }
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "mt-countdown",

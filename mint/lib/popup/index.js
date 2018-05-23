@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 223);
+/******/ 	return __webpack_require__(__webpack_require__.s = 253);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,24 +174,31 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 13:
+/***/ 110:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 144:
+/***/ 14:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(97)
+  __webpack_require__(110)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(79),
+  __webpack_require__(86),
   /* template */
-  __webpack_require__(162),
+  __webpack_require__(186),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -205,7 +212,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 162:
+/***/ 186:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -428,20 +435,20 @@ function setStyle(element, styleName, value) {
 
 /***/ }),
 
-/***/ 223:
+/***/ 253:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(37);
+module.exports = __webpack_require__(38);
 
 
 /***/ }),
 
-/***/ 37:
+/***/ 38:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_popup_vue__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_popup_vue__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_popup_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_popup_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_popup_vue___default.a; });
 
@@ -470,168 +477,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   return target;
 });;
-
-
-/***/ }),
-
-/***/ 79:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-if (!__WEBPACK_IMPORTED_MODULE_1_vue___default.a.prototype.$isServer) {
-  __webpack_require__(13);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'mt-popup',
-
-  mixins: [__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__["a" /* default */]],
-
-  props: {
-    modal: {
-      default: true
-    },
-
-    modalFade: {
-      default: true
-    },
-
-    lockScroll: {
-      default: true
-    },
-
-    closeOnClickModal: {
-      default: true
-    },
-
-    popupTransition: {
-      type: String,
-      default: 'popup-slide'
-    },
-
-    position: {
-      type: String,
-      default: ''
-    }
-  },
-
-  data: function data() {
-    return {
-      currentValue: false,
-      currentTransition: this.popupTransition
-    };
-  },
-
-  watch: {
-    currentValue: function currentValue(val) {
-      this.$emit('input', val);
-    },
-
-    value: function value(val) {
-      this.currentValue = val;
-    }
-  },
-
-  beforeMount: function beforeMount() {
-    if (this.popupTransition !== 'popup-fade') {
-      this.currentTransition = "popup-slide-" + (this.position);
-    }
-  },
-
-  mounted: function mounted() {
-    if (this.value) {
-      this.rendered = true;
-      this.currentValue = true;
-      this.open();
-    }
-  }
-});
 
 
 /***/ }),
@@ -958,6 +803,168 @@ var getDOM = function(dom) {
 
 /***/ }),
 
+/***/ 86:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+if (!__WEBPACK_IMPORTED_MODULE_1_vue___default.a.prototype.$isServer) {
+  __webpack_require__(14);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'mt-popup',
+
+  mixins: [__WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__["a" /* default */]],
+
+  props: {
+    modal: {
+      default: true
+    },
+
+    modalFade: {
+      default: true
+    },
+
+    lockScroll: {
+      default: true
+    },
+
+    closeOnClickModal: {
+      default: true
+    },
+
+    popupTransition: {
+      type: String,
+      default: 'popup-slide'
+    },
+
+    position: {
+      type: String,
+      default: ''
+    }
+  },
+
+  data: function data() {
+    return {
+      currentValue: false,
+      currentTransition: this.popupTransition
+    };
+  },
+
+  watch: {
+    currentValue: function currentValue(val) {
+      this.$emit('input', val);
+    },
+
+    value: function value(val) {
+      this.currentValue = val;
+    }
+  },
+
+  beforeMount: function beforeMount() {
+    if (this.popupTransition !== 'popup-fade') {
+      this.currentTransition = "popup-slide-" + (this.position);
+    }
+  },
+
+  mounted: function mounted() {
+    if (this.value) {
+      this.rendered = true;
+      this.currentValue = true;
+      this.open();
+    }
+  }
+});
+
+
+/***/ }),
+
 /***/ 9:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1131,13 +1138,6 @@ var PopupManager = {
 
 /* harmony default export */ __webpack_exports__["a"] = (PopupManager);
 
-
-/***/ }),
-
-/***/ 97:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 

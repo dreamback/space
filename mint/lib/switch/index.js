@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 231);
+/******/ 	return __webpack_require__(__webpack_require__.s = 264);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,24 +167,69 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 111:
+/***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * mt-switch
+ * @module components/switch
+ * @desc 切换按钮
+ * @param {boolean} [value] - 绑定值，支持双向绑定
+ * @param {slot} - 显示内容
+ *
+ * @example
+ * <mt-switch v-model="value"></mt-switch>
+ */
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'mt-switch',
+
+  props: {
+    value: Boolean
+  },
+  computed: {
+    currentValue: {
+      get: function get() {
+        return this.value;
+      },
+      set: function set(val) {
+        this.$emit('input', val);
+      }
+    }
+  }
+});
+
+
+/***/ }),
+
+/***/ 128:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 155:
+/***/ 176:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(111)
+  __webpack_require__(128)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(90),
+  __webpack_require__(100),
   /* template */
-  __webpack_require__(178),
+  __webpack_require__(206),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -198,7 +243,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 178:
+/***/ 206:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -247,68 +292,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 231:
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
 
-/***/ 45:
+/***/ 49:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_switch_vue__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_switch_vue__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_switch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_switch_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_switch_vue___default.a; });
 
-
-
-/***/ }),
-
-/***/ 90:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-
-/**
- * mt-switch
- * @module components/switch
- * @desc 切换按钮
- * @param {boolean} [value] - 绑定值，支持双向绑定
- * @param {slot} - 显示内容
- *
- * @example
- * <mt-switch v-model="value"></mt-switch>
- */
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'mt-switch',
-
-  props: {
-    value: Boolean
-  },
-  computed: {
-    currentValue: {
-      get: function get() {
-        return this.value;
-      },
-      set: function set(val) {
-        this.$emit('input', val);
-      }
-    }
-  }
-});
 
 
 /***/ })

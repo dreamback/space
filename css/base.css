@@ -1,5 +1,5 @@
 article,aside,blockquote,body,button,code,dd,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0;font-size:100%}
-body{font:14px/1.5 Helvetica,STHeiti STXihei,Microsoft YaHei,Arial;color:#333;-webkit-user-select:none;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(255,255,255,0);outline:0;background:#f8f8f8;min-width:320px;max-width:640px;margin-left:auto!important;margin-right:auto!important;}
+body{font:14px/1.5 Helvetica,STHeiti STXihei,Microsoft YaHei,Arial;color:#575757;-webkit-user-select:none;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(255,255,255,0);outline:0;background:#f8f8f8;min-width:320px;max-width:640px;margin-left:auto!important;margin-right:auto!important;}
 body.white{background: #fff;}
 body::-webkit-scrollbar,div::-webkit-scrollbar{display:none}
 [v-locak]{visibility:hidden}

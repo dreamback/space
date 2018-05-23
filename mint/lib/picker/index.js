@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 222);
+/******/ 	return __webpack_require__(__webpack_require__.s = 252);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,31 +174,31 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 103:
+/***/ 119:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 113:
+/***/ 130:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 142:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(103)
+  __webpack_require__(119)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(77),
+  __webpack_require__(84),
   /* template */
-  __webpack_require__(169),
+  __webpack_require__(196),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -212,17 +212,17 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 143:
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(113)
+  __webpack_require__(130)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(78),
+  __webpack_require__(85),
   /* template */
-  __webpack_require__(182),
+  __webpack_require__(211),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -236,7 +236,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 169:
+/***/ 196:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -265,62 +265,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       })
     }, [_vm._v("\n      " + _vm._s(typeof itemValue === 'object' && itemValue[_vm.valueKey] ? itemValue[_vm.valueKey] : itemValue) + "\n    ")])
   })) : _vm._e(), _vm._v(" "), (_vm.divider) ? _c('div', [_vm._v(_vm._s(_vm.content))]) : _vm._e()])
-},staticRenderFns: []}
-
-/***/ }),
-
-/***/ 182:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "picker",
-    class: {
-      'picker-3d': _vm.rotateEffect
-    }
-  }, [(_vm.showToolbar) ? _c('div', {
-    staticClass: "picker-toolbar"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("\n        " + _vm._s(_vm.title || '请选择') + "\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "btns"
-  }, [_c('button', {
-    on: {
-      "click": _vm.okEvent
-    }
-  }, [_vm._v("确定")])])]) : _vm._e(), _vm._v(" "), _c('div', {
-    staticClass: "picker-items"
-  }, [_vm._l((_vm.slots), function(slot, index) {
-    return _c('picker-slot', {
-      key: index,
-      attrs: {
-        "valueKey": _vm.valueKey,
-        "values": slot.values || [],
-        "text-align": slot.textAlign || 'center',
-        "visible-item-count": _vm.visibleItemCount,
-        "class-name": slot.className,
-        "flex": slot.flex,
-        "rotate-effect": _vm.rotateEffect,
-        "divider": slot.divider,
-        "content": slot.content,
-        "itemHeight": _vm.itemHeight,
-        "default-index": slot.defaultIndex
-      },
-      model: {
-        value: (_vm.values[slot.valueIndex]),
-        callback: function($$v) {
-          _vm.$set(_vm.values, slot.valueIndex, $$v)
-        },
-        expression: "values[slot.valueIndex]"
-      }
-    })
-  }), _vm._v(" "), _c('div', {
-    staticClass: "picker-center-highlight",
-    style: ({
-      height: _vm.itemHeight + 'px',
-      marginTop: -_vm.itemHeight / 2 + 'px'
-    })
-  })], 2)])
 },staticRenderFns: []}
 
 /***/ }),
@@ -521,27 +465,83 @@ function setStyle(element, styleName, value) {
 
 /***/ }),
 
-/***/ 202:
+/***/ 211:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "picker",
+    class: {
+      'picker-3d': _vm.rotateEffect
+    }
+  }, [(_vm.showToolbar) ? _c('div', {
+    staticClass: "picker-toolbar"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("\n        " + _vm._s(_vm.title || '请选择') + "\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "btns"
+  }, [_c('button', {
+    on: {
+      "click": _vm.okEvent
+    }
+  }, [_vm._v("确定")])])]) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "picker-items"
+  }, [_vm._l((_vm.slots), function(slot, index) {
+    return _c('picker-slot', {
+      key: index,
+      attrs: {
+        "valueKey": _vm.valueKey,
+        "values": slot.values || [],
+        "text-align": slot.textAlign || 'center',
+        "visible-item-count": _vm.visibleItemCount,
+        "class-name": slot.className,
+        "flex": slot.flex,
+        "rotate-effect": _vm.rotateEffect,
+        "divider": slot.divider,
+        "content": slot.content,
+        "itemHeight": _vm.itemHeight,
+        "default-index": slot.defaultIndex
+      },
+      model: {
+        value: (_vm.values[slot.valueIndex]),
+        callback: function($$v) {
+          _vm.$set(_vm.values, slot.valueIndex, $$v)
+        },
+        expression: "values[slot.valueIndex]"
+      }
+    })
+  }), _vm._v(" "), _c('div', {
+    staticClass: "picker-center-highlight",
+    style: ({
+      height: _vm.itemHeight + 'px',
+      marginTop: -_vm.itemHeight / 2 + 'px'
+    })
+  })], 2)])
+},staticRenderFns: []}
+
+/***/ }),
+
+/***/ 232:
 /***/ (function(module, exports) {
 
 module.exports = require("raf.js");
 
 /***/ }),
 
-/***/ 222:
+/***/ 252:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(36);
+module.exports = __webpack_require__(37);
 
 
 /***/ }),
 
-/***/ 36:
+/***/ 37:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_picker_vue__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_picker_vue__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_picker_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_picker_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_picker_vue___default.a; });
 
@@ -549,7 +549,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 55:
+/***/ 60:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -609,7 +609,7 @@ var supportTouch = !__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isSer
 
 /***/ }),
 
-/***/ 56:
+/***/ 61:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -713,7 +713,7 @@ if (!__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isServer) {
 
 /***/ }),
 
-/***/ 60:
+/***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -754,15 +754,15 @@ function broadcast(componentName, eventName, params) {
 
 /***/ }),
 
-/***/ 77:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__draggable__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__translate__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__draggable__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__translate__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_dom__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_src_mixins_emitter__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_src_mixins_emitter__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue__);
 //
@@ -872,7 +872,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (!__WEBPACK_IMPORTED_MODULE_4_vue___default.a.prototype.$isServer) {
-  __webpack_require__(202);
+  __webpack_require__(232);
 }
 
 var rotateElement = function(element, angle) {
@@ -1216,7 +1216,7 @@ var VISIBLE_ITEMS_ANGLE_MAP = {
 
 /***/ }),
 
-/***/ 78:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1463,7 +1463,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   components: {
-    PickerSlot: __webpack_require__(142)
+    PickerSlot: __webpack_require__(160)
   }
 });
 

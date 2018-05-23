@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+        <mt-header title="登录">
+            <a href="javascript:;" @click="location.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+        
+        <div class="step-wrapper">
+            <mt-step current="1">
+                <mt-step-item>
+                    <span slot="bottom">拍照上传</span>
+                </mt-step-item>
+                <mt-step-item>
+                    <span slot="bottom">丰收经纪协助初审</span>
+                </mt-step-item>
+                <mt-step-item>
+                    <span slot="bottom">提交保险公司</span>
+                </mt-step-item>
+            </mt-step>
+        </div>
+
+        <div class="upload-wrapper">
+            <mt-cell
+                icon="info"
+                title="保单信息">
+            </mt-cell>
+            <mt-field 
+            label="保险名称" 
+            placeholder="请输入保险名称" 
+            v-model.trim="product"></mt-field>
+            <mt-field 
+            label="被保人姓名" 
+            placeholder="请输入被保人姓名" 
+            v-model.trim="name"></mt-field>
+            <mt-field 
+            label="手机号" 
+            placeholder="请输入被保人手机号" 
+            v-model.trim="mobile"></mt-field>
+            <mt-cell
+                icon="eye"
+                is-link
+                title="<span class='cGold'>查看保险条款</span>">
+            </mt-cell>
+        </div>
+
+        <div class="upload-wrapper">
+            <mt-cell
+                icon="upload"
+                title="上传材料（图片要清晰）">
+            </mt-cell>
+
+            <div class="upload-container">
+                <h3>
+                    身份证正反面（未成年可用户口本）
+                    <div 
+                    v-preview="idPicSrc" 
+                    preview-nav-enable="false" 
+                    class="fordemo cGold">
+                        <i class="mintui mintui-eye"></i>
+                        示例
+                    </div>
+                </h3>
+                  <mt-upload
+                  :action="{
+                        target:'/profile/uploadImage.do',
+                        data:{type:1001,fileName:'file'}
+                  }"
+                  :auto="true"
+                  @file-success="success"
+                  :multiple="false"
+                  @files-submitted="submitted">
+                 </mt-upload>
+
+                  <h3>
+                    病例、诊断证明、检验报告、化验报告、病理报告、费用清单、处方
+                    <div 
+                    v-preview="idPicSrc" 
+                    preview-nav-enable="false" 
+                    class="fordemo cGold">
+                        <i class="mintui mintui-eye"></i>
+                        示例
+                    </div>
+                </h3>
+                  <mt-upload
+                  :action="{
+                        target:'/profile/uploadImage.do',
+                        data:{type:1002,fileName:'file'}
+                  }"
+                  :auto="true"
+                  @file-success="success"
+                  :multiple="false"
+                  @files-submitted="submitted">
+                  </mt-upload>
+
+                  <h3>
+                    发票
+                    <div 
+                    v-preview="idPicSrc" 
+                    preview-nav-enable="false" 
+                    class="fordemo cGold">
+                        <i class="mintui mintui-eye"></i>
+                        示例
+                    </div>
+                </h3>
+                  <mt-upload
+                  :action="{
+                        target:'/profile/uploadImage.do',
+                        data:{type:1003,fileName:'file'}
+                  }"
+                  :auto="true"
+                  @file-success="success"
+                  :multiple="false"
+                  @files-submitted="submitted">
+                  </mt-upload>
+
+                  <h3>
+                    发票
+                    <div 
+                    v-preview="idPicSrc" 
+                    preview-nav-enable="false" 
+                    class="fordemo cGold">
+                        <i class="mintui mintui-eye"></i>
+                        示例
+                    </div>
+                </h3>
+                  <mt-upload
+                  :action="{
+                        target:'/profile/uploadImage.do',
+                        data:{type:1004,fileName:'file'}
+                  }"
+                  :auto="true"
+                  @file-success="success"
+                  :multiple="false"
+                  @files-submitted="submitted">
+                  </mt-upload>
+
+                <div class="mt-button-group">
+                        <mt-button type="primary" plain>保存</mt-button>
+                        <mt-button type="primary">提交</mt-button>
+                </div>
+
+            </div>
+        </div>
+    <mt-preview/>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+            return {
+                idPicSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527072178575&di=a62a063cd01b4d4e0c7b147b5092b753&imgtype=0&src=http%3A%2F%2Fimg3.21food.cn%2Fimg%2Fnewsimg%2F2015%2F11%2F17%2F1447728903200.jpg',
+
+                product:'',
+                name:'',
+                mobile:'',
+
+                idImgLoaded:  false,
+            }
+        },
+
+        methods:{
+            submit: function(){
+                if(!this.product){
+                    this.$toast('请输入保险名称');
+                    return;
+                }
+                if(!this.name){
+                    this.$toast('请输入被保人姓名');
+                    return;
+                }
+                if(!this.product){
+                    this.$toast('请输入被保人手机号');
+                    return;
+                }
+
+                if(!this.idImgLoaded){
+                    this.$toast('请上传身份证照片');
+                    return;
+                }
+            },
+
+            success(res, data){
+                console.log(res);
+                if(data.type==1001){
+                    this.idImgLoaded = true;
+                }
+            },
+            submitted(file) {
+              //file.file.base64
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

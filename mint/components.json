@@ -31,5 +31,9 @@
   "index-section": "./packages/index-section/index.js",
   "countdown": "./packages/countdown/index.js",
   "tab": "./packages/tab/index.js",
-  "tab-item": "./packages/tab-item/index.js"
+  "tab-item": "./packages/tab-item/index.js",
+  "step": "./packages/step/index.js",
+  "step-item": "./packages/step-item/index.js",
+  "upload": "./packages/upload/index.js",
+  "preview": "./packages/preview/index.js"
 }

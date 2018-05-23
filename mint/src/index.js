@@ -30,6 +30,10 @@ import IndexSection from '../packages/index-section';
 import Countdown from '../packages/countdown';
 import Tab from '../packages/tab';
 import TabItem from '../packages/tab-item';
+import Step from '../packages/step';
+import StepItem from '../packages/step-item';
+import Upload from '../packages/upload';
+import Preview from '../packages/preview';
 import '../src/assets/font/iconfont.css';
 import merge from './utils/merge';
 
@@ -64,6 +68,10 @@ const install = function(Vue, config = {}) {
   Vue.component(Countdown.name, Countdown);
   Vue.component(Tab.name, Tab);
   Vue.component(TabItem.name, TabItem);
+  Vue.component(Step.name, Step);
+  Vue.component(StepItem.name, StepItem);
+  Vue.component(Upload.name, Upload);
+  Vue.component(Preview.name, Preview);
   Vue.use(InfiniteScroll);
   Vue.use(Lazyload, merge({
     loading: require('./assets/loading-spin.svg'),
@@ -114,5 +122,9 @@ export default {
   IndexSection,
   Countdown,
   Tab,
-  TabItem
+  TabItem,
+  Step,
+  StepItem,
+  Upload,
+  Preview
 };

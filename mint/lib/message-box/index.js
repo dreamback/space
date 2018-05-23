@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 220);
+/******/ 	return __webpack_require__(__webpack_require__.s = 250);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,32 +174,32 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 117:
+/***/ 134:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 118:
+/***/ 135:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 140:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(117)
-  __webpack_require__(118)
+  __webpack_require__(134)
+  __webpack_require__(135)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(75),
+  __webpack_require__(82),
   /* template */
-  __webpack_require__(186),
+  __webpack_require__(215),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -210,101 +210,6 @@ var Component = __webpack_require__(0)(
 
 module.exports = Component.exports
 
-
-/***/ }),
-
-/***/ 186:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mint-msgbox-wrapper"
-  }, [_c('transition', {
-    attrs: {
-      "name": "msgbox-bounce"
-    }
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.value),
-      expression: "value"
-    }],
-    staticClass: "mint-msgbox"
-  }, [(_vm.title !== '') ? _c('div', {
-    staticClass: "mint-msgbox-header"
-  }, [_c('div', {
-    staticClass: "mint-msgbox-title"
-  }, [_vm._v(_vm._s(_vm.title))])]) : _vm._e(), _vm._v(" "), (_vm.message !== '') ? _c('div', {
-    staticClass: "mint-msgbox-content"
-  }, [_c('div', {
-    staticClass: "mint-msgbox-message",
-    domProps: {
-      "innerHTML": _vm._s(_vm.message)
-    }
-  }), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.showInput),
-      expression: "showInput"
-    }],
-    staticClass: "mint-msgbox-input"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.inputValue),
-      expression: "inputValue"
-    }],
-    ref: "input",
-    attrs: {
-      "placeholder": _vm.inputPlaceholder
-    },
-    domProps: {
-      "value": (_vm.inputValue)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.inputValue = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "mint-msgbox-errormsg",
-    style: ({
-      visibility: !!_vm.editorErrorMessage ? 'visible' : 'hidden'
-    })
-  }, [_vm._v(_vm._s(_vm.editorErrorMessage))])])]) : _vm._e(), _vm._v(" "), _c('div', {
-    staticClass: "mint-msgbox-btns"
-  }, [_c('button', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.showCancelButton),
-      expression: "showCancelButton"
-    }],
-    class: [_vm.cancelButtonClasses],
-    on: {
-      "click": function($event) {
-        _vm.handleAction('cancel')
-      }
-    }
-  }, [_vm._v(_vm._s(_vm.cancelButtonText))]), _vm._v(" "), _c('button', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.showConfirmButton),
-      expression: "showConfirmButton"
-    }],
-    class: [_vm.confirmButtonClasses],
-    on: {
-      "click": function($event) {
-        _vm.handleAction('confirm')
-      }
-    }
-  }, [_vm._v(_vm._s(_vm.confirmButtonText))])])])])], 1)
-},staticRenderFns: []}
 
 /***/ }),
 
@@ -504,34 +409,129 @@ function setStyle(element, styleName, value) {
 
 /***/ }),
 
-/***/ 220:
+/***/ 215:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mint-msgbox-wrapper"
+  }, [_c('transition', {
+    attrs: {
+      "name": "msgbox-bounce"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.value),
+      expression: "value"
+    }],
+    staticClass: "mint-msgbox"
+  }, [(_vm.title !== '') ? _c('div', {
+    staticClass: "mint-msgbox-header"
+  }, [_c('div', {
+    staticClass: "mint-msgbox-title"
+  }, [_vm._v(_vm._s(_vm.title))])]) : _vm._e(), _vm._v(" "), (_vm.message !== '') ? _c('div', {
+    staticClass: "mint-msgbox-content"
+  }, [_c('div', {
+    staticClass: "mint-msgbox-message",
+    domProps: {
+      "innerHTML": _vm._s(_vm.message)
+    }
+  }), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showInput),
+      expression: "showInput"
+    }],
+    staticClass: "mint-msgbox-input"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.inputValue),
+      expression: "inputValue"
+    }],
+    ref: "input",
+    attrs: {
+      "placeholder": _vm.inputPlaceholder
+    },
+    domProps: {
+      "value": (_vm.inputValue)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.inputValue = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "mint-msgbox-errormsg",
+    style: ({
+      visibility: !!_vm.editorErrorMessage ? 'visible' : 'hidden'
+    })
+  }, [_vm._v(_vm._s(_vm.editorErrorMessage))])])]) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "mint-msgbox-btns"
+  }, [_c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showCancelButton),
+      expression: "showCancelButton"
+    }],
+    class: [_vm.cancelButtonClasses],
+    on: {
+      "click": function($event) {
+        _vm.handleAction('cancel')
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.cancelButtonText))]), _vm._v(" "), _c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showConfirmButton),
+      expression: "showConfirmButton"
+    }],
+    class: [_vm.confirmButtonClasses],
+    on: {
+      "click": function($event) {
+        _vm.handleAction('confirm')
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.confirmButtonText))])])])])], 1)
+},staticRenderFns: []}
+
+/***/ }),
+
+/***/ 250:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(34);
+module.exports = __webpack_require__(35);
 
 
 /***/ }),
 
-/***/ 34:
+/***/ 35:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_message_box_js__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_message_box_js__ = __webpack_require__(59);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_message_box_js__["a"]; });
 
 
 
 /***/ }),
 
-/***/ 54:
+/***/ 59:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export MessageBox */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_box_vue__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_box_vue__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_box_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__message_box_vue__);
 var CONFIRM_TEXT = '确定';
 var CANCEL_TEXT = '取消';
@@ -771,326 +771,6 @@ MessageBox.close = function() {
 
   return target;
 });;
-
-
-/***/ }),
-
-/***/ 75:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__ = __webpack_require__(8);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var CONFIRM_TEXT = '确定';
-var CANCEL_TEXT = '取消';
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [ __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__["a" /* default */] ],
-
-  props: {
-    modal: {
-      default: true
-    },
-    showClose: {
-      type: Boolean,
-      default: true
-    },
-    lockScroll: {
-      type: Boolean,
-      default: false
-    },
-    closeOnClickModal: {
-      default: true
-    },
-    closeOnPressEscape: {
-      default: true
-    },
-    inputType: {
-      type: String,
-      default: 'text'
-    }
-  },
-
-  computed: {
-    confirmButtonClasses: function confirmButtonClasses() {
-      var classes = 'mint-msgbox-btn mint-msgbox-confirm ' + this.confirmButtonClass;
-      if (this.confirmButtonHighlight) {
-        classes += ' mint-msgbox-confirm-highlight';
-      }
-      return classes;
-    },
-    cancelButtonClasses: function cancelButtonClasses() {
-      var classes = 'mint-msgbox-btn mint-msgbox-cancel ' + this.cancelButtonClass;
-      if (this.cancelButtonHighlight) {
-        classes += ' mint-msgbox-cancel-highlight';
-      }
-      return classes;
-    }
-  },
-
-  methods: {
-    doClose: function doClose() {
-      var this$1 = this;
-
-      this.value = false;
-      this._closing = true;
-
-      this.onClose && this.onClose();
-
-      setTimeout(function () {
-        if (this$1.modal && this$1.bodyOverflow !== 'hidden') {
-          document.body.style.overflow = this$1.bodyOverflow;
-          document.body.style.paddingRight = this$1.bodyPaddingRight;
-        }
-        this$1.bodyOverflow = null;
-        this$1.bodyPaddingRight = null;
-      }, 200);
-      this.opened = false;
-
-      if (!this.transition) {
-        this.doAfterClose();
-      }
-    },
-
-    handleAction: function handleAction(action) {
-      if (this.$type === 'prompt' && action === 'confirm' && !this.validate()) {
-        return;
-      }
-      var callback = this.callback;
-      this.value = false;
-      callback(action);
-    },
-
-    validate: function validate() {
-      if (this.$type === 'prompt') {
-        var inputPattern = this.inputPattern;
-        if (inputPattern && !inputPattern.test(this.inputValue || '')) {
-          this.editorErrorMessage = this.inputErrorMessage || '输入的数据不合法!';
-          this.$refs.input.classList.add('invalid');
-          return false;
-        }
-        var inputValidator = this.inputValidator;
-        if (typeof inputValidator === 'function') {
-          var validateResult = inputValidator(this.inputValue);
-          if (validateResult === false) {
-            this.editorErrorMessage = this.inputErrorMessage || '输入的数据不合法!';
-            this.$refs.input.classList.add('invalid');
-            return false;
-          }
-          if (typeof validateResult === 'string') {
-            this.editorErrorMessage = validateResult;
-            return false;
-          }
-        }
-      }
-      this.editorErrorMessage = '';
-      this.$refs.input.classList.remove('invalid');
-      return true;
-    },
-
-    handleInputType: function handleInputType(val) {
-      if (val === 'range' || !this.$refs.input) { return; }
-      this.$refs.input.type = val;
-    }
-  },
-
-  watch: {
-    inputValue: function inputValue() {
-      if (this.$type === 'prompt') {
-        this.validate();
-      }
-    },
-
-    value: function value(val) {
-      var this$1 = this;
-
-      this.handleInputType(this.inputType);
-      if (val && this.$type === 'prompt') {
-        setTimeout(function () {
-          if (this$1.$refs.input) {
-            this$1.$refs.input.focus();
-          }
-        }, 500);
-      }
-    },
-
-    inputType: function inputType(val) {
-      this.handleInputType(val);
-    }
-  },
-
-  data: function data() {
-    return {
-      title: '',
-      message: '',
-      type: '',
-      showInput: false,
-      inputValue: null,
-      inputPlaceholder: '',
-      inputPattern: null,
-      inputValidator: null,
-      inputErrorMessage: '',
-      showConfirmButton: true,
-      showCancelButton: false,
-      confirmButtonText: CONFIRM_TEXT,
-      cancelButtonText: CANCEL_TEXT,
-      confirmButtonClass: '',
-      confirmButtonDisabled: false,
-      cancelButtonClass: '',
-      editorErrorMessage: null,
-      callback: null
-    };
-  }
-});
 
 
 /***/ }),
@@ -1413,6 +1093,326 @@ var getDOM = function(dom) {
 });
 
 
+
+
+/***/ }),
+
+/***/ 82:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__ = __webpack_require__(8);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var CONFIRM_TEXT = '确定';
+var CANCEL_TEXT = '取消';
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [ __WEBPACK_IMPORTED_MODULE_0_mint_ui_src_utils_popup__["a" /* default */] ],
+
+  props: {
+    modal: {
+      default: true
+    },
+    showClose: {
+      type: Boolean,
+      default: true
+    },
+    lockScroll: {
+      type: Boolean,
+      default: false
+    },
+    closeOnClickModal: {
+      default: true
+    },
+    closeOnPressEscape: {
+      default: true
+    },
+    inputType: {
+      type: String,
+      default: 'text'
+    }
+  },
+
+  computed: {
+    confirmButtonClasses: function confirmButtonClasses() {
+      var classes = 'mint-msgbox-btn mint-msgbox-confirm ' + this.confirmButtonClass;
+      if (this.confirmButtonHighlight) {
+        classes += ' mint-msgbox-confirm-highlight';
+      }
+      return classes;
+    },
+    cancelButtonClasses: function cancelButtonClasses() {
+      var classes = 'mint-msgbox-btn mint-msgbox-cancel ' + this.cancelButtonClass;
+      if (this.cancelButtonHighlight) {
+        classes += ' mint-msgbox-cancel-highlight';
+      }
+      return classes;
+    }
+  },
+
+  methods: {
+    doClose: function doClose() {
+      var this$1 = this;
+
+      this.value = false;
+      this._closing = true;
+
+      this.onClose && this.onClose();
+
+      setTimeout(function () {
+        if (this$1.modal && this$1.bodyOverflow !== 'hidden') {
+          document.body.style.overflow = this$1.bodyOverflow;
+          document.body.style.paddingRight = this$1.bodyPaddingRight;
+        }
+        this$1.bodyOverflow = null;
+        this$1.bodyPaddingRight = null;
+      }, 200);
+      this.opened = false;
+
+      if (!this.transition) {
+        this.doAfterClose();
+      }
+    },
+
+    handleAction: function handleAction(action) {
+      if (this.$type === 'prompt' && action === 'confirm' && !this.validate()) {
+        return;
+      }
+      var callback = this.callback;
+      this.value = false;
+      callback(action);
+    },
+
+    validate: function validate() {
+      if (this.$type === 'prompt') {
+        var inputPattern = this.inputPattern;
+        if (inputPattern && !inputPattern.test(this.inputValue || '')) {
+          this.editorErrorMessage = this.inputErrorMessage || '输入的数据不合法!';
+          this.$refs.input.classList.add('invalid');
+          return false;
+        }
+        var inputValidator = this.inputValidator;
+        if (typeof inputValidator === 'function') {
+          var validateResult = inputValidator(this.inputValue);
+          if (validateResult === false) {
+            this.editorErrorMessage = this.inputErrorMessage || '输入的数据不合法!';
+            this.$refs.input.classList.add('invalid');
+            return false;
+          }
+          if (typeof validateResult === 'string') {
+            this.editorErrorMessage = validateResult;
+            return false;
+          }
+        }
+      }
+      this.editorErrorMessage = '';
+      this.$refs.input.classList.remove('invalid');
+      return true;
+    },
+
+    handleInputType: function handleInputType(val) {
+      if (val === 'range' || !this.$refs.input) { return; }
+      this.$refs.input.type = val;
+    }
+  },
+
+  watch: {
+    inputValue: function inputValue() {
+      if (this.$type === 'prompt') {
+        this.validate();
+      }
+    },
+
+    value: function value(val) {
+      var this$1 = this;
+
+      this.handleInputType(this.inputType);
+      if (val && this.$type === 'prompt') {
+        setTimeout(function () {
+          if (this$1.$refs.input) {
+            this$1.$refs.input.focus();
+          }
+        }, 500);
+      }
+    },
+
+    inputType: function inputType(val) {
+      this.handleInputType(val);
+    }
+  },
+
+  data: function data() {
+    return {
+      title: '',
+      message: '',
+      type: '',
+      showInput: false,
+      inputValue: null,
+      inputPlaceholder: '',
+      inputPattern: null,
+      inputValidator: null,
+      inputErrorMessage: '',
+      showConfirmButton: true,
+      showCancelButton: false,
+      confirmButtonText: CONFIRM_TEXT,
+      cancelButtonText: CANCEL_TEXT,
+      confirmButtonClass: '',
+      confirmButtonDisabled: false,
+      cancelButtonClass: '',
+      editorErrorMessage: null,
+      callback: null
+    };
+  }
+});
 
 
 /***/ }),

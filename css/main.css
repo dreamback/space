@@ -130,10 +130,30 @@ border-color:#EC0A0A transparent transparent;}
 .order-menus a i.i4{background-position: 0 -90px;}
 
 .mine-menus {margin-top: 10px;}
-.mine-menus i.icon{display: inline-block;width: 25px;height: 25px;background-size: 25px auto;background-image: url('../images/mine_menus_ico.png');position: relative;margin-right: 5px;vertical-align: middle;position: relative;top: -2px;}
-.mine-menus i.icon-claims{background-position: 0 0;}
-.mine-menus i.icon-true{background-position: 0 -25px;}
-.mine-menus i.icon-gift{background-position: 0 -50px;}
-.mine-menus i.icon-service{background-position: 0 -75px;}
-.mine-menus i.icon-saft{background-position: 0 -100px;}
-.mine-menus i.icon-setting{background-position: 0 -125px;}
+.mine-menus i.mintui{display: inline-block;width: 25px;height: 25px;background-size: 25px auto;background-image: url('../images/mine_menus_ico.png');position: relative;margin-right: 5px;vertical-align: middle;position: relative;}
+.mine-menus i.mintui-icon-claims{background-position: 0 0;}
+.mine-menus i.mintui-icon-true{background-position: 0 -25px;}
+.mine-menus i.mintui-icon-gift{background-position: 0 -50px;}
+.mine-menus i.mintui-icon-service{background-position: 0 -75px;}
+.mine-menus i.mintui-icon-saft{background-position: 0 -100px;}
+.mine-menus i.mintui-icon-setting{background-position: 0 -125px;}
+
+/* 理赔 */
+.step-wrapper{background: #fff;margin-top: 10px;padding: 20px 0 10px;}
+.step-wrapper .mt-step-item:nth-child(2) i{display: none;}
+.step-wrapper .mt-step-item:nth-child(2) em{width: 26px;height: 26px;top: -4px;background-image: url('../images/step_icon.png');background-size: 15px auto;background-position: 50% 50%;background-repeat: no-repeat;}
+.upload-wrapper{margin-top: 10px;}
+.upload-wrapper .mint-cell-title .mintui,
+.upload-container h3 .mintui{display: inline-block;width: 25px;height: 25px;background-image: url('../images/upload_page_ico.png');background-size: 25px auto;margin-right: 5px;}
+.upload-wrapper .mint-cell-title .mintui-info{background-position: 0 0;}
+.upload-wrapper .mint-cell-title .mintui-upload{background-position: 0 -25px;}
+.upload-wrapper .mint-cell-title .mintui-eye,
+.upload-wrapper h3 .mintui-eye{background-position: 0 -50px;}
+
+.upload-container{background: #fff;padding:0 15px 15px;}
+.upload-container h3{padding: 10px 0;position: relative;padding-right: 100px;}
+.upload-container .fordemo{position: absolute;right: 0;top: 8px;}
+.upload-container .fordemo .mintui{vertical-align: middle;margin-right: 0;top: -2px;position: relative;}
+
+.mt-button-group{text-align: center;padding: 20px;}
+.mt-button-group .mint-button--normal{padding: 0 28px;}

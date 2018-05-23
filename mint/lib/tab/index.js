@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 233);
+/******/ 	return __webpack_require__(__webpack_require__.s = 266);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,113 +167,12 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 157:
-/***/ (function(module, exports, __webpack_require__) {
-
-function injectStyle (ssrContext) {
-  __webpack_require__(96)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(92),
-  /* template */
-  __webpack_require__(161),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 161:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    ref: "viewArea",
-    staticClass: "mt-tab",
-    class: {
-      'mt-tab-fix-bottom': _vm.fixBottom
-    }
-  }, [_c('div', {
-    ref: "list",
-    staticClass: "mt-tab-list",
-    style: (_vm.style)
-  }, [_vm._t("default")], 2)])
-},staticRenderFns: []}
-
-/***/ }),
-
-/***/ 233:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(47);
-
-
-/***/ }),
-
-/***/ 47:
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_vue__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_tab_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_tab_vue___default.a; });
-
-
-
-
-
-/***/ }),
-
-/***/ 58:
-/***/ (function(module, exports) {
-
-;(function () {
-  var lastTime = 0
-  var vendors = ['webkit', 'moz']
-  for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame']
-    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || // name has changed in Webkit
-                                  window[vendors[x] + 'CancelRequestAnimationFrame']
-  }
-
-  if (!window.requestAnimationFrame) {
-    window.requestAnimationFrame = function (callback, element) {
-      var currTime = new Date().getTime()
-      console.log(currTime, lastTime)
-      var timeToCall = Math.max(0, 16.7 - (currTime - lastTime))
-      var interval = currTime - lastTime
-      var id = window.setTimeout(function () {
-        callback(interval)
-      }, timeToCall)
-      lastTime = currTime + timeToCall
-      return id
-    }
-  }
-  if (!window.cancelAnimationFrame) {
-    window.cancelAnimationFrame = function (id) {
-      clearTimeout(id)
-    }
-  }
-})()
-
-
-/***/ }),
-
-/***/ 92:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_requestAnimationFrame__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_requestAnimationFrame__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_requestAnimationFrame___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__utils_requestAnimationFrame__);
 //
 //
@@ -497,10 +396,111 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 96:
+/***/ 109:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 178:
+/***/ (function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(109)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(102),
+  /* template */
+  __webpack_require__(185),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 185:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    ref: "viewArea",
+    staticClass: "mt-tab",
+    class: {
+      'mt-tab-fix-bottom': _vm.fixBottom
+    }
+  }, [_c('div', {
+    ref: "list",
+    staticClass: "mt-tab-list",
+    style: (_vm.style)
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ }),
+
+/***/ 266:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(51);
+
+
+/***/ }),
+
+/***/ 51:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_vue__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_tab_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_tab_vue___default.a; });
+
+
+
+
+
+/***/ }),
+
+/***/ 64:
+/***/ (function(module, exports) {
+
+;(function () {
+  var lastTime = 0
+  var vendors = ['webkit', 'moz']
+  for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame']
+    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || // name has changed in Webkit
+                                  window[vendors[x] + 'CancelRequestAnimationFrame']
+  }
+
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = function (callback, element) {
+      var currTime = new Date().getTime()
+      console.log(currTime, lastTime)
+      var timeToCall = Math.max(0, 16.7 - (currTime - lastTime))
+      var interval = currTime - lastTime
+      var id = window.setTimeout(function () {
+        callback(interval)
+      }, timeToCall)
+      lastTime = currTime + timeToCall
+      return id
+    }
+  }
+  if (!window.cancelAnimationFrame) {
+    window.cancelAnimationFrame = function (id) {
+      clearTimeout(id)
+    }
+  }
+})()
+
 
 /***/ })
 
