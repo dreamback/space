@@ -12,7 +12,7 @@
       <picker-slot 
       v-for="(slot,index) in slots" 
       :key="index"
-      :valueKey="valueKey" 
+      :valueKey="valueKey"
       :values="slot.values || []" 
       :text-align="slot.textAlign || 'center'" 
       :visible-item-count="visibleItemCount" 
@@ -22,7 +22,7 @@
       :rotate-effect="rotateEffect" 
       :divider="slot.divider" 
       :content="slot.content" 
-      :itemHeight="itemHeight" 
+      :itemHeight="itemHeight"
       :default-index="slot.defaultIndex"></picker-slot>
       <div class="picker-center-highlight" :style="{ height: itemHeight + 'px', marginTop: -itemHeight / 2 + 'px' }"></div>
     </div>
@@ -117,7 +117,6 @@
         type: Number,
         default: 5
       },
-      valueKey: String,
       rotateEffect: {
         type: Boolean,
         default: false
@@ -127,7 +126,11 @@
         default: 36
       },
       title: String,
-      ok: Function
+      ok: Function,
+      valueKey: {
+        type:String,
+        default:'label'
+      }
     },
 
     created() {

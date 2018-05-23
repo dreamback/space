@@ -27,29 +27,31 @@
             </a>
         </mt-header>
         <div class="form-login">
-        	    <div class="login-logo"></div>
+    	    <div class="login-logo"></div>
 
-                <mt-field 
-                placeholder="请输入手机号码/姓名" 
-                v-model="mobile">
-                    <i slot="icon" class="login-icon"></i>
-                </mt-field>
+            <mt-field 
+            placeholder="请输入手机号码/姓名" 
+            v-model="mobile">
+                <i slot="icon" class="login-icon"></i>
+            </mt-field>
 
-                <mt-field 
-                placeholder="短信验证码"
-                v-model="code">
-                    <i slot="icon" class="login-icon login-psw"></i>
-                    <mt-countdown style="min-width:120px " :send="send"></mt-countdown>
-                </mt-field>
+            <mt-field 
+            placeholder="短信验证码"
+            v-model="code">
+                <i slot="icon" class="login-icon login-psw"></i>
+                <mt-countdown style="min-width:120px " :send="send"></mt-countdown>
+            </mt-field>
 
-                <mt-field 
-                placeholder="设置6~20位之间的密码"
-                type="password" v-model="psw">
-                    <i slot="icon" class="login-icon login-psw"></i>
-                </mt-field>
+            <mt-field 
+            placeholder="设置6~20位之间的密码"
+            type="password" v-model="psw">
+                <i slot="icon" class="login-icon login-psw"></i>
+            </mt-field>
+
             <div style="padding:15px">
                 <mt-button size="large" type="primary" @click.native="submit">立即注册</mt-button>
             </div>
+            
             <p style="text-align:center;padding-top: 20px;">
             	<span class="cGray">已有账号？</span>
             	<a class="cGold">立即登录</a>

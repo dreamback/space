@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 226);
+/******/ 	return __webpack_require__(__webpack_require__.s = 220);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,32 +174,32 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 120:
+/***/ 117:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 121:
+/***/ 118:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 143:
+/***/ 140:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(120)
-  __webpack_require__(121)
+  __webpack_require__(117)
+  __webpack_require__(118)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(75),
   /* template */
-  __webpack_require__(191),
+  __webpack_require__(186),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -213,7 +213,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 191:
+/***/ 186:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -504,7 +504,7 @@ function setStyle(element, styleName, value) {
 
 /***/ }),
 
-/***/ 226:
+/***/ 220:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(34);
@@ -517,21 +517,21 @@ module.exports = __webpack_require__(34);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_message_box_js__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_message_box_js__ = __webpack_require__(54);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_message_box_js__["a"]; });
 
 
 
 /***/ }),
 
-/***/ 55:
+/***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export MessageBox */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_box_vue__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_box_vue__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_box_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__message_box_vue__);
 var CONFIRM_TEXT = '确定';
 var CANCEL_TEXT = '取消';

@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 240);
+/******/ 	return __webpack_require__(__webpack_require__.s = 232);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,26 +167,16 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 114:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 161:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
-function injectStyle (ssrContext) {
-  __webpack_require__(114)
-}
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(93),
+  __webpack_require__(91),
   /* template */
-  __webpack_require__(185),
+  __webpack_require__(180),
   /* styles */
-  injectStyle,
+  null,
   /* scopeId */
   null,
   /* moduleIdentifier (server only) */
@@ -198,43 +188,39 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 185:
+/***/ 180:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('a', {
-    staticClass: "mint-tab-item",
-    class: {
-      'is-selected': _vm.$parent.value === _vm.id
-    },
+    staticClass: "mt-tab-item",
+    style: (_vm.$parent.value === _vm.id ? _vm.activeStyle : {}),
     on: {
-      "click": function($event) {
-        _vm.$parent.$emit('input', _vm.id)
-      }
+      "click": _vm.onItemClicked
     }
   }, [_c('div', {
-    staticClass: "mint-tab-item-icon"
+    staticClass: "mt-tab-item-icon"
   }, [_vm._t("icon")], 2), _vm._v(" "), _c('div', {
-    staticClass: "mint-tab-item-label"
+    staticClass: "mt-tab-item-label"
   }, [_vm._t("default")], 2)])
 },staticRenderFns: []}
 
 /***/ }),
 
-/***/ 240:
+/***/ 232:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(48);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
 
-/***/ 48:
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_tab_item_vue___default.a; });
 
@@ -242,7 +228,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 93:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -259,22 +245,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /**
  * mt-tab-item
- * @module components/tab-item
- * @desc 搭配 tabbar 或 navbar 使用
- * @param {*} id - 选中后的返回值，任意类型
+ * @desc 搭配 tab 使用
+ * @param {Number} id - 选中的item的索引值
  * @param {slot} [icon] - icon 图标
  * @param {slot} - 文字
  *
  * @example
  * <mt-tab-item>
  *   <img slot="icon" src="http://placehold.it/100x100">
- *   订单
+ *   前端
  * </mt-tab-item>
  */
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'mt-tab-item',
-
-  props: ['id']
+  computed: {
+    activeStyle: function activeStyle () {
+      return {
+        color: this.$parent.activeColor,
+        borderColor: this.$parent.activeColor,
+        borderWidth: this.$parent.lineWidth+'px',
+        borderBottomStyle: 'solid'
+      }
+    }
+  },
+  data: function data () {
+    return {
+      id: (this.$parent.$children.length || 1) - 1
+    }
+  },
+  methods: {
+    onItemClicked: function onItemClicked () {
+      this.$parent.$emit('input', this.id)
+    }
+  }
 });
 
 

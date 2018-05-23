@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 222);
+/******/ 	return __webpack_require__(__webpack_require__.s = 216);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,24 +174,24 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 126:
+/***/ 123:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 141:
+/***/ 138:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(126)
+  __webpack_require__(123)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(73),
   /* template */
-  __webpack_require__(196),
+  __webpack_require__(191),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -205,7 +205,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 196:
+/***/ 191:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -256,21 +256,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 206:
+/***/ 200:
 /***/ (function(module, exports) {
 
 module.exports = require("mint-ui/lib/spinner");
 
 /***/ }),
 
-/***/ 207:
+/***/ 201:
 /***/ (function(module, exports) {
 
 module.exports = require("mint-ui/lib/spinner/style.css");
 
 /***/ }),
 
-/***/ 222:
+/***/ 216:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(30);
@@ -287,7 +287,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 
 
-var Indicator = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__webpack_require__(141));
+var Indicator = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__webpack_require__(138));
 var instance;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -324,7 +324,7 @@ var instance;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_index_js__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_index_js__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_spinner_index_js__);
 //
 //
@@ -386,7 +386,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (true) {
-  __webpack_require__(207);
+  __webpack_require__(201);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({

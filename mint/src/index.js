@@ -6,9 +6,6 @@ import Field from '../packages/field';
 import Badge from '../packages/badge';
 import Switch from '../packages/switch';
 import Spinner from '../packages/spinner';
-import TabItem from '../packages/tab-item';
-import TabContainerItem from '../packages/tab-container-item';
-import TabContainer from '../packages/tab-container';
 import Navbar from '../packages/navbar';
 import Tabbar from '../packages/tabbar';
 import Search from '../packages/search';
@@ -31,6 +28,8 @@ import DatetimePicker from '../packages/datetime-picker';
 import IndexList from '../packages/index-list';
 import IndexSection from '../packages/index-section';
 import Countdown from '../packages/countdown';
+import Tab from '../packages/tab';
+import TabItem from '../packages/tab-item';
 import '../src/assets/font/iconfont.css';
 import merge from './utils/merge';
 
@@ -46,9 +45,6 @@ const install = function(Vue, config = {}) {
   Vue.component(Badge.name, Badge);
   Vue.component(Switch.name, Switch);
   Vue.component(Spinner.name, Spinner);
-  Vue.component(TabItem.name, TabItem);
-  Vue.component(TabContainerItem.name, TabContainerItem);
-  Vue.component(TabContainer.name, TabContainer);
   Vue.component(Navbar.name, Navbar);
   Vue.component(Tabbar.name, Tabbar);
   Vue.component(Search.name, Search);
@@ -66,6 +62,8 @@ const install = function(Vue, config = {}) {
   Vue.component(IndexList.name, IndexList);
   Vue.component(IndexSection.name, IndexSection);
   Vue.component(Countdown.name, Countdown);
+  Vue.component(Tab.name, Tab);
+  Vue.component(TabItem.name, TabItem);
   Vue.use(InfiniteScroll);
   Vue.use(Lazyload, merge({
     loading: require('./assets/loading-spin.svg'),
@@ -93,9 +91,6 @@ export default {
   Badge,
   Switch,
   Spinner,
-  TabItem,
-  TabContainerItem,
-  TabContainer,
   Navbar,
   Tabbar,
   Search,
@@ -117,5 +112,7 @@ export default {
   DatetimePicker,
   IndexList,
   IndexSection,
-  Countdown
+  Countdown,
+  Tab,
+  TabItem
 };

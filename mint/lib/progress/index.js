@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 230);
+/******/ 	return __webpack_require__(__webpack_require__.s = 224);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,24 +167,24 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 108:
+/***/ 106:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 148:
+/***/ 145:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(108)
+  __webpack_require__(106)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(80),
   /* template */
-  __webpack_require__(178),
+  __webpack_require__(173),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -198,7 +198,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 178:
+/***/ 173:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -222,7 +222,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 230:
+/***/ 224:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(38);
@@ -235,7 +235,7 @@ module.exports = __webpack_require__(38);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_progress_vue__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_progress_vue__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_progress_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_progress_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_progress_vue___default.a; });
 

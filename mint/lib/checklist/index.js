@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 215);
+/******/ 	return __webpack_require__(__webpack_require__.s = 209);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,24 +167,24 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 119:
+/***/ 116:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 134:
+/***/ 131:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(119)
+  __webpack_require__(116)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(66),
   /* template */
-  __webpack_require__(190),
+  __webpack_require__(185),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -198,7 +198,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 190:
+/***/ 185:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -276,7 +276,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 215:
+/***/ 209:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(23);
@@ -289,7 +289,7 @@ module.exports = __webpack_require__(23);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_checklist_vue__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_checklist_vue__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_checklist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_checklist_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_checklist_vue___default.a; });
 

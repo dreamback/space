@@ -16,38 +16,123 @@
     <meta name="x5-page-mode" content="app">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="ydui/dist/ydui.px.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
 </head>
 
 <body>
     <div id="appCtrl" v-locak>
-        <yd-navbar title="保单验真">
-            <a href="#" slot="left">
-                <yd-navbar-back-icon></yd-navbar-back-icon>
+        <mt-header title="分类">
+            <a href="javascript:;" @click="location.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
             </a>
-        </yd-navbar>
-        <yd-tab active-color="#A17E41" :callback="tabChange" horizontal-scroll>
-            <yd-tab-panel v-for="el in tabs" :label="el.label"></yd-tab-panel>
-        </yd-tab>
+        </mt-header>
+        <mt-tab 
+        v-model="selected"
+        activeColor="#A17E41"
+        > 
+          <mt-tab-item v-for="(item, index) in tabsList" :key="item.id" @click.native="tabChange(item.id, index)">
+            {{item.label}}
+          </mt-tab-item>
+        </mt-tab>
         <div class="list-filter">
             <div class="bd">
                 <ul>
-                    <li class="">综合排序<i class=""></i></li>
-                    <li class="">年龄<i class=""></i></li>
-                    <li class="">保险公司<i class=""></i></li>
+                    <li @click="sortVisible=true" :class="{on:currentSortName}">{{currentSortName||'综合排序'}}<i></i></li>
+                    <li @click="ageVisible=true" :class="{on:currentAgeName}">{{currentAgeName||'适用人群'}}<i></i></li>
+                    <li @click="brandVisible=true" :class="{on:currentBrandName}">{{currentBrandName||'保险公司'}}<i></i></li>
                 </ul>
             </div>
         </div>
+
+        <div class="products-list"
+        v-infinite-scroll="fetchData"
+        infinite-scroll-disabled="loading"
+        infinite-scroll-distance="10">
+            <a :href="el.url" v-for="el in dataList">
+                <div class="content">
+                    <div class="img" :style="'background-image: url('+el.img+')'"></div>
+                    <div class="desc">
+                        <h3>{{el.title}}</h3>
+                        <p class="cGray">{{el.title}}</p>
+                        <p class="cGray">{{el.brand}}  已售 {{el.sell}} 份</p>
+                        <p class="price cGray"><span class="cGold">{{el.price}}</span> 元/年</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="spinner-wrapper cGray">
+            <mt-spinner v-show="loading===true" type="fading-circle"></mt-spinner>
+            <p v-show="loading===-1">没有更多了~</p>
+            <p v-show="loading===-2">暂无数据</p>
+        </div>
+
+        <mt-popup
+          v-model="sortVisible"
+          position="bottom" style="width:100%">
+          <mt-picker 
+            title="请选排序方式"
+            :slots="sortSlots" 
+            :show-toolbar="true"
+            :ok="sortOk"
+            @change="sortChange">
+          </mt-picker>
+        </mt-popup>
+
+        <mt-popup
+          v-model="ageVisible"
+          position="bottom" style="width:100%">
+          <mt-picker 
+            title="请选适用人群"
+            :slots="ageSlots" 
+            :show-toolbar="true"
+            :ok="ageOk"
+            @change="sortChange">
+          </mt-picker>
+        </mt-popup>
+
+        <mt-popup
+          v-model="brandVisible"
+          position="bottom" style="width:100%">
+          <mt-picker 
+            title="请选择保险品牌"
+            :slots="brandSlots" 
+            :show-toolbar="true"
+            :ok="brandOk"
+            @change="sortChange">
+          </mt-picker>
+        </mt-popup>
+
     </div>
     <script src="js/vue.min.js"></script>
-    <script src="ydui/dist/ydui.px.js"></script>
+    <script src="mint/lib/index.js"></script>
     <script>
     var vm = new Vue({
         el: '#appCtrl',
 
         data: function() {
             return {
-                tabs: [{
+                sortVisible:false,
+                ageVisible:false,
+                brandVisible:false,
+                currentSortName:'',
+                currentAgeName:'',
+                currentBrandName:'',
+
+                loading:false,
+
+                dataList:[],
+
+                pageParams:{
+                    tabId:'',
+                    sortId:'',
+                    ageId:'',
+                    pageNo:0,
+                    pageSize:10
+                },
+
+                selected:0,
+
+                tabsList: [{
                     id: 1001,
                     label: '全部'
                 }, {
@@ -68,13 +153,200 @@
                 }, {
                     id: 1007,
                     label: '财险'
-                }]
+                }],
+
+                sortSlots:[{
+                  flex: 1,
+                  values: [{
+                    key:2001,
+                    label:'综合排序'
+                  },{
+                    key:2002,
+                    label:'价格升序'
+                  },{
+                    key:2003,
+                    label:'最新上架'
+                  },{
+                    key:2004,
+                    label:'热门'
+                  }]
+                }],
+
+                ageSlots:[{
+                  flex: 1,
+                  values: [{
+                    key:2001,
+                    label:'男性'
+                  },{
+                    key:2002,
+                    label:'女性'
+                  },{
+                    key:2003,
+                    label:'老人'
+                  },{
+                    key:2004,
+                    label:'儿童'
+                  }]
+                }],
+
+                brandSlots:[{
+                  flex: 1,
+                  values: [{
+                    key:3001,
+                    label:'平安保险'
+                  },{
+                    key:3002,
+                    label:'中国人寿'
+                  }]
+                }],
             }
         },
 
         methods: {
-            tabChange: function(label, index) {
+            tabChange: function(id, index) {alert(1)
+                this.pageParams.pageNo = 0;
+                this.currentSortName = '';
+                this.currentAgeName = '';
+                this.currentBrandName = '';
+
+                this.fetchData();
+            },
+
+            sortChange: function(val){},
+
+            sortOk: function(val){
+                val = val[0];
+                this.currentSortName = val.label;
+                this.sortVisible=false;
+                this.pageParams.pageNo = 0;
+                this.fetchData();
+            },
+
+            ageOk: function(val){
+                val = val[0];
+                this.currentAgeName = val.label;
+                this.ageVisible=false;
+                this.pageParams.pageNo = 0;
+                this.fetchData();
+            },
+
+            brandOk: function(val){
+                val = val[0];
+                this.currentBrandName = val.label;
+                this.brandVisible=false;
+                this.pageParams.pageNo = 0;
+                this.fetchData();
+            },
+
+            fetchData: function(){
+                this.pageParams.pageNo++
+                console.log('请求参数：')
+                console.log(this.pageParams)
+                this.loading = true;
+                // $.ajax({
+                //     url:'http://www.baidu.com',
+                //     data: this.pageParams,
+                //     success: function(res){
+                //     模拟异步价值
+                    setTimeout(function(){
+                        var res = [{
+                            img:'images/products-list.jpg',
+                            title:'中老年骨折意外险',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:100,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'22222222',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:200,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'333333333',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:1000,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'444444444',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:3300,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'555555555555',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:1234,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'中老年骨折意外险',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:100,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'22222222',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:200,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'333333333',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:1000,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'444444444',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:3300,
+                            url:'http://www.baidu.com?id=23423421'
+                        },{
+                            img:'images/products-list.jpg',
+                            title:'555555555555',
+                            keywords:'50 - 80岁 /  老年人定制 / 骨折津贴',
+                            brand:'中国平安',
+                            sell:45465,
+                            price:1234,
+                            url:'http://www.baidu.com?id=23423421'
+                        }];
+
+                        vm.dataList = vm.dataList.concat(res);
+                        if(res.length>=vm.pageParams.pageSize){
+                            vm.loading = false;
+                        }else if(res.length==0&&vm.pageParams.pageNo==1){
+                            vm.loading = -2;//无数据
+                        }else{
+                            vm.loading = -1;//没有更多了
+                        }
+                },3000)
+                //     }
+                // });
             }
+        },
+
+        mounted: function(){
+            // this.currentSortName = this.sortSlots[0].values[0].label;
         }
     })
     </script>

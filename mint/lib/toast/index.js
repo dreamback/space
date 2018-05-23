@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 242);
+/******/ 	return __webpack_require__(__webpack_require__.s = 235);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,24 +174,24 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 109:
+/***/ 107:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 163:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(109)
+  __webpack_require__(107)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(95),
+  __webpack_require__(94),
   /* template */
-  __webpack_require__(179),
+  __webpack_require__(174),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -205,7 +205,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 179:
+/***/ 174:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -241,15 +241,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 242:
+/***/ 235:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(50);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
 
-/***/ 50:
+/***/ 49:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -269,7 +269,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 
 
-var ToastConstructor = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__webpack_require__(163));
+var ToastConstructor = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.extend(__webpack_require__(159));
 var toastPool = [];
 
 var getAnInstance = function () {
@@ -332,7 +332,7 @@ var Toast = function (options) {
 
 /***/ }),
 
-/***/ 95:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

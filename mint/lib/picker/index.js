@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 228);
+/******/ 	return __webpack_require__(__webpack_require__.s = 222);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -174,31 +174,31 @@ module.exports = require("vue");
 
 /***/ }),
 
-/***/ 105:
+/***/ 103:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 116:
+/***/ 113:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 145:
+/***/ 142:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(105)
+  __webpack_require__(103)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(77),
   /* template */
-  __webpack_require__(174),
+  __webpack_require__(169),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -212,17 +212,17 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 146:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(116)
+  __webpack_require__(113)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(78),
   /* template */
-  __webpack_require__(187),
+  __webpack_require__(182),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -236,7 +236,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 174:
+/***/ 169:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -269,7 +269,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 187:
+/***/ 182:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -521,14 +521,14 @@ function setStyle(element, styleName, value) {
 
 /***/ }),
 
-/***/ 208:
+/***/ 202:
 /***/ (function(module, exports) {
 
 module.exports = require("raf.js");
 
 /***/ }),
 
-/***/ 228:
+/***/ 222:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(36);
@@ -541,7 +541,7 @@ module.exports = __webpack_require__(36);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_picker_vue__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_picker_vue__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_picker_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_picker_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_picker_vue___default.a; });
 
@@ -549,7 +549,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 56:
+/***/ 55:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -609,7 +609,7 @@ var supportTouch = !__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$isSer
 
 /***/ }),
 
-/***/ 57:
+/***/ 56:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -759,8 +759,8 @@ function broadcast(componentName, eventName, params) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__draggable__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__translate__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__draggable__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__translate__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mint_ui_src_utils_dom__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_mint_ui_src_mixins_emitter__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue__ = __webpack_require__(1);
@@ -872,7 +872,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (!__WEBPACK_IMPORTED_MODULE_4_vue___default.a.prototype.$isServer) {
-  __webpack_require__(208);
+  __webpack_require__(202);
 }
 
 var rotateElement = function(element, angle) {
@@ -1340,7 +1340,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       type: Number,
       default: 5
     },
-    valueKey: String,
     rotateEffect: {
       type: Boolean,
       default: false
@@ -1350,7 +1349,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       default: 36
     },
     title: String,
-    ok: Function
+    ok: Function,
+    valueKey: {
+      type:String,
+      default:'label'
+    }
   },
 
   created: function created() {
@@ -1460,7 +1463,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   components: {
-    PickerSlot: __webpack_require__(145)
+    PickerSlot: __webpack_require__(142)
   }
 });
 

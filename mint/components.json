@@ -8,9 +8,6 @@
   "badge": "./packages/badge/index.js",
   "switch": "./packages/switch/index.js",
   "spinner": "./packages/spinner/index.js",
-  "tab-item": "./packages/tab-item/index.js",
-  "tab-container-item": "./packages/tab-container-item/index.js",
-  "tab-container": "./packages/tab-container/index.js",
   "navbar": "./packages/navbar/index.js",
   "tabbar": "./packages/tabbar/index.js",
   "search": "./packages/search/index.js",
@@ -32,5 +29,7 @@
   "datetime-picker": "./packages/datetime-picker/index.js",
   "index-list": "./packages/index-list/index.js",
   "index-section": "./packages/index-section/index.js",
-  "countdown": "./packages/countdown/index.js"
+  "countdown": "./packages/countdown/index.js",
+  "tab": "./packages/tab/index.js",
+  "tab-item": "./packages/tab-item/index.js"
 }
