@@ -35,6 +35,7 @@
         
             <mt-cell
                 is-link
+                @click.native="genderVisible=true"
                 :value="gender===0?'女':'男'"
                 title="性别">
             </mt-cell>
@@ -43,6 +44,11 @@
                 :value="gender===0?'女':'男'"
                 title="证件类型">
             </mt-cell>
+
+            <mt-field 
+            label="证件号码" 
+            placeholder="请输入证件号码" 
+            v-model.trim="idNo"></mt-field>
 
             <mt-field 
             label="手机号码" 
@@ -67,6 +73,17 @@
 
         </div>
 
+        <mt-popup
+          v-model="genderVisible"
+          position="bottom" style="width:100%">
+          <mt-picker 
+            title="请选择性别"
+            :slots="genderSlots" 
+            :show-toolbar="true"
+            :ok="genderOk">
+          </mt-picker>
+        </mt-popup>
+
     </div>
     <script src="js/vue.min.js"></script>
     <script src="mint/lib/index.js"></script>
@@ -81,9 +98,22 @@
         		psw:'',
                 code:'',
                 gender:1,
+                idNo:'',
                 adderss:'',
 
-                start: false
+                genderVisible:false,
+
+                genderSlots:[{
+                  flex: 1,
+                  values: [{
+                    key:0,
+                    label:'女'
+                  },{
+                    key:1,
+                    label:'男'
+                  }]
+                }],
+
         	}
         },
 
@@ -105,7 +135,13 @@
         			this.$toast('6~20位之间的密码');
         			return;
         		}
-        	}
+        	},
+
+            genderOk: function(val){
+                val = val[0];
+                this.gender = val.key;
+                this.genderVisible = false;
+            }
 
         }
     })
