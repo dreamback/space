@@ -155,5 +155,7 @@ border-color:#EC0A0A transparent transparent;}
 .upload-container .fordemo{position: absolute;right: 0;top: 8px;}
 .upload-container .fordemo .mintui{vertical-align: middle;margin-right: 0;top: -2px;position: relative;}
 
+/* 实名认证 */
 .mt-button-group{text-align: center;padding: 20px;}
 .mt-button-group .mint-button--normal{padding: 0 28px;}
+.mt-cell-left .mint-cell-title{-webkit-box-flex:none;-webkit-flex:none;flex:none;width: 105px;}

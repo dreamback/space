@@ -5485,8 +5485,7 @@ var VISIBLE_ITEMS_ANGLE_MAP = {
     },
     defaultIndex: {
       type: Number,
-      default: 0,
-      require: false
+      default: 0
     }
   },
 
@@ -5535,7 +5534,19 @@ var VISIBLE_ITEMS_ANGLE_MAP = {
       return this.itemHeight * this.visibleItemCount;
     },
     valueIndex: function valueIndex() {
-      return this.mutatingValues.indexOf(this.currentValue);
+      var this$1 = this;
+
+      var valueKey = this.valueKey;
+      if (this.currentValue instanceof Object) {
+        for (var i = 0, len = this.mutatingValues.length; i < len ; i++) {
+          if (this$1.currentValue[valueKey] === this$1.mutatingValues[i][valueKey]) {
+            return i;
+          }
+        }
+        return -1;
+      } else {
+        return this.mutatingValues.indexOf(this.currentValue);
+      }
     },
     dragRange: function dragRange() {
       var values = this.mutatingValues;
@@ -5543,6 +5554,12 @@ var VISIBLE_ITEMS_ANGLE_MAP = {
       var itemHeight = this.itemHeight;
 
       return [ -itemHeight * (values.length - Math.ceil(visibleItemCount / 2)), itemHeight * Math.floor(visibleItemCount / 2) ];
+    },
+    minTranslateY: function minTranslateY() {
+      return this.itemHeight * (Math.ceil(this.visibleItemCount / 2) - this.mutatingValues.length);
+    },
+    maxTranslateY: function maxTranslateY() {
+      return this.itemHeight * Math.floor(this.visibleItemCount / 2);
     }
   },
 
@@ -5662,41 +5679,54 @@ var VISIBLE_ITEMS_ANGLE_MAP = {
           }
         },
 
-        end: function () {
-          if (this$1.dragging) {
-            this$1.dragging = false;
+        end: function (event) {
+          this$1.dragging = false;
 
-            var momentumRatio = 7;
-            var currentTranslate = __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].getElementTranslate(el).top;
-            var duration = new Date() - dragState.start;
+          var momentumRatio = 7;
+          var currentTranslate = __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].getElementTranslate(el).top;
+          var duration = new Date() - dragState.start;
+          var distance = Math.abs(dragState.startTranslateTop - currentTranslate);
+          var itemHeight = this$1.itemHeight;
+          var visibleItemCount = this$1.visibleItemCount;
 
-            var momentumTranslate;
-            if (duration < 300) {
-              momentumTranslate = currentTranslate + velocityTranslate * momentumRatio;
+          var rect, offset;
+          if (distance < 6) {
+            rect = this$1.$el.getBoundingClientRect();
+            offset = Math.floor((event.clientY - (rect.top + (visibleItemCount - 1) * itemHeight / 2)) / itemHeight) * itemHeight;
+
+            if (offset > this$1.maxTranslateY) {
+              offset = this$1.maxTranslateY;
             }
 
-            var dragRange = dragState.range;
-
-            this$1.$nextTick(function () {
-              var translate;
-              var itemHeight = this$1.itemHeight;
-              if (momentumTranslate) {
-                translate = Math.round(momentumTranslate / itemHeight) * itemHeight;
-              } else {
-                translate = Math.round(currentTranslate / itemHeight) * itemHeight;
-              }
-
-              translate = Math.max(Math.min(translate, dragRange[1]), dragRange[0]);
-
-              __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].translateElement(el, null, translate);
-
-              this$1.currentValue = this$1.translate2Value(translate);
-
-              if (this$1.rotateEffect) {
-                this$1.planUpdateRotate();
-              }
-            });
+            velocityTranslate = 0;
+            currentTranslate -= offset;
           }
+
+          var momentumTranslate;
+          if (duration < 300) {
+            momentumTranslate = currentTranslate + velocityTranslate * momentumRatio;
+          }
+
+          var dragRange = dragState.range;
+
+          this$1.$nextTick(function () {
+            var translate;
+            if (momentumTranslate) {
+              translate = Math.round(momentumTranslate / itemHeight) * itemHeight;
+            } else {
+              translate = Math.round(currentTranslate / itemHeight) * itemHeight;
+            }
+
+            translate = Math.max(Math.min(translate, dragRange[1]), dragRange[0]);
+
+            __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].translateElement(el, null, translate);
+
+            this$1.currentValue = this$1.translate2Value(translate);
+
+            if (this$1.rotateEffect) {
+              this$1.planUpdateRotate();
+            }
+          });
 
           dragState = {};
         }
@@ -5706,7 +5736,6 @@ var VISIBLE_ITEMS_ANGLE_MAP = {
     doOnValueChange: function doOnValueChange() {
       var value = this.currentValue;
       var wrapper = this.$refs.wrapper;
-      
 
       __WEBPACK_IMPORTED_MODULE_1__translate__["a" /* default */].translateElement(wrapper, null, this.value2Translate(value));
     },
@@ -5727,7 +5756,6 @@ var VISIBLE_ITEMS_ANGLE_MAP = {
 
   mounted: function mounted() {
     this.ready = true;
-    this.$emit('input', this.currentValue);
 
     if (!this.divider) {
       this.initEvents();
@@ -5864,24 +5892,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-/* harmony default export */ __webpack_exports__["default"] = ({ 
+/* harmony default export */ __webpack_exports__["default"] = ({
   name: 'mt-picker',
 
   componentName: 'picker',
@@ -5898,6 +5910,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       type: Number,
       default: 5
     },
+    valueKey: {
+      type:String,
+      default:'label'
+    },
     rotateEffect: {
       type: Boolean,
       default: false
@@ -5906,34 +5922,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       type: Number,
       default: 36
     },
-    title: String,
-    ok: Function,
-    valueKey: {
-      type:String,
-      default:'label'
+    title:String,
+    ok:{
+      type:Function,
+      default:function (){}
     }
   },
 
   created: function created() {
-    var this$1 = this;
-
     this.$on('slotValueChange', this.slotValueChange);
-    var slots = this.slots || [];
-    this.values = [];
-    var values = this.values;
-    var valueIndexCount = 0;
-    slots.forEach(function (slot) {
-      if (!slot.divider) {
-        slot.valueIndex = valueIndexCount++;
-        values[slot.valueIndex] = (slot.values || [])[slot.defaultIndex || 0];
-        this$1.slotValueChange();
-      }
-    });
+    this.slotValueChange();
   },
 
   methods: {
     slotValueChange: function slotValueChange() {
-    
       this.$emit('change', this, this.values);
     },
 
@@ -5957,7 +5959,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getSlotValue: function getSlotValue(index) {
       var slot = this.getSlot(index);
       if (slot) {
-        return slot.value;
+        return slot.currentValue;
       }
       return null;
     },
@@ -6001,14 +6003,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   computed: {
-    values: function values() {
-      var slots = this.slots || [];
-      var values = [];
-      slots.forEach(function(slot) {
-        if (!slot.divider) { values.push(slot.value); }
-      });
-
-      return values;
+    values: {
+      get: function get() {
+        var slots = this.slots || [];
+        var values = [];
+        var valueIndexCount = 0;
+        slots.forEach(function (slot) {
+          if (!slot.divider) {
+            slot.valueIndex = valueIndexCount++;
+            values[slot.valueIndex] = (slot.values || [])[slot.defaultIndex || 0];
+          }
+        });
+        return values;
+      }
     },
     slotCount: function slotCount() {
       var slots = this.slots || [];
@@ -10568,9 +10575,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("确定")])])]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "picker-items"
-  }, [_vm._l((_vm.slots), function(slot, index) {
+  }, [_vm._l((_vm.slots), function(slot) {
     return _c('picker-slot', {
-      key: index,
       attrs: {
         "valueKey": _vm.valueKey,
         "values": slot.values || [],

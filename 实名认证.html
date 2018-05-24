@@ -27,7 +27,7 @@
             </a>
         </mt-header>
 
-        <div class="mt-cell-group">
+        <div class="mt-cell-group mt-cell-left">
             <mt-field 
             label="真实姓名" 
             placeholder="请输入真实姓名" 
@@ -41,7 +41,8 @@
             </mt-cell>
             <mt-cell
                 is-link
-                :value="gender===0?'女':'男'"
+                :value="credText"
+                @click.native="credVisible=true"
                 title="证件类型">
             </mt-cell>
 
@@ -57,6 +58,8 @@
 
             <mt-cell
                 is-link
+                @click.native="areaVisible=true"
+                :value="areaText"
                 title="所在地">
             </mt-cell>
 
@@ -84,9 +87,32 @@
           </mt-picker>
         </mt-popup>
 
+        <mt-popup
+          v-model="credVisible"
+          position="bottom" style="width:100%">
+          <mt-picker 
+            title="请选择证件类型"
+            :slots="credSlots" 
+            :show-toolbar="true"
+            :ok="credOk">
+          </mt-picker>
+        </mt-popup>
+
+        <mt-popup
+          v-model="areaVisible"
+          position="bottom" style="width:100%">
+          <mt-picker 
+            title="请选择所在地"
+            :slots="areaSlots" 
+            :show-toolbar="true"
+            @change="onAddressChange"
+            :ok="credOk">
+          </mt-picker>
+        </mt-popup>
     </div>
     <script src="js/vue.min.js"></script>
     <script src="mint/lib/index.js"></script>
+    <script src="js/city-data.js"></script>
     <script>
     var vm = new Vue({
         el: '#appCtrl',
@@ -97,11 +123,17 @@
         		mobile:'',
         		psw:'',
                 code:'',
+                cred:100,
                 gender:1,
+
                 idNo:'',
                 adderss:'',
 
                 genderVisible:false,
+                credVisible:false,
+                areaVisible:false,
+                credText:'身份证',
+                areaText:'北京/北京市/东城区',
 
                 genderSlots:[{
                   flex: 1,
@@ -113,6 +145,19 @@
                     label:'男'
                   }]
                 }],
+
+                credSlots:[{
+                    flex:1,
+                    values:[{
+                        key:100,
+                        label:'身份证'
+                    },{
+                        key:101,
+                        label:'港澳通行证'
+                    }]
+                }],
+
+                areaSlots:[]
 
         	}
         },
@@ -141,8 +186,91 @@
                 val = val[0];
                 this.gender = val.key;
                 this.genderVisible = false;
-            }
+            },
 
+            credOk: function(val){
+                val = val[0];
+                this.cred = val.key;
+                this.credText = val.label;
+                this.credVisible = false;
+            },
+
+            buildUpAreaSlots: function(){
+                var province = [] , citys = [], county=[];
+                cityInfoOptions.forEach(function(value, index){
+                    province[index] = {
+                        key: value.value,
+                        label: value.label,
+                        index: index
+                    };
+                });
+                cityInfoOptions[0].children.forEach(function(value, index){
+                    citys[index] = {
+                        key: value.value,
+                        label: value.label,
+                        index: index
+                    };
+                });
+                cityInfoOptions[0].children[0].children.forEach(function(value, index){
+                    county[index] = {
+                        key: value.value,
+                        label: value.label,
+                        index: index
+                    };
+                });
+
+                this.areaSlots=[{
+                        flex: 1,
+                        values: province,
+                        className: 'province',
+                        textAlign: 'center'
+                      }, {
+                        divider: true,
+                        content: '-',
+                        className:'slot1'
+                      }, {
+                        flex: 1,
+                        values: citys,
+                        className: 'citys',
+                        textAlign: 'center'
+                      }, {
+                        divider: true,
+                        content: '-',
+                        className:'slot2'
+                      }, {
+                        flex: 1,
+                        values: county,
+                        className: 'county',
+                        textAlign: 'center'
+                }]
+            },
+
+            onAddressChange(picker, values) {
+                if(!values.length)return;
+                var citys = [], county=[];
+                cityInfoOptions[values[0].index].children.forEach(function(value, index){
+                    console.log(value)
+                    citys[index] = {
+                        key: value.value,
+                        label: value.label,
+                        index: index
+                    };
+                });
+                cityInfoOptions[values[0].index].children[values[1].index].children.forEach(function(value, index){
+                    county[index] = {
+                        key: value.value,
+                        label: value.label,
+                        index: index
+                    };
+                });
+            picker.setSlotValues(1, citys);
+            picker.setSlotValues(2, county);
+          }
+
+        },
+
+        mounted: function(){
+            this.buildUpAreaSlots();
         }
     })
     </script>

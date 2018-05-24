@@ -1,12 +1,4 @@
-/* Cell Component */
-/* Header Component */
-/* Button Component */
-/* Tab Item Component */
-/* Tabbar Component */
-/* Navbar Component */
-/* Checklist Component */
-/* Radio Component */
-/* z-index */
+
 .picker {
   overflow: hidden;
 }
@@ -18,8 +10,8 @@
   color:$color-white; */
   display:-ms-flexbox;
   display:flex;
-  border-top: 1px solid #E1E1E1;
-  border-bottom: 1px solid #E1E1E1;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 .picker-toolbar .title{
   -ms-flex:1;
@@ -37,7 +29,6 @@
   text-align: right;
   font-size: 24px;
   position: relative;
-  background: #fcfcfc;
 }
 .picker-center-highlight {
   box-sizing: border-box;
@@ -53,7 +44,7 @@
   position: absolute;
   height: 1px;
   width: 100%;
-  background-color: #e0e0e0;
+  background-color: #eaeaea;
   display: block;
   z-index: 15;
   transform: scaleY(0.5);

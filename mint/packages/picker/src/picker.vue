@@ -9,28 +9,13 @@
       </div>
     </div>
     <div class="picker-items">
-      <picker-slot 
-      v-for="(slot,index) in slots" 
-      :key="index"
-      :valueKey="valueKey"
-      :values="slot.values || []" 
-      :text-align="slot.textAlign || 'center'" 
-      :visible-item-count="visibleItemCount" 
-      :class-name="slot.className" 
-      :flex="slot.flex" 
-      v-model="values[slot.valueIndex]" 
-      :rotate-effect="rotateEffect" 
-      :divider="slot.divider" 
-      :content="slot.content" 
-      :itemHeight="itemHeight"
-      :default-index="slot.defaultIndex"></picker-slot>
+      <picker-slot v-for="slot in slots" :valueKey="valueKey" :values="slot.values || []" :text-align="slot.textAlign || 'center'" :visible-item-count="visibleItemCount" :class-name="slot.className" :flex="slot.flex" v-model="values[slot.valueIndex]" :rotate-effect="rotateEffect" :divider="slot.divider" :content="slot.content" :itemHeight="itemHeight" :default-index="slot.defaultIndex"></picker-slot>
       <div class="picker-center-highlight" :style="{ height: itemHeight + 'px', marginTop: -itemHeight / 2 + 'px' }"></div>
     </div>
   </div>
 </template>
 
 <style>
-  @import "../../../src/style/var.css";
   .picker {
     overflow: hidden;
   }
@@ -42,8 +27,8 @@
     /* background-color: $color-gold;
     color:$color-white; */
     display:flex;
-    border-top: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
   }
   .picker-toolbar .title{
     flex:1;
@@ -59,7 +44,6 @@
     text-align: right;
     font-size: 24px;
     position: relative;
-    background: #fcfcfc;
   }
 
   .picker-center-highlight {
@@ -78,7 +62,7 @@
     position: absolute;
     height: 1px;
     width: 100%;
-    background-color: #e0e0e0;
+    background-color: #eaeaea;
     display: block;
     z-index: 15;
     transform: scaleY(0.5);
@@ -100,7 +84,7 @@
 </style>
 
 <script type="text/babel">
-  export default { 
+  export default {
     name: 'mt-picker',
 
     componentName: 'picker',
@@ -117,6 +101,10 @@
         type: Number,
         default: 5
       },
+      valueKey: {
+        type:String,
+        default:'label'
+      },
       rotateEffect: {
         type: Boolean,
         default: false
@@ -125,32 +113,20 @@
         type: Number,
         default: 36
       },
-      title: String,
-      ok: Function,
-      valueKey: {
-        type:String,
-        default:'label'
+      title:String,
+      ok:{
+        type:Function,
+        default:()=>{}
       }
     },
 
     created() {
       this.$on('slotValueChange', this.slotValueChange);
-      var slots = this.slots || [];
-      this.values = [];
-      var values = this.values;
-      var valueIndexCount = 0;
-      slots.forEach(slot => {
-        if (!slot.divider) {
-          slot.valueIndex = valueIndexCount++;
-          values[slot.valueIndex] = (slot.values || [])[slot.defaultIndex || 0];
-          this.slotValueChange();
-        }
-      });
+      this.slotValueChange();
     },
 
     methods: {
       slotValueChange() {
-      
         this.$emit('change', this, this.values);
       },
 
@@ -174,7 +150,7 @@
       getSlotValue(index) {
         var slot = this.getSlot(index);
         if (slot) {
-          return slot.value;
+          return slot.currentValue;
         }
         return null;
       },
@@ -216,14 +192,19 @@
     },
 
     computed: {
-      values() {
-        var slots = this.slots || [];
-        var values = [];
-        slots.forEach(function(slot) {
-          if (!slot.divider) values.push(slot.value);
-        });
-
-        return values;
+      values: {
+        get() {
+          var slots = this.slots || [];
+          var values = [];
+          var valueIndexCount = 0;
+          slots.forEach(slot => {
+            if (!slot.divider) {
+              slot.valueIndex = valueIndexCount++;
+              values[slot.valueIndex] = (slot.values || [])[slot.defaultIndex || 0];
+            }
+          });
+          return values;
+        }
       },
       slotCount() {
         var slots = this.slots || [];
