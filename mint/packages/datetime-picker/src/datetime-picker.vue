@@ -425,6 +425,7 @@
         }
       }
       this.generateSlots();
+      console.log(this.startDate)
     }
   };
 </script>

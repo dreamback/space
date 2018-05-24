@@ -5,6 +5,7 @@
       <slot name="left"></slot>
     </div>
     <div class="mint-cell-wrapper">
+      <slot name="left2"></slot>
       <div class="mint-cell-title">
         <slot name="icon">
           <i v-if="icon" class="mintui" :class="'mintui-' + icon"></i>

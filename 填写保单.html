@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+<!--         <mt-header title="填写保单">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header> -->
+    <div class="mt-cell-group">
+        <div class="title-bar">被保人信息</div>
+            <mt-cell class="mt-cell-ilabel" title="李浩" label="身份证 123456789876543212">
+                <div class="select-ui" slot="left2"></div>
+                <a class="mintui-edit" href="#"></a>
+            </mt-cell>
+            <mt-cell title="新增被保人" is-link to="http://baidu.com">
+                <div class="select-ui select-ui2" slot="left2"></div>
+            </mt-cell>
+    </div>
+    <div class="mt-cell-group">
+        <div class="title-bar">通讯录</div>
+        <mt-field 
+        label="手机号" 
+        placeholder="请输入手机号" 
+        v-model="mobile"></mt-field>
+    </div>
+
+    <div class="mt-cell-group mt-cell-left">
+        <div class="title-bar">保险信息</div>
+        <mt-cell title="保险名称">
+            中国人寿境内意外险
+        </mt-cell>
+        <mt-cell title="保险期限" is-link>
+        </mt-cell>
+        <mt-cell title="生效日期" is-link @click.native="open('periodPicker')">
+            请选择生效日期
+        </mt-cell>
+        <mt-cell title="受益人">
+            法定
+        </mt-cell>
+        <mt-cell title="保额">
+            ￥20000.00
+        </mt-cell>
+    </div>
+
+    <div class="mt-cell-group mt-cell-left">
+        <div class="title-bar">优惠信息</div>
+        <mt-cell title="优惠券/优惠码" is-link>
+            <mt-badge class="mt-badge-plain" size="small">0张可用</mt-badge>
+            <span class="fee-sys">优惠码</span>
+        </mt-cell>
+        <div class="agreement">
+               <div class="select-ui" slot="left2" :class="{on:agreement}" @click="agreement=!agreement"></div>
+               <span @click="agreement=!agreement">已经阅读</span>
+               <a href="" class="cGold"> 《客户告知书》、</a><a href="" class="cGold">《保险条款》</a>
+        </div>
+
+        <div style="padding:15px">
+                <mt-button size="large" type="primary" @click.native="submit">立即支付 200.00元</mt-button>
+        </div>
+
+    </div>
+
+<mt-datetime-picker
+  v-model="periodTime"
+  type="date"
+  :startDate="startDate"
+  ref="periodPicker"
+  year-format="{value} 年"
+  month-format="{value} 月"
+  date-format="{value} 日">
+</mt-datetime-picker>
+
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var t = new Date( new Date().getTime()+24*60*60*1000 );
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+                user:0,
+                mobile:'',
+                agreement: false,
+                periodTime: new Date( new Date().getTime()+24*60*60*1000 ),
+                startDate: t
+        	}
+        },
+
+        methods:{
+            open(ref){
+                this.$refs[ref].open();
+                console.log(this.$refs[ref])
+            }
+
+        },
+        mounted: function(){
+            this.$refs.periodPicker.startDate = t;
+        }
+    })
+    </script>
+</body>
+
+</html>

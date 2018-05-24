@@ -3270,6 +3270,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 if (false) {
   require('mint-ui/packages/font/style.css');
@@ -3966,6 +3967,7 @@ var FORMAT_MAP = {
       }
     }
     this.generateSlots();
+    console.log(this.startDate)
   }
 });
 
@@ -11005,7 +11007,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "mint-cell-left"
   }, [_vm._t("left")], 2), _vm._v(" "), _c('div', {
     staticClass: "mint-cell-wrapper"
-  }, [_c('div', {
+  }, [_vm._t("left2"), _vm._v(" "), _c('div', {
     staticClass: "mint-cell-title"
   }, [_vm._t("icon", [(_vm.icon) ? _c('i', {
     staticClass: "mintui",
@@ -11029,7 +11031,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "innerHTML": _vm._s(_vm.value)
     }
-  })])], 2)]), _vm._v(" "), _c('div', {
+  })])], 2)], 2), _vm._v(" "), _c('div', {
     staticClass: "mint-cell-right"
   }, [_vm._t("right")], 2), _vm._v(" "), (_vm.isLink) ? _c('i', {
     staticClass: "mint-cell-allow-right"

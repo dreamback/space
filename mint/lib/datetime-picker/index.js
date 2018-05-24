@@ -725,6 +725,7 @@ var FORMAT_MAP = {
       }
     }
     this.generateSlots();
+    console.log(this.startDate)
   }
 });
 

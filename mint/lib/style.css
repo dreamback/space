@@ -874,7 +874,7 @@ animation-delay: -0.16s;
     display: inline-block;
     position: relative;
     z-index: 10;
-    vertical-align: bottom;
+    vertical-align: -3.3px;
     pointer-events: none
 }
 .mt-radio-icon>i {
