@@ -10,6 +10,7 @@ import Navbar from '../packages/navbar';
 import Tabbar from '../packages/tabbar';
 import Search from '../packages/search';
 import Checklist from '../packages/checklist';
+import RadioGroup from '../packages/radio-group';
 import Radio from '../packages/radio';
 import Loadmore from '../packages/loadmore';
 import Actionsheet from '../packages/actionsheet';
@@ -53,6 +54,7 @@ const install = function(Vue, config = {}) {
   Vue.component(Tabbar.name, Tabbar);
   Vue.component(Search.name, Search);
   Vue.component(Checklist.name, Checklist);
+  Vue.component(RadioGroup.name, RadioGroup);
   Vue.component(Radio.name, Radio);
   Vue.component(Loadmore.name, Loadmore);
   Vue.component(Actionsheet.name, Actionsheet);
@@ -103,6 +105,7 @@ export default {
   Tabbar,
   Search,
   Checklist,
+  RadioGroup,
   Radio,
   Loadmore,
   Actionsheet,

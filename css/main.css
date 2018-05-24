@@ -159,3 +159,4 @@ border-color:#EC0A0A transparent transparent;}
 .mt-button-group{text-align: center;padding: 20px;}
 .mt-button-group .mint-button--normal{padding: 0 28px;}
 .mt-cell-left .mint-cell-title{-webkit-box-flex:none;-webkit-flex:none;flex:none;width: 105px;}
+.mt-cell-left .mint-cell-value{-webkit-box-flex:1;-webkit-flex:1;flex:1;}

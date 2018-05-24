@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 259);
+/******/ 	return __webpack_require__(__webpack_require__.s = 260);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,26 +167,16 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 125:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 166:
+/***/ 167:
 /***/ (function(module, exports, __webpack_require__) {
 
-function injectStyle (ssrContext) {
-  __webpack_require__(125)
-}
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(89),
+  __webpack_require__(90),
   /* template */
-  __webpack_require__(205),
+  __webpack_require__(194),
   /* styles */
-  injectStyle,
+  null,
   /* scopeId */
   null,
   /* moduleIdentifier (server only) */
@@ -198,52 +188,36 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 205:
+/***/ 194:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mt-progress"
-  }, [_vm._t("start"), _vm._v(" "), _c('div', {
-    staticClass: "mt-progress-content"
-  }, [_c('div', {
-    staticClass: "mt-progress-runway",
-    style: ({
-      height: _vm.barHeight + 'px'
-    })
-  }), _vm._v(" "), _c('div', {
-    staticClass: "mt-progress-progress",
-    style: ({
-      width: _vm.value + '%',
-      height: _vm.barHeight + 'px'
-    })
-  })]), _vm._v(" "), _vm._t("end")], 2)
+  return _c('div', [_vm._t("default")], 2)
 },staticRenderFns: []}
 
 /***/ }),
 
-/***/ 259:
+/***/ 260:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(40);
+module.exports = __webpack_require__(41);
 
 
 /***/ }),
 
-/***/ 40:
+/***/ 41:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_progress_vue__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_progress_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_progress_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_progress_vue___default.a; });
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_radio_group_vue__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_radio_group_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_radio_group_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_radio_group_vue___default.a; });
 
 
 /***/ }),
 
-/***/ 89:
+/***/ 90:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -262,63 +236,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+  var isColor = function(value) {
+      var colorReg = /^#([a-fA-F0-9]){3}(([a-fA-F0-9]){3})?$/;
+      var rgbaReg = /^[rR][gG][bB][aA]\(\s*((25[0-5]|2[0-4]\d|1?\d{1,2})\s*,\s*){3}\s*(\.|\d+\.)?\d+\s*\)$/;
+      var rgbReg = /^[rR][gG][bB]\(\s*((25[0-5]|2[0-4]\d|1?\d{1,2})\s*,\s*){2}(25[0-5]|2[0-4]\d|1?\d{1,2})\s*\)$/;
+      return colorReg.test(value) || rgbaReg.test(value) || rgbReg.test(value);
+  };
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'mt-progress',
-
-  props: {
-    value: Number,
-    barHeight: {
-      type: Number,
-      default: 3
-    }
-  }
-});
+      name: 'mt-radio-group',
+      data: function data () {
+          return {
+              currentValue: this.value
+          }
+      },
+      props: {
+          value: {
+              type: [String, Number],
+              default: ''
+          },
+          color: {
+              validator: function validator(value) {
+                  if (!value) { return true; }
+                  return isColor(value);
+              },
+              default: '#4CD864'
+          },
+          size: {
+              validator: function validator(val) {
+                  return /^([1-9]\d*)$/.test(val);
+              },
+              default: 20
+          }
+      },
+      methods: {
+          updateValue: function updateValue() {
+              var value = this.value;
+              this.childrens = this.$children.filter(function (item) { return item.$options.name === 'mt-radio'; });
+              if (this.childrens) {
+                  this.childrens.forEach(function (child) {
+                      child.checked = value == child.val;
+                  });
+              }
+          },
+          change: function change(val) {
+              this.currentValue = val;
+              this.updateValue();
+              this.$emit('input', val);
+          }
+      },
+      watch: {
+          value: function value() {
+              this.updateValue();
+          }
+      },
+      mounted: function mounted() {
+          this.$nextTick(this.updateValue);
+      }
+  });
 
 
 /***/ })

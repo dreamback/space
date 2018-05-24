@@ -1,151 +1,104 @@
 <template>
-  <div class="mint-radiolist" @change="$emit('change', currentValue)">
-    <label class="mint-radiolist-title" v-text="title"></label>
-    <x-cell v-for="option in options">
-      <label class="mint-radiolist-label" slot="title">
-        <span
-          :class="{'is-right': align === 'right'}"
-          class="mint-radio">
-          <input
-            class="mint-radio-input"
-            type="radio"
-            v-model="currentValue"
-            :disabled="option.disabled"
-            :value="option.value || option">
-          <span class="mint-radio-core"></span>
-        </span>
-        <span class="mint-radio-label" v-text="option.label || option"></span>
-      </label>
-    </x-cell>
-  </div>
+    <label class="mt-radio">
+        <input :name="$parent.name" type="radio" @change="changeHandler" :disabled="disabled" :checked="checked"/>
+        <span class="mt-radio-icon" :style="[{color: $parent.color}, styles(1)]"><i :style="styles(2)"></i></span>
+        <span class="mt-radio-text" v-if="!$slots.default">{{val}}</span>
+        <span class="mt-radio-text" v-else><slot></slot></span>
+    </label>
 </template>
 
 <script>
-import XCell from 'mint-ui/packages/cell/index.js';
-if (process.env.NODE_ENV === 'component') {
-  require('mint-ui/packages/cell/style.css');
-}
-/**
- * mt-radio
- * @module components/radio
- * @desc 单选框列表，依赖 cell 组件
- *
- * @param {string[], object[]} options - 选项数组，可以传入 [{label: 'label', value: 'value', disabled: true}] 或者 ['ab', 'cd', 'ef']
- * @param {string} value - 选中值
- * @param {string} title - 标题
- * @param {string} [align=left] - checkbox 对齐位置，`left`, `right`
- *
- * @example
- * <mt-radio v-model="value" :options="['a', 'b', 'c']"></mt-radio>
- */
-export default {
-  name: 'mt-radio',
-
-  props: {
-    title: String,
-    align: String,
-    options: {
-      type: Array,
-      required: true
-    },
-    value: String
-  },
-
-  data() {
-    return {
-      currentValue: this.value
-    };
-  },
-
-  watch: {
-    value(val) {
-      this.currentValue = val;
-    },
-
-    currentValue(val) {
-      this.$emit('input', val);
-    }
-  },
-
-  components: {
-    XCell
-  }
-};
-</script>
-
-<style lang="css">
-  @import "../../../src/style/var.css";
-
-  @component-namespace mint {
-    @component radiolist {
-
-      .mint-cell {
-        padding: 0;
-      }
-
-      @descendent label {
-        display: block;
-        padding: 0 10px;
-      }
-
-      @descendent title {
-        font-size: 12px;
-        margin: 8px;
-        display: block;
-        color: $radio-title-color;
-      }
-    }
-
-    @component radio {
-      @when right {
-        float: right;
-      }
-
-      @descendent label {
-        vertical-align: middle;
-        margin-left: 6px;
-      }
-
-      @descendent input {
-        display: none;
-
-        &:checked {
-          + .mint-radio-core {
-            background-color: $color-blue;
-            border-color: $color-blue;
-
-            &::after {
-              background-color: $color-white;
-              transform: scale(1);
+    export default {
+        name: 'mt-radio',
+        data() {
+            return {
+                checked: false
             }
-          }
+        },
+        props: {
+            val: [String, Number],
+            disabled: {
+                type: Boolean,
+                default: false
+            }
+        },
+        methods: {
+            changeHandler (event) {
+                if (this.disabled) return;
+                this.checked = event.target.checked;
+                this.$parent.change(this.val);
+            },
+            styles(size) {
+                return {
+                    width: this.$parent.size / size + 'px',
+                    height: this.$parent.size / size + 'px'
+                };
+            }
         }
-
-        &[disabled] + .mint-radio-core {
-          background-color: $color-grey;
-          border-color: #ccc;
-        }
-      }
-
-      @descendent core {
-        box-sizing: border-box;
-        display: inline-block;
-        background-color: $color-white;
-        border-radius: 100%;
-        border: 1px solid #ccc;
-        position: relative;
-        size: 20px;
-        vertical-align: middle;
-
-        &::after {
-          content: " ";
-          border-radius: 100%;
-          position: absolute 5px * * 5px;
-          size: 8px;
-          transition: transform .2s;
-          transform: scale(0);
-        }
-      }
     }
-  }
+</script>
+<style>
+.mt-radio {
+    display: inline-block;
+    padding-right: 10px
+}
+
+.mt-radio-icon {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    vertical-align: -3.3px;
+    pointer-events: none
+}
+
+.mt-radio-icon>i {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    background-color: currentColor;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(.1);
+    transform: translate(-50%, -50%) scale(.1)
+}
+
+.mt-radio-text {
+    margin-left: 1px;
+    font-size: 15px;
+    color: #666;
+    pointer-events: none
+}
+
+.mt-radio>input[type=radio] {
+    position: absolute;
+    left: -9999em
+}
+
+.mt-radio>input[type=radio]:checked+.mt-radio-icon {
+    border-color: currentColor
+}
+
+.mt-radio>input[type=radio]:checked+.mt-radio-icon>i {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out
+}
+
+.mt-radio>input[type=radio]:disabled~.mt-radio-text {
+    color: #ccc
+}
+
+.mt-radio>input[type=radio]:disabled+.mt-radio-icon {
+    border-color: #ccc;
+    background-color: #f3f3f3
+}
+
+.mt-radio>input[type=radio]:disabled+.mt-radio-icon>i {
+    background-color: #ccc
+}
 </style>

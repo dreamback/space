@@ -12,7 +12,6 @@
   "tabbar": "./packages/tabbar/index.js",
   "search": "./packages/search/index.js",
   "checklist": "./packages/checklist/index.js",
-  "radio-group": "./packages/radio-group/index.js",
   "radio": "./packages/radio/index.js",
   "loadmore": "./packages/loadmore/index.js",
   "actionsheet": "./packages/actionsheet/index.js",

@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 256);
+/******/ 	return __webpack_require__(__webpack_require__.s = 261);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -167,24 +167,24 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 111:
+/***/ 113:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 165:
+/***/ 168:
 /***/ (function(module, exports, __webpack_require__) {
 
 function injectStyle (ssrContext) {
-  __webpack_require__(111)
+  __webpack_require__(113)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(89),
+  __webpack_require__(91),
   /* template */
-  __webpack_require__(187),
+  __webpack_require__(190),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -198,96 +198,54 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 187:
+/***/ 190:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mint-radiolist",
-    on: {
-      "change": function($event) {
-        _vm.$emit('change', _vm.currentValue)
-      }
-    }
-  }, [_c('label', {
-    staticClass: "mint-radiolist-title",
+  return _c('label', {
+    staticClass: "mt-radio"
+  }, [_c('input', {
+    attrs: {
+      "name": _vm.$parent.name,
+      "type": "radio",
+      "disabled": _vm.disabled
+    },
     domProps: {
-      "textContent": _vm._s(_vm.title)
+      "checked": _vm.checked
+    },
+    on: {
+      "change": _vm.changeHandler
     }
-  }), _vm._v(" "), _vm._l((_vm.options), function(option) {
-    return _c('x-cell', [_c('label', {
-      staticClass: "mint-radiolist-label",
-      attrs: {
-        "slot": "title"
-      },
-      slot: "title"
-    }, [_c('span', {
-      staticClass: "mint-radio",
-      class: {
-        'is-right': _vm.align === 'right'
-      }
-    }, [_c('input', {
-      directives: [{
-        name: "model",
-        rawName: "v-model",
-        value: (_vm.currentValue),
-        expression: "currentValue"
-      }],
-      staticClass: "mint-radio-input",
-      attrs: {
-        "type": "radio",
-        "disabled": option.disabled
-      },
-      domProps: {
-        "value": option.value || option,
-        "checked": _vm._q(_vm.currentValue, option.value || option)
-      },
-      on: {
-        "change": function($event) {
-          _vm.currentValue = option.value || option
-        }
-      }
-    }), _vm._v(" "), _c('span', {
-      staticClass: "mint-radio-core"
-    })]), _vm._v(" "), _c('span', {
-      staticClass: "mint-radio-label",
-      domProps: {
-        "textContent": _vm._s(option.label || option)
-      }
-    })])])
-  })], 2)
+  }), _vm._v(" "), _c('span', {
+    staticClass: "mt-radio-icon",
+    style: ([{
+      color: _vm.$parent.color
+    }, _vm.styles(1)])
+  }, [_c('i', {
+    style: (_vm.styles(2))
+  })]), _vm._v(" "), (!_vm.$slots.default) ? _c('span', {
+    staticClass: "mt-radio-text"
+  }, [_vm._v(_vm._s(_vm.val))]) : _c('span', {
+    staticClass: "mt-radio-text"
+  }, [_vm._t("default")], 2)])
 },staticRenderFns: []}
 
 /***/ }),
 
-/***/ 256:
+/***/ 261:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(41);
+module.exports = __webpack_require__(42);
 
 
 /***/ }),
 
-/***/ 3:
-/***/ (function(module, exports) {
-
-module.exports = require("mint-ui/lib/cell");
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports) {
-
-module.exports = require("mint-ui/lib/cell/style.css");
-
-/***/ }),
-
-/***/ 41:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_radio_vue__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_radio_vue__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_radio_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__src_radio_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__src_radio_vue___default.a; });
 
@@ -295,26 +253,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 89:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -325,55 +268,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-
-if (true) {
-  __webpack_require__(4);
-}
-/**
- * mt-radio
- * @module components/radio
- * @desc 单选框列表，依赖 cell 组件
- *
- * @param {string[], object[]} options - 选项数组，可以传入 [{label: 'label', value: 'value', disabled: true}] 或者 ['ab', 'cd', 'ef']
- * @param {string} value - 选中值
- * @param {string} title - 标题
- * @param {string} [align=left] - checkbox 对齐位置，`left`, `right`
- *
- * @example
- * <mt-radio v-model="value" :options="['a', 'b', 'c']"></mt-radio>
- */
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'mt-radio',
-
-  props: {
-    title: String,
-    align: String,
-    options: {
-      type: Array,
-      required: true
+    name: 'mt-radio',
+    data: function data() {
+        return {
+            checked: false
+        }
     },
-    value: String
-  },
-
-  data: function data() {
-    return {
-      currentValue: this.value
-    };
-  },
-
-  watch: {
-    value: function value(val) {
-      this.currentValue = val;
+    props: {
+        val: [String, Number],
+        disabled: {
+            type: Boolean,
+            default: false
+        }
     },
-
-    currentValue: function currentValue(val) {
-      this.$emit('input', val);
+    methods: {
+        changeHandler: function changeHandler (event) {
+            if (this.disabled) { return; }
+            this.checked = event.target.checked;
+            this.$parent.change(this.val);
+        },
+        styles: function styles(size) {
+            return {
+                width: this.$parent.size / size + 'px',
+                height: this.$parent.size / size + 'px'
+            };
+        }
     }
-  },
-
-  components: {
-    XCell: __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_cell_index_js___default.a
-  }
 });
 
 
