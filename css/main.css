@@ -191,5 +191,8 @@ border-color:#EC0A0A transparent transparent;}
 
 /* 意见反馈 */
 .feedback{background-color:#fff;margin-top:5px;}
-        .feedback input{height:50px;padding:0 20px;border-bottom:1px solid #DCDCDC;}
-        .feedback textarea{padding:20px;height:10em;}
+.feedback input{height:50px;padding:0 20px;border-bottom:1px solid #DCDCDC;}
+.feedback textarea{padding:20px;height:10em;}
+
+.build-success{text-align: center;}
+.build-success h2{font-size: 20px;padding-top: 80px;}

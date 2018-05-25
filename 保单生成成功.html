@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body class="white">
+    <div id="appCtrl" v-locak>
+        <mt-header title="成功">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+            <a href="" slot="right">完成</a>
+        </mt-header>
+        
+        
+        
+        <div class="build-success">
+            <h2 class="cGold">保单生成成功</h2>
+            <p class="cGray">关注“丰收经纪”公众号即可<span class="cGold">查看保单</span></p>
+        </div>
+
+        <div class="ticket-container" style="margin:20px">
+            <mt-field 
+                placeholder="请输入电子邮箱" 
+                v-model.trim="email">
+                    <mt-button style="font-size:12px" size="large" type="primary" @click.native="sendEmail">发送电子保单</mt-button>
+            </mt-field>
+        </div>
+        
+
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+                email:''
+            }
+        },
+
+        methods:{
+            sendEmail: function(){
+                if(!this.email){
+                    this.$toast('请输入邮箱地址')
+                    return;
+                }
+                if(!/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+[\.][a-zA-Z0-9_-]+$/.test(this.email)){
+                    this.$toast('邮箱地址有误')
+                    return;
+                }
+                alert('ajax发送电子保单 ')
+            }
+           
+        }
+    })
+    </script>
+</body>
+
+</html>
