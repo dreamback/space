@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+        <mt-header title="设置">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+
+        <div class="mt-cell-group" style="padding-top:0">
+            <mt-cell 
+            is-link
+            to="个人资料.html"
+            title="个人资料">
+            </mt-cell>
+            
+            <mt-cell 
+            is-link
+            to="意见反馈.html"
+            title="意见反馈">
+            </mt-cell>
+
+            <mt-cell 
+            is-link
+            to="关于.html"
+            title="关于">
+            </mt-cell>
+        </div>
+
+        <div style="padding:15px">
+            <mt-button size="large" type="primary" @click.native="submit">退出登录</mt-button>
+        </div>
+        
+        
+
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+        		
+        	}
+        },
+
+        methods:{
+
+            submit: function(){
+                location.href = 'http://www.baidu.com/loginout.do';
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

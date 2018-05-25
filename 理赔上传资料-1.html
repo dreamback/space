@@ -69,6 +69,7 @@
             <mt-cell
                 icon="upload"
                 title="上传材料（图片要清晰）">
+
             </mt-cell>
 
             <div class="upload-container">
@@ -155,11 +156,14 @@
                   :multiple="false"
                   @files-submitted="submitted">
                   </mt-upload>
+                
 
                 <div class="mt-button-group">
                         <mt-button type="primary" plain>保存</mt-button>
                         <mt-button type="primary">提交</mt-button>
                 </div>
+
+                <p style="text-align:center;padding-top:15px"><span class="cRed">*如果上传失败，请先把图片分的辨率降低，<br/>或者压缩图片再上传</span></p>
 
             </div>
         </div>

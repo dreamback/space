@@ -23,6 +23,9 @@
  */
 export default {
   name: 'mt-tab-item',
+  props:{
+    id:[String,Number]
+  },
   computed: {
     activeStyle () {
       return {
@@ -33,14 +36,15 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      id: (this.$parent.$children.length || 1) - 1
-    }
-  },
+  // data () {
+  //   return {
+  //     id: (this.$parent.$children.length || 1) - 1
+  //   }
+  // },
   methods: {
     onItemClicked () {
-      this.$parent.$emit('input', this.id)
+      this.$parent.$emit('input', this.id);
+      this.$parent.$emit('click', this.id);
     }
   }
 }

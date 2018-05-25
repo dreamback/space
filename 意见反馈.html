@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+        <mt-header title="意见反馈">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+        <div class="feedback">
+            <textarea placeholder="亲，有什么不爽说两句吧，虽然我们不能及时回复，但是我们会尽快将问题反馈给技术同学，给予解决的。( ^_^ )" maxlength="255"></textarea>
+        </div>
+        
+        <div style="padding:15px">
+            <mt-button size="large" type="primary" @click.native="submit">提交</mt-button>
+        </div>
+        
+        
+
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+        		
+        	}
+        },
+
+        methods:{
+
+            submit: function(){
+                alert('ajax提交')
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

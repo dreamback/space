@@ -7831,6 +7831,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'mt-tab-item',
+  props:{
+    id:[String,Number]
+  },
   computed: {
     activeStyle: function activeStyle () {
       return {
@@ -7841,14 +7844,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     }
   },
-  data: function data () {
-    return {
-      id: (this.$parent.$children.length || 1) - 1
-    }
-  },
+  // data () {
+  //   return {
+  //     id: (this.$parent.$children.length || 1) - 1
+  //   }
+  // },
   methods: {
     onItemClicked: function onItemClicked () {
-      this.$parent.$emit('input', this.id)
+      this.$parent.$emit('input', this.id);
+      this.$parent.$emit('click', this.id);
     }
   }
 });
