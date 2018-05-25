@@ -1,16 +1,14 @@
 <template>
-  <mt-popup v-model="visible" position="bottom" class="mint-datetime">
+  <mt-popup v-model="visible" :closeOnClickModal="closeOnClickModal" position="bottom" class="mint-datetime">
     <mt-picker
       :slots="dateSlots"
       @change="onChange"
-      :ok="confirm"
-      :title="cancelText"
       :visible-item-count="visibleItemCount"
       class="mint-datetime-picker"
       ref="picker"
       show-toolbar>
-      <!-- <span class="mint-datetime-action mint-datetime-cancel" @click="visible = false;$emit('cancel')">{{ cancelText }}</span>
-      <span class="mint-datetime-action mint-datetime-confirm" @click="confirm">{{ confirmText }}</span> -->
+      <span class="mint-datetime-action mint-datetime-cancel" @click="visible = false;$emit('cancel')">{{ cancelText }}</span>
+      <span class="mint-datetime-action mint-datetime-confirm" @click="confirm">{{ confirmText }}</span>
     </mt-picker>
   </mt-popup>
 </template>
@@ -126,6 +124,10 @@
         type: Number,
         default: 7
       },
+      closeOnClickModal: {
+        type: Boolean,
+        default: true
+      },
       value: null
     },
 
@@ -214,8 +216,10 @@
           this.selfTriggered = false;
           return;
         }
-        this.currentValue = this.getValue(values);
-        this.handleValueChange();
+        if (values.length !== 0) {
+          this.currentValue = this.getValue(values);
+          this.handleValueChange();
+        }
       },
 
       fillValues(type, start, end) {
@@ -412,6 +416,10 @@
 
       rims() {
         this.generateSlots();
+      },
+
+      visible(val) {
+        this.$emit('visible-change', val);
       }
     },
 
@@ -425,7 +433,6 @@
         }
       }
       this.generateSlots();
-      console.log(this.startDate)
     }
   };
 </script>

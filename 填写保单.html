@@ -28,31 +28,92 @@
         </mt-header> -->
     <div class="mt-cell-group">
         <div class="title-bar">被保人信息</div>
-            <mt-cell class="mt-cell-ilabel" title="李浩" label="身份证 123456789876543212">
-                <div class="select-ui" slot="left2"></div>
-                <a class="mintui-edit" href="#"></a>
+            <mt-cell v-for="(el,index) in contacts" class="mt-cell-ilabel" :title="el.name" :label="'身份证 '+el.idNo">
+                <div class="select-ui" :class="{on: contactSelect===index}" @click="contactSelect=index" slot="left2"></div>
+                <a class="mintui-edit" :href="'添加联系人.html?userId='+el.userId"></a>
             </mt-cell>
-            <mt-cell title="新增被保人" is-link to="http://baidu.com">
+            <mt-cell title="新增被保人" is-link to="添加联系人.html">
                 <div class="select-ui select-ui2" slot="left2"></div>
             </mt-cell>
     </div>
+
     <div class="mt-cell-group">
         <div class="title-bar">通讯录</div>
         <mt-field 
-        label="手机号" 
+        label="被保人手机" 
+        :disabled="true"
         placeholder="请输入手机号" 
-        v-model="mobile"></mt-field>
+        v-model.trim="form.mobile"></mt-field>
     </div>
+
+    <div class="mt-cell-group">
+        <div class="title-bar">投保人信息</div>
+        <mt-cell 
+        title="被保险人与投保人为同一人">
+            <mt-switch v-model="form.same">{{form.same?'是':'否'}}</mt-switch>
+        </mt-cell>
+        <div class="mt-cell-left" v-show="!form.same">
+
+            <mt-field 
+            label="投保人姓名" 
+            placeholder="请输入投保人姓名" 
+            v-model.trim="form.protectName"></mt-field>
+
+            <mt-cell 
+            title="被保险人是您"
+            @click.native="relationshipVisible=true"
+            is-link>
+            请选择
+            </mt-cell>
+
+            <mt-field 
+            label="身份证号码" 
+            placeholder="请输入身份证号码" 
+            v-model.trim="form.protectIdNo"></mt-field>
+
+            <mt-field 
+            label="手机号码" 
+            placeholder="请输入手机号码" 
+            v-model.trim="form.protectMobile"></mt-field>
+
+            <mt-cell 
+            title="有无社保">
+                <mt-radio-group 
+                color="#C99D68" 
+                name="insurance"
+                v-model="form.insurance">
+                    <mt-radio :val="1">
+                    有</mt-radio>
+                    <mt-radio :val="0">
+                    无</mt-radio>
+                </mt-radio-group>  
+            </mt-cell>
+        </div>
+    </div>
+
+
+<!--     <div class="mt-cell-group">
+        <div class="title-bar">通讯录</div>
+        <mt-field 
+        label="手机号" 
+        :disabled="true"
+        placeholder="请输入手机号" 
+        v-model.trim="form.mobile"></mt-field>
+    </div> -->
 
     <div class="mt-cell-group mt-cell-left">
         <div class="title-bar">保险信息</div>
         <mt-cell title="保险名称">
             中国人寿境内意外险
         </mt-cell>
-        <mt-cell title="保险期限" is-link>
+        <mt-cell title="保险期限" is-link @click.native="deadlineVisible=true">
+            {{form.deadline}} 天
         </mt-cell>
-        <mt-cell title="生效日期" is-link @click.native="open('periodPicker')">
-            请选择生效日期
+        <mt-cell title="生效日期" is-link @click.native="periodVisible=true">
+            {{form.period}} 0时
+        </mt-cell>
+        <mt-cell title="到期日期">
+            <span class="cGold">{{activeTime}}</span>
         </mt-cell>
         <mt-cell title="受益人">
             法定
@@ -66,7 +127,7 @@
         <div class="title-bar">优惠信息</div>
         <mt-cell title="优惠券/优惠码" is-link>
             <mt-badge class="mt-badge-plain" size="small">0张可用</mt-badge>
-            <span class="fee-sys">优惠码</span>
+            <span class="fee-sys" @click="ticketVisible=true">优惠码</span>
         </mt-cell>
         <div class="agreement">
                <div class="select-ui" slot="left2" :class="{on:agreement}" @click="agreement=!agreement"></div>
@@ -80,44 +141,263 @@
 
     </div>
 
-<mt-datetime-picker
-  v-model="periodTime"
-  type="date"
-  :startDate="startDate"
-  ref="periodPicker"
-  year-format="{value} 年"
-  month-format="{value} 月"
-  date-format="{value} 日">
-</mt-datetime-picker>
+<mt-popup
+  v-model="periodVisible"
+  style="width:100%"
+  position="bottom">
+    <mt-picker 
+    title="请选择生效日期"
+    :show-toolbar="true"
+    :slots="periodSlots" 
+    :ok="periodOk">
+    </mt-picker>
+</mt-popup>
+
+<mt-popup
+  v-model="deadlineVisible"
+  style="width:100%"
+  position="bottom">
+    <mt-picker 
+    title="请选择保险期限（天）"
+    :show-toolbar="true"
+    :slots="deadlineSlots" 
+    :ok="deadlineOk">
+    </mt-picker>
+</mt-popup>
+
+<mt-popup
+  v-model="relationshipVisible"
+  style="width:100%"
+  position="bottom">
+    <mt-picker 
+    title="请选择保险期限"
+    :show-toolbar="true"
+    :slots="relationshipSlots" 
+    :ok="relationshipOk">
+    </mt-picker>
+</mt-popup>
+
+<mt-popup
+  v-model="ticketVisible"
+  style="width:100%"
+  position="bottom">
+    <div class="ticket-container">
+      <div class="mt-cell-group">
+        <div class="title-bar">优惠券</div>
+        <div style="padding:15px 0"></div>
+        <mt-field 
+            placeholder="请输入优惠码" 
+            v-model.trim="ticketCode">
+                <mt-button size="large" type="primary" @click.native="submitTicket">提交</mt-button>
+            </mt-field>
+      </div> 
+    </div>
+
+</mt-popup>
 
     </div>
     <script src="js/zepto.min.js"></script>
     <script src="js/vue.min.js"></script>
     <script src="mint/lib/index.js"></script>
     <script>
-    var t = new Date( new Date().getTime()+24*60*60*1000 );
     var vm = new Vue({
         el: '#appCtrl',
 
         data: function(){
         	return {
-                user:0,
-                mobile:'',
                 agreement: false,
-                periodTime: new Date( new Date().getTime()+24*60*60*1000 ),
-                startDate: t
+                periodVisible: false,
+                deadlineVisible: false,
+                relationshipVisible:false,
+                ticketVisible:false,
+                ticketCode:'',
+
+                form:{
+                    mobile:'',
+                    deadline:'',
+                    period:'',
+                    userId:'',
+
+                    same:true,
+                    protectName:'',
+                    relationship:'',
+                    protectIdNo:'',
+                    protectMobile:'',
+                    insurance:1
+                },
+
+                contactSelect:0,
+                //生效日期
+                periodSlots:[{
+                  flex: 1,
+                  values: [],
+                }],
+                //保障期限
+                deadlineSlots:[{
+                    flex:1,
+                    values:[728,364,180]
+                }],
+
+                contacts:[{
+                    userId:1001,
+                    name:'张三',
+                    credType:0,
+                    idNo:'fdasfdsafsad',
+                    mobile:'17700000000',
+                    area:'北京/北京市/东城区'
+                },{
+                    userId:1002,
+                    name:'李四',
+                    credType:0,
+                    idNo:'1435345',
+                    mobile:'18644444444',
+                    area:'西藏/昌都地区/江达县'
+                }],
+
+                relationshipSlots:[{
+                    flex:1,
+                    values:[{
+                        label:'父母',
+                        value:0
+                    },{
+                        label:'配偶',
+                        value:1
+                    },{
+                        label:'子女',
+                        value:2
+                    }]
+                }]
+
         	}
         },
 
+        watch:{
+            contactSelect: function(index){
+                this.form.mobile = this.contacts[index].mobile;
+            }
+        },
+
+        computed:{
+            activeTime: function(){
+            if(!this.form.period){return ''}
+            var date = this.form.period.split('-');
+                date = new Date(date[0], date[1], date[2]).getTime()+this.form.deadline*24*60*60*1000;
+                return this.formatTime(date,'yyyy-MM-dd') +' 24时'
+            }
+        },
+
         methods:{
-            open(ref){
-                this.$refs[ref].open();
-                console.log(this.$refs[ref])
+
+            periodOk: function(values){
+                this.form.period = values[0];
+                this.periodVisible = false;
+            },
+
+            deadlineOk: function(values){
+                this.form.deadline = values[0];
+                this.deadlineVisible = false;
+                
+            },
+
+            relationshipOk:function(values){
+                console.log(values)
+                this.form.relationship = values[0].value;
+                this.relationshipVisible=false;
+            },
+
+            //生效日期 第二天开始，七天之内
+            initPeriodSlots: function(){
+                var start = new Date().getTime(),
+                    res = [];
+                    for(var i = 0; i<=7;i++){//第二天开始，七天之内
+                        res.push( this.formatTime(start + i*24*60*60*1000, 'yyyy-MM-dd') );
+                    }
+                    this.periodSlots[0].values = res;
+            },
+
+            formatTime: function(date, format) {
+                if (!date) return '';
+                var date = new Date(date);
+                var map = {
+                    M: date.getMonth() + 1, //月份
+                    d: date.getDate(), //日
+                    h: date.getHours(), //小时
+                    m: date.getMinutes(), //分
+                    s: date.getSeconds(), //秒
+                    q: Math.floor((date.getMonth() + 3) / 3), //季度
+                    S: date.getMilliseconds() //毫秒
+                };
+                var format = format.replace(/([yMdhmsqS])+/g, function(all, t) {
+                    var v = map[t];
+                    if (v !== undefined) {
+                        if (all.length > 1) {
+                            v = '0' + v;
+                            v = v.substr(v.length - 2);
+                        }
+                        return v;
+                    } else if (t === 'y') {
+                        return (date.getFullYear() + '').substr(4 - all.length);
+                    }
+                    return all;
+                });
+                return format;
+            },
+
+            submit: function(){
+                if(!this.agreement){
+                    this.$toast('必须同意协议')
+                    return;
+                }
+
+                if(!this.form.same){
+                    if(!this.form.protectName){
+                        this.$toast('请输入投保人姓名');
+                        return;
+                    }
+                    if(this.form.relationship===''){
+                        this.$toast('请选择被保人与您的关系');
+                        return;
+                    }
+                    if(!this.form.protectIdNo){
+                        this.$toast('请输入投保人身份证号码');
+                        return;
+                    }
+                    if(!this.form.protectMobile){
+                        this.$toast('请输入投保人手机号码');
+                        return;
+                    }
+                    if(!/^0?(13|15|18|14|16|17|19)[0-9]{9}$/.test(this.form.protectMobile)){
+                        this.$toast('投保人手机号码格式有误');
+                        return;
+                    }
+                }
+                alert('ajax提交')
+                // $.ajax({
+                //     dataType:'json',
+                //     url:'',
+                //     data: this.form,
+                //     success:function(){}
+                // });
+            },
+
+            submitTicket: function(){
+                if(!this.ticketCode){
+                    this.$toast('请输入优惠码')
+                    this.ticketVisible = false;
+                    return;
+                }
+                this.$toast('优惠券不可用');
+                this.ticketVisible = false;
             }
 
         },
         mounted: function(){
-            this.$refs.periodPicker.startDate = t;
+            this.initPeriodSlots();
+            this.form.period = this.formatTime(new Date().getTime() + 1*24*60*60*1000, 'yyyy-MM-dd')
+            this.form.deadline = this.deadlineSlots[0].values[0];
+            if(this.contacts&&this.contacts.length){
+                this.form.mobile = this.contacts[0].mobile;
+            }
         }
     })
     </script>

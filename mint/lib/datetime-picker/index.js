@@ -205,6 +205,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('mt-popup', {
     staticClass: "mint-datetime",
     attrs: {
+      "closeOnClickModal": _vm.closeOnClickModal,
       "position": "bottom"
     },
     model: {
@@ -219,15 +220,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "mint-datetime-picker",
     attrs: {
       "slots": _vm.dateSlots,
-      "ok": _vm.confirm,
-      "title": _vm.cancelText,
       "visible-item-count": _vm.visibleItemCount,
       "show-toolbar": ""
     },
     on: {
       "change": _vm.onChange
     }
-  })], 1)
+  }, [_c('span', {
+    staticClass: "mint-datetime-action mint-datetime-cancel",
+    on: {
+      "click": function($event) {
+        _vm.visible = false;
+        _vm.$emit('cancel')
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.cancelText))]), _vm._v(" "), _c('span', {
+    staticClass: "mint-datetime-action mint-datetime-confirm",
+    on: {
+      "click": _vm.confirm
+    }
+  }, [_vm._v(_vm._s(_vm.confirmText))])])], 1)
 },staticRenderFns: []}
 
 /***/ }),
@@ -290,8 +302,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_picker_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mint_ui_packages_picker_index_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_popup_index_js__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_popup_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mint_ui_packages_popup_index_js__);
-//
-//
 //
 //
 //
@@ -418,6 +428,10 @@ var FORMAT_MAP = {
       type: Number,
       default: 7
     },
+    closeOnClickModal: {
+      type: Boolean,
+      default: true
+    },
     value: null
   },
 
@@ -508,8 +522,10 @@ var FORMAT_MAP = {
         this.selfTriggered = false;
         return;
       }
-      this.currentValue = this.getValue(values);
-      this.handleValueChange();
+      if (values.length !== 0) {
+        this.currentValue = this.getValue(values);
+        this.handleValueChange();
+      }
     },
 
     fillValues: function fillValues(type, start, end) {
@@ -712,6 +728,10 @@ var FORMAT_MAP = {
 
     rims: function rims() {
       this.generateSlots();
+    },
+
+    visible: function visible(val) {
+      this.$emit('visible-change', val);
     }
   },
 
@@ -725,7 +745,6 @@ var FORMAT_MAP = {
       }
     }
     this.generateSlots();
-    console.log(this.startDate)
   }
 });
 
