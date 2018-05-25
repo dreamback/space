@@ -21,7 +21,7 @@
 
 <body>
     <div id="appCtrl" v-locak>
-        <mt-header title="分类">
+        <mt-header title="优惠券">
             <a href="javascript:;" @click="history.go(-1)" slot="left">
                 <mt-button icon="back"></mt-button>
             </a>
@@ -63,7 +63,9 @@
         <div class="spinner-wrapper cGray">
             <mt-spinner v-show="loading===true" type="fading-circle"></mt-spinner>
             <p v-show="loading===-1">没有更多了~</p>
-            <p v-show="loading===-2">暂无数据</p>
+            <div class="empty" v-show="loading===-2">
+                <p class="cGray">暂无数据</p>
+            </div>
         </div>
 
         <mt-popup

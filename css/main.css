@@ -196,3 +196,24 @@ border-color:#EC0A0A transparent transparent;}
 
 .build-success{text-align: center;}
 .build-success h2{font-size: 20px;padding-top: 80px;}
+
+
+/* 支付 */
+.pay-tip{text-align: center;color: #fff;padding:10px;font-size: 12px;background: #A17E41;line-height: 1;}
+.pay-content{background: #fff;padding: 20px 0;text-align: center;}
+.pay-content p{font-size: 30px;}
+.pay-title{height: 36px;line-height: 36px;font-size: 16px;padding-left: 15px;}
+.pay-list .mintui{width: 30px;height: 30px;background-size: 30px auto;background-image: url('../images/pay_ico.png');margin-right: 10px;}
+.pay-list .mintui-weichatpay{background-position: 0 0;}
+.pay-list .mintui-alipay{background-position: 0 -30px;}
+.pay-list .mintui-unionpay{background-position: 0 -60px;}
+.pay-list .mintui-bankpay{background-position: 0 -90px;}
+
+.service-list a{display: block;display: -webkit-box;display: -webkit-flex;display: flex;border-bottom: 1px solid #DFDFE1;padding: 10px 15px;background: #fff;-webkit-box-align: center;-webkit-align-items: center;align-items: center;line-height: 1.1;}
+.service-list a:active{background:#f1f1f1;}
+.service-list a i{display: block;width: 25px;height: 25px;background-image: url('../images/my_sevice_ico.png');background-size: 25px auto;margin-right: 10px;}
+.service-list a i.i1{background-position: 0 0px;}
+.service-list a i.i2{background-position: 0 -25px;}
+.service-list a i.i3{background-position: 0 -50px;}
+.service-list a i.i4{background-position: 0 -75px;}
+.service-list a p{font-size: 12px;padding-top: 4px;}

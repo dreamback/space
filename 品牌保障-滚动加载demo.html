@@ -47,7 +47,9 @@
         <div class="spinner-wrapper cGray">
             <mt-spinner v-show="loading===true" type="fading-circle"></mt-spinner>
             <p v-show="loading===-1">没有更多了~</p>
-            <p v-show="loading===-2">暂无数据</p>
+            <div class="empty" v-show="loading===-2">
+                <p class="cGray">暂无数据</p>
+            </div>
         </div>
     </div>
     <script src="js/zepto.min.js"></script>

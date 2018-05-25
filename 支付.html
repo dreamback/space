@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+        <mt-header title="支付">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+        
+        <div class="pay-tip">
+            请于2018年02月18日24时前完成支付，否则订单将取消！
+        </div>
+
+        <div class="pay-content">
+            <h2>保单金额</h2>
+            <p class="cGold">￥200.00</p>
+        </div>
+
+        <div class="pay-title">请选择支付方式</div>
+
+        <div class="mt-cell-group pay-list" style="margin-top:0;padding-top:0">
+            <mt-cell
+            icon="weichatpay"
+            is-link
+            to="http://www.baidu.com"
+            title="微信支付">
+            </mt-cell>
+            <mt-cell
+            icon="alipay"
+            to="http://www.baidu.com"
+            is-link
+            title="支付宝支付">
+            </mt-cell>
+            <mt-cell
+            icon="unionpay"
+            to="http://www.baidu.com"
+            is-link
+            title="银联支付">
+            </mt-cell>
+        </div>
+
+        <div class="pay-title">其它支付方式</div>
+        <div class="mt-cell-group pay-list" style="margin-top:0;padding-top:0">
+            <mt-cell
+            icon="bankpay"
+            to="http://www.baidu.com"
+            is-link
+            title="工商银行">
+            </mt-cell>
+            <mt-cell
+            icon="bankpay"
+            to="http://www.baidu.com"
+            is-link
+            title="招商银行">
+            </mt-cell>
+            <mt-cell
+            icon="bankpay"
+            to="http://www.baidu.com"
+            is-link
+            title="平安银行">
+            </mt-cell>
+        </div>
+        
+
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+        		
+        	}
+        },
+
+        methods:{
+
+            submit: function(){
+                alert('ajax提交')
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>
