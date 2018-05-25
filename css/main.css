@@ -217,3 +217,11 @@ border-color:#EC0A0A transparent transparent;}
 .service-list a i.i3{background-position: 0 -50px;}
 .service-list a i.i4{background-position: 0 -75px;}
 .service-list a p{font-size: 12px;padding-top: 4px;}
+
+/* 理赔中心 */
+.claims-list a{display: block;background: #fff;border-bottom: 1px solid #DFDFE1;padding: 10px 15px;position: relative;}
+.claims-list a:last-child{border-bottom: none;}
+.claims-list a:active{background: #f1f1f1;}
+.claims-list .title{padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid #eee;}
+.claims-list .mintui{position: absolute;right: 15px;bottom: 30px;color: #ddd;transform:rotate(-180deg)}
+.claims-list .mintui::after{content: "\E600";}

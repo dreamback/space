@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+        <mt-header title="意见反馈">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+        
+        <mt-tab v-model="typeId" @click="linkTo">
+            <mt-tab-item :id="1001">可理赔</mt-tab-item>
+            <mt-tab-item :id="1002">已申请理赔</mt-tab-item>
+        </mt-tab>
+
+        <div class="claims-list">
+            <a href="">
+                <div class="title">
+                    <h2>中老年骨折意外险</h2>
+                    <p class="cGray">平安保险</p>
+                </div>
+                <ul>
+                    <li>
+                        <span>保单号：</span>
+                        <span class="cGray">OPD2342354234</span>
+                    </li>
+                    <li>
+                        <span>被保人：</span>
+                        <span class="cGray">张三</span>
+                    </li>
+                    <li>
+                        <span>生效时间：</span>
+                        <span class="cGray">2018-05-17  至 2019-05-17</span>
+                    </li>
+                </ul>
+                <i class="mintui"></i>
+            </a>
+        </div>
+        
+
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+        		typeId:1001
+        	}
+        },
+
+        methods:{
+
+            linkTo: function(){
+                alert('页面跳转')
+                location.href="http://www.baidu.com?typeId"+this.typeId;
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>
