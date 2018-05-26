@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body class="white">
+    <div id="appCtrl" v-locak>
+        <mt-header title="中老年骨折意外险">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+        
+        
+        <div class="product-banner">
+            <img src="images/pro_banner.png" alt="">
+        </div>
+
+        <div class="prodcut-title">
+            中老年骨折意外险
+        </div>
+
+        <div class="product-info">
+            <div class="choose-attrs">
+                <dl class="clearfix">
+                    <dt>保　　额：</dt>
+                    <dd>
+                        <a 
+                        href="javascript:;" 
+                        v-for="(el,index) in product"
+                        :key="index"
+                        @click="amountIndex=index" 
+                        :class="{on:amountIndex === index}">
+                            {{el.amount/10000}} 万
+                        </a>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>保障期限：</dt>
+                    <dd>一年</dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>年　　龄：</dt>
+                    <dd>
+                        <a 
+                        v-for="(el,index) in product[amountIndex].age"
+                        :key="index"
+                        @click="ageIndex=index"
+                        href="javascript:;"
+                        :class="{on:ageIndex === index}">
+                        {{el.scope}}</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <mt-tab class="product-tab" v-model="typeId" @click="linkTo">
+            <mt-tab-item :id="1001">产品详情</mt-tab-item>
+            <mt-tab-item :id="1002">购买须知</mt-tab-item>
+            <mt-tab-item :id="1003">常见问题</mt-tab-item>
+        </mt-tab>
+
+
+
+        <div class="product-article">
+            <div class="content">
+                <ul class="product-article-keys">
+                    <li>
+                        <i class="i1"></i>
+                        5年长期保障，每年缴费不变，无停售风险
+                    </li>
+                    <li>
+                        <i class="i2"></i>
+                        5年总共1万免赔额，恶性肿瘤0免赔，理赔无压力
+                    </li>
+                    <li>
+                        <i class="i3"></i>
+                        住院、住院前7日后30日门急诊、特殊门诊均可报销
+                    </li>
+                    <li>
+                        <i class="i4"></i>
+                        保费最低180元起，平均每天0.5元
+                    </li>
+                </ul>
+            </div>
+          
+        </div>
+
+            <div class="table-info-wrapper">
+                <div class="content">
+                <h2>保证责任明细</h2>
+                <table>
+                    <tr>
+                        <th>保险责任</th>
+                        <th>保障责任</th>
+                    </tr>
+                    <tr>
+                        <td>一般医疗保险金</td>
+                        <td>200万</td>
+                    </tr>
+                    <tr>
+                        <td>恶性肿瘤医疗保险金</td>
+                        <td>200万</td>
+                    </tr>
+                    <tr>
+                        <td>免赔额</td>
+                        <td>5年累计免赔额1万元，恶性肿瘤保障无免赔</td>
+                    </tr>
+                    <tr>
+                        <td>等待期</td>
+                        <td>60天</td>
+                    </tr>
+                    <tr>
+                        <td>犹豫期</td>
+                        <td>15天，犹豫期内全额退保</td>
+                    </tr>
+                    <tr>
+                        <td>赔付规则</td>
+                        <td>
+                    有社保版：保险赔付^〔医疗费-社保赔付-免赔额〉*100%<br>
+                    若有社保未使用：保险赔付^〔医疗费-免赔额〉*60%<br>
+                    无社保版：保险赔付二〔医疗费-免赔额〕*100%<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>医院范围</td>
+                        <td>二级及以上医保定点医院普通部</td>
+                    </tr>
+
+                    <tr>
+                        <td>保障期限</td>
+                        <td>5年</td>
+                    </tr>
+
+                    <tr>
+                        <td>缴费期限</td>
+                        <td>一次缴清0年交乃年交（每年缴费金额不变〉</td>
+                    </tr>
+
+                    <tr>
+                        <td>被保险人</td>
+                        <td>出生后满30天至49周岁，可续保至80周岁</td>
+                    </tr>
+
+                    <tr>
+                        <td>投被保险人关系</td>
+                        <td>限本人、父母、配偶、子女</td>
+                    </tr>
+                </table>
+            </div>  
+            </div>
+
+            <img src="images/product_detail/d_1.jpg" width="100%" alt="">
+
+            <div class="blue-content">
+                <div>
+                <h2>若不幸罹患恶性肿瘤（癌症）</h2>
+                <div style="text-align: center;padding: 0 0">
+                    <img src="images/product_detail/d_2.jpg" alt="" width="345"/>
+                </div>   
+                <h2>5年长期保障　持久关爱</h2>
+                <table class="meta-table">
+                    <tr>
+                        <td>保险责任</td>
+                        <td>乐享一生百万医疗</td>
+                        <td>其他百万医疗险</td>
+                    </tr>
+                    <tr>
+                        <td>保障期限</td>
+                        <td>5年</td>
+                        <td>1年</td>
+                    </tr>
+                    <tr>
+                        <td>免赔额</td>
+                        <td>5年累计免赔额1万元</td>
+                        <td>每年免赔额1万元</td>
+                    </tr>
+                    <tr>
+                        <td>每年缴费</td>
+                        <td>每年金额不变</td>
+                        <td>随年龄增长而上浮</td>
+                    </tr>
+                    <tr>
+                        <td>续保条件</td>
+                        <td>缴费后连续保障</td>
+                        <td>视理赔及健康状况而定</td>
+                    </tr>
+                </table>
+                <p style="font-size:16px;text-align: center;">保险公司承诺：5年之后，不会因为被保险人个人的风险状况变化或已经产生理赔而拒绝投保人为被保险人继续投保。</p>
+                </div>
+            </div>
+        
+
+        <div class="process-list">
+                <h2>
+                    理赔流程
+                    <p>全国通赔流程简单</p>
+                </h2>
+                <ul>
+                    <li><i class="i1"></i>
+                        <h3 class="cGold">报案申请</h3>
+                        <p>拨打热线4006-11-7777申请理赔</p>
+                    </li>
+                    <li>
+                        <i class="i2"></i>
+                        <h3 class="cGold">材料递交</h3>
+                        <p>本人或委托人将理赔资料邮寄给保险公司，也可以通过网点柜台提交</p>
+                    </li>
+                    <li><i class="i3"></i>
+                        <h3 class="cGold">审核</h3>
+                        <p>保险公司收到完整的材料后立案审核，并及时作出理赔决定</p>
+                    </li>
+
+                    <li><i class="i4"></i>
+                        <h3 class="cGold">结案</h3>
+                        <p>告知理赔决定，并通过转账支付保险赔款</p>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div>
+                <img src="images/product_detail/d_3.jpg" width="100%" alt="">
+            </div>
+
+            <div class="iabout-us">
+                <div class="text-content">
+                    <h3>了解复星联合健康保险公司</h3>
+                    <p>复星联合健康保险公司由复星集团等六家股东共同发起成立。复星集团成立于1992年，2007年复星国际在香港联交所主板上市。目前总资产超过人民币5000亿元，是福布斯全球500强。复星联合健康保险是全国7家专业健康险公司之一，立足广大消费者需求，开展各类医疗保险、疾病保险、失能收入损失保险、护理保险、意外保险业务，全力为客户提供优质的全生命周期产品，建立贴心的全流程服务体系。2017年，复星联合健康保险公司综合偿付能力充足率为1362.88%，风险综合评价为A。</p>
+                </div>
+            </div>
+        
+    
+
+    <div class="fixed-buy">
+        <a href="" class="service"></a>
+        <p>价格：￥{{product[amountIndex].age[ageIndex].price}}</p>
+        <div class="submit">立即购买</div>
+    </div>
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+        var vmodel = new Vue({
+            el: '#appCtrl',
+            data: function(){
+                return {
+                    typeId:1001,
+                    amountIndex:0,
+                    ageIndex:0,
+                    product:[{
+                        id:1000001,
+                        amount:20000,
+                        age:[{
+                            scope: '45-49',
+                            price: 400
+                        },{
+                            scope: '50-54',
+                            price: 500
+                        },{
+                            scope: '55-59',
+                            price: 600
+                        }]
+                    },{
+                        id:1000002,
+                        amount:10000,
+                        age:[{
+                            scope: '45-49',
+                            price: 301
+                        },{
+                            scope: '50-54',
+                            price: 401
+                        },{
+                            scope: '55-59',
+                            price: 501
+                        },{
+                            scope: '60-64',
+                            price: 601
+                        }]
+                    }]
+                }
+            },
+
+            watch:{
+                amountIndex: function(val){
+                    var size = this.product[val].age.length-1;
+                    if(this.ageIndex>size){
+                        this.ageIndex = size;
+                    }
+                }
+            },
+
+            methods:{
+                submit: function(){
+                    var amount = vmodel.product[vmodel.amountIndex].amount;
+
+                    var scope = vmodel.product[vmodel.amountIndex].age[vmodel.ageIndex].scope;
+
+                    var id = vmodel.product[vmodel.amountIndex].id;
+
+                    var price = vmodel.product[vmodel.amountIndex].age[vmodel.ageIndex].price;
+
+                    location.href = 'http://www.baidu.com?amount='+ amount +'&scope='+scope+'&price='+price+'&id='+id;
+                },
+
+                linkTo: function(){
+
+                }
+            },
+
+            mounted: function(){
+                var $window = $(window),
+                    stickyNav = $('#stickyNav');
+                $window.on('scroll', function(){
+                    if($window.scrollTop() > stickyNav.offset().top){
+                        stickyNav.addClass('fixed');
+                    }else{
+                        stickyNav.removeClass('fixed')
+                    }
+                })
+            }
+        })
+
+    </script>
+</body>
+
+</html>
