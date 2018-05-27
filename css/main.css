@@ -291,3 +291,10 @@ background-size: 26px 26px;background-position: 50% 50%;background-repeat: no-re
 .fixed-buy p{flex: 1;height: 70px;color: #fff;border-left: 1px solid #565656;line-height: 70px;font-size: 18px;text-align: center;}
 .fixed-buy .submit{height: 70px;font-size: 18px;color: #fff;line-height: 70px;padding: 0 20px;background: #A17E41;}
 .fixed-buy .submit:active{background: #8E6729;}
+
+/*定制*/
+.book-form{background: #fff;margin-top: 10px;padding-bottom: 20px;}
+.book-form h2{font-size: 16px;padding: 15px 0;text-align: center;}
+.book-help{text-align: center;}
+.book-help i{display: inline-block;width: 15px;height: 15px;background-image: url('../images/book_helper.png');-webkit-background-size: 15px 15px ;
+background-size: 15px 15px ;background-repeat: no-repeat;margin-right: 5px;position: relative;bottom: -1px;}
