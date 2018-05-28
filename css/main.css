@@ -219,13 +219,18 @@ border-color:#EC0A0A transparent transparent;}
 .service-list a p{font-size: 12px;padding-top: 4px;}
 
 /* 理赔中心 */
-.claims-list a{display: block;background: #fff;border-bottom: 1px solid #DFDFE1;padding: 10px 15px;position: relative;}
-.claims-list a:last-child{border-bottom: none;}
-.claims-list a:active{background: #f1f1f1;}
+.claims-list>a,
+.claims-list>.item{display: block;background: #fff;border-bottom: 1px solid #DFDFE1;padding: 10px 15px;position: relative;}
+.claims-list>a:last-child,
+.claims-list>.item:last-child{border-bottom: none;}
+.claims-list>a:active{background: #f1f1f1;}
 .claims-list .title{padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid #eee;}
 .claims-list .mintui{position: absolute;right: 15px;bottom: 30px;color: #ddd;transform:rotate(-180deg)}
 .claims-list .mintui::after{content: "\E600";}
-
+.claims-list .meta{border-top: 1px solid #eee;padding-top: 10px;margin-top: 8px;}
+.claims-list .meta a{color: #C99D68;}
+.claims-list img{position: absolute;right: 15px;top:65px;}
+.claims-list>.item{border-bottom: none;margin-top: 10px;}
 /*产品详情页*/
 .product-banner img{width: 100%!important;height: auto!important;}
 .prodcut-title{height: 40px;line-height: 40px;padding: 0 15px;border-bottom: 1px solid #DFDFE1;}
