@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+
+        <mt-header title="我的保单">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+
+        <mt-search
+          v-model.lazy="keywords"
+          cancel-text="取消"
+          placeholder="保单号/手机号">
+        </mt-search>
+
+        <mt-tab v-model="params.typeId" v-show="!keywords" @click="onTab">
+            <mt-tab-item :id="1001">全部</mt-tab-item>
+            <mt-tab-item :id="1002">保障中</mt-tab-item>
+            <mt-tab-item :id="1003">待支付</mt-tab-item>
+            <mt-tab-item :id="1004">已出单</mt-tab-item>
+        </mt-tab>        
+        
+        <div class="claims-list"
+            v-infinite-scroll="fetchData"
+            infinite-scroll-disabled="loading"
+            infinite-scroll-distance="10">
+
+            <div class="item" v-for="el in dataList">
+                <div class="title">
+                    <h2>{{el.title}}</h2>
+                    <p class="cGray">{{el.createTime}}</p>
+                </div>
+                <ul>
+                    <li>
+                        <span>被保人：</span>
+                        <span class="cGray">{{el.name}}</span>
+                    </li>
+                    <li>
+                        <span>保障金额：</span>
+                        <span class="cGray">{{el.amount}}</span>
+                    </li>
+                    <li>
+                        <span>生效时间：</span>
+                        <span class="cGray">{{el.activeTime}}</span>
+                    </li>
+                </ul>
+
+                <div class="meta" v-if="el.status==0">
+                    <mt-button type="primary" size="small" plain>
+                        <a href="">去支付</a>
+                    </mt-button>
+                </div>
+
+                <div class="meta" v-if="el.status==1">
+                    <mt-button type="primary" size="small" plain>
+                        <a href="">评价</a>
+                    </mt-button>
+                </div>
+
+                <div class="meta" v-if="el.status==2">
+                    <mt-button type="primary" size="small" plain>
+                        <a href="">申请发票</a>
+                    </mt-button>
+                    <mt-button type="primary" size="small" plain>
+                        <a href="">评价</a>
+                    </mt-button>
+                </div>
+
+                <img v-if="el.status==0" src="images/order_status_0.png" width="75" height="75" alt="">
+                <img v-else-if="el.status==1" src="images/order_status_1.png" width="75" height="75" alt="">
+                <img v-else-if="el.status==2" src="images/order_status_2.png" width="75" height="75" alt="">
+                <img v-else-if="el.status==3" src="images/order_status_3.png" width="75" height="75" alt="">
+            </div>
+
+        </div>        
+        
+        
+        <div class="spinner-wrapper cGray">
+            <mt-spinner v-show="loading===true" type="fading-circle"></mt-spinner>
+            <p v-show="loading===-1">没有更多了~</p>
+            <div class="empty" v-show="loading===-2">
+                <p class="cGray">暂无数据</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+                keywords:'',
+                timeout:null,
+
+                params:{
+                    pageNo:0,
+                    pageSize:10,
+                    typeId: 1001
+                },
+
+                loading: false,
+
+                dataList:[]
+            }
+        },
+
+        watch:{
+            keywords: function(value){
+                if(value){
+                    this.timeout && clearTimeout(this.timeout);
+                    this.timeout = setTimeout(function(){
+                        vm.params.pageNo = 0;
+                        //清空列表数据
+                        vm.dataList = [];
+                        vm.loading = false;
+                        vm.fetchData(value);
+                    },300);                   
+                }else{
+                    this.onTab();
+                }
+            }
+        },
+
+        methods:{
+            onTab: function(){
+                this.params.pageNo = 0;
+                //清空列表数据
+                this.dataList = [];
+                this.loading = false;
+                this.fetchData();
+            },
+
+            fetchData:function(keywords){
+                if(this.loading)return;
+                ++this.params.pageNo;
+
+                //后台用keywords判断是否有值，区分点击tab，还是搜索。
+                this.params.keywords = keywords || false;
+
+                console.log(this.params)
+
+                this.loading = true;
+                $.ajax({
+                    url:'fetchData.json',
+                    data: this.params,
+                    dataType:'json',
+                    success: function(res){
+                        setTimeout(function(){//setTimeout 模拟异步ajax demo 
+                            vm.loading = false;
+                            vm.dataList = vm.dataList.concat(res);//数组合并
+                            if(res.length>=vm.params.pageSize){
+                                vm.loading = false;
+                            }else if(res.length==0&&vm.params.pageNo==1){
+                                vm.loading = -2;//无数据
+                            }else{
+                                vm.loading = -1;//没有更多了
+                            }
+                        },1000);
+                    }
+                });
+            }
+        },
+
+        mounted: function(){
+
+        }
+    })
+
+    alert('这个ajax demo 需要在http环境下才能运行')
+    </script>
+</body>
+
+</html>

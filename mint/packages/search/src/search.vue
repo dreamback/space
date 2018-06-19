@@ -98,9 +98,9 @@ export default {
 
   @component-namespace mint {
     @component search {
-      height: 100%;
+      /* height: 100%;
       height: 100vh;
-      overflow: hidden;
+      overflow: hidden; */
     }
 
     @component searchbar {

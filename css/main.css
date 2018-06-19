@@ -219,13 +219,18 @@ border-color:#EC0A0A transparent transparent;}
 .service-list a p{font-size: 12px;padding-top: 4px;}
 
 /* 理赔中心 */
-.claims-list a{display: block;background: #fff;border-bottom: 1px solid #DFDFE1;padding: 10px 15px;position: relative;}
-.claims-list a:last-child{border-bottom: none;}
-.claims-list a:active{background: #f1f1f1;}
+.claims-list>a,
+.claims-list>.item{display: block;background: #fff;border-bottom: 1px solid #DFDFE1;padding: 10px 15px;position: relative;}
+.claims-list>a:last-child,
+.claims-list>.item:last-child{border-bottom: none;}
+.claims-list>a:active{background: #f1f1f1;}
 .claims-list .title{padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid #eee;}
 .claims-list .mintui{position: absolute;right: 15px;bottom: 30px;color: #ddd;transform:rotate(-180deg)}
 .claims-list .mintui::after{content: "\E600";}
-
+.claims-list .meta{border-top: 1px solid #eee;padding-top: 10px;margin-top: 8px;}
+.claims-list .meta a{color: #C99D68;}
+.claims-list img{position: absolute;right: 15px;top:65px;}
+.claims-list>.item{border-bottom: none;margin-top: 10px;}
 /*产品详情页*/
 .product-banner img{width: 100%!important;height: auto!important;}
 .prodcut-title{height: 40px;line-height: 40px;padding: 0 15px;border-bottom: 1px solid #DFDFE1;}
@@ -303,3 +308,13 @@ background-size: 15px 15px ;background-repeat: no-repeat;margin-right: 5px;posit
 .article img{width: 100%;height: auto;}
 .article-title{font-size: 18px;font-weight: bold;padding-bottom: 10px;}
 .article-pubtime{font-size: 12px;color: #999;border-bottom: 1px solid #ddd;margin-bottom: 15px;padding-bottom: 8px;}
+
+.about-article{padding: 0 10px;background: #fff;font-size: 14px;}
+.about-article h2{font-size: 16px;padding: 10px 0;}
+
+.article-pannel{padding:15px;color:#767070;padding-top:10px;background: #fff;}
+.art_title{color:#444444;font-size:16px;font-weight:bold;width:60%;margin:0 auto;padding-bottom:10px;text-align:center;}
+.article-pannel img{display:block;width:100%;margin:5px 0px;}
+.aticle-container{background: #fff;}
+.aticle-container img{opacity: 0;transition: opacity .5s linear;}
+.aritcle-meta{color: #999;text-align: center;border-bottom: 1px solid #ddd;padding-bottom: 10px;margin-bottom: 20px;}

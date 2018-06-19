@@ -736,9 +736,9 @@ animation-delay: -0.16s;
 /* Radio Component */
 /* z-index */
 .mint-search {
-    height: 100%;
+    /* height: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; */
 }
 .mint-searchbar {
     position: relative;
