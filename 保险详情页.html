@@ -326,15 +326,11 @@
             },
 
             mounted: function(){
-                var $window = $(window),
-                    stickyNav = $('#stickyNav');
-                $window.on('scroll', function(){
-                    if($window.scrollTop() > stickyNav.offset().top){
-                        stickyNav.addClass('fixed');
-                    }else{
-                        stickyNav.removeClass('fixed')
-                    }
-                })
+                 var img = document.querySelectorAll('img');
+                 img.forEach(function(el, index){
+                    el.style.width = el.width = '100%';
+                    el.style.height = el.height = 'auto';
+                 })
             }
         })
 

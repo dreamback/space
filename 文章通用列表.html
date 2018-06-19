@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body>
+    <div id="appCtrl" v-locak>
+        <mt-header title="最新资讯">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+        <div class="news-list">
+            <a href="#/articleDetail?id=639" class="item">
+                <div class="text">
+                    <h4>行 业 领 先</h4>
+                    <p>深耕保险行业多年<br>强大品牌实力值得信赖</p>
+                 </div>
+            </a>  
+            <a href="#/articleDetail?id=639" class="item">
+                <div class="img" style="background-image: url('images/xx_2.jpg');"></div>
+                <div class="text">
+                    <h4>专 业 团 队</h4>
+                    <p>专业经验+大数据分析<br>为您打造实惠而全面的优质保障</p>
+                 </div>
+            </a>   
+            <a href="#/articleDetail?id=639" class="item">
+                <div class="img" style="background-image: url('images/xx_3.jpg');"></div>
+                <div class="text">
+                    <h4>1 对 1 持 续 服 务</h4>
+                    <p>保险顾问1对1免费定制保障方案7X24小时为您服务</p>
+                 </div>
+            </a> 
+            <a href="#/articleDetail?id=639" class="item">
+                <div class="img" style="background-image: url('images/xx_4.jpg');"></div>
+                <div class="text">
+                    <h4>理 赔 省 心</h4>
+                    <p>免费协助理赔 快速搞笑，理赔无忧</p>
+                 </div>
+            </a>        
+        </div>
+
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+        		typeId: 1002
+        	}
+        },
+
+        methods:{
+            linkTo: function(){
+                alert('点击做页面跳转');
+                location.href = '品牌保障.html?typeId='+this.typeId;
+            }
+
+        }
+    })
+    </script>
+</body>
+
+</html>
