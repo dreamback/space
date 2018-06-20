@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body class="white">
+    <div id="appCtrl" v-locak>
+        <mt-header title="忘记密码">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+        <div class="form-login">
+
+            <mt-field 
+            label="手机号"
+            placeholder="请输入手机号码" 
+            v-model="mobile">
+            </mt-field>
+
+            <mt-field 
+            label="图形验证码"
+            placeholder="请输入图形验证码" 
+            v-model="verify">
+            <img src="http://www.thinkphp.cn/member/verify.html" width="120" height="40" alt="">
+            </mt-field>
+            
+
+            <mt-field 
+            label="短信验证码"
+            placeholder="请输入短信验证码"
+            v-model="code">
+                <mt-countdown style="min-width:120px " :send="send"></mt-countdown>
+            </mt-field>
+
+            <mt-field 
+            label="新密码"
+            placeholder="设置6~20位之间的密码"
+            type="password" v-model="psw">
+            </mt-field>
+            <mt-field 
+            label="确认密码"
+            placeholder="请输入确认密码"
+            type="password" v-model="checkPsw">
+            </mt-field>
+
+            <div style="padding:15px">
+                <mt-button size="large" type="primary" @click.native="submit">重置密码</mt-button>
+            </div>
+            
+            
+        </div>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	return {
+        		mobile:'',
+        		psw:'',
+                code:'',
+                checkPsw:'',
+                verify:'',
+
+                start: false
+        	}
+        },
+
+        methods:{
+        	submit: function(){
+        		if(!this.mobile){
+        			this.$toast('请输入手机号码、');
+        			return;
+        		}
+                if(!/^0?(13|15|18|14|16|17|19)[0-9]{9}$/.test(this.mobile)){
+                    this.$toast('手机号码格式有误');
+                    return;
+                }
+                if(!this.verify){
+                     this.$toast('请输入图形验证码');
+                    return;
+                }
+                if(4>this.verify.length){
+                     this.$toast('图形验证码错误');
+                    return;
+                }
+                if(!this.code){
+                    this.$toast('请输入短信验证码');
+                    return;
+                }
+        		if(!this.psw){
+        			this.$toast('请输入登录密码');
+        			return;
+        		}
+        		if(this.psw.length<6||this.psw.length>20){
+        			this.$toast('6~20位之间的密码');
+        			return;
+        		}
+                if(this.psw!=this.checkPsw){
+                    this.$toast('确认密码错误');
+                    return;
+                }
+        	},
+
+            sendCode: function() {
+                if(!this.verify){
+                     this.$toast('请输入图形验证码');
+                    return;
+                }
+                if(4>this.verify.length){
+                     this.$toast('图形验证码错误');
+                    return;
+                }
+                setTimeout(() => {//这里该ajax
+
+                    vm.start = true;
+
+                    vm.toast({
+                        mes: '已发送',
+                        icon: 'success',
+                        timeout: 1500
+                    });
+
+                }, 1000);
+            },
+
+            send: function(success, fail){
+                if(!this.mobile){
+                    this.$toast('请输入手机号码、');
+                    return;
+                }
+                if(!/^0?(13|15|18|14|16|17|19)[0-9]{9}$/.test(this.mobile)){
+                    this.$toast('手机号码格式有误');
+                    return;
+                }
+
+                success();//ajax发送短信的时候调用success 进入倒计时
+                //fail();//发送失败的时候调用，解除按钮的disable
+            }
+
+        }
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="mint/lib/style.css">
+</head>
+
+<body class="white">
+    <div id="appCtrl" v-locak>
+        <mt-header title="务主管部门就再发">
+            <a href="javascript:;" @click="history.go(-1)" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+        </mt-header>
+        
+        
+        <div class="article" id="article">
+            <h1 class="article-title">务主管部门就再发</h1>
+            <div class="article-pubtime">2018年05月日 08:52</div>
+            <div class="content">
+                <!-- 这里插入文字内容 -->
+                <img src="http://inews.gtimg.com/newsapp_bt/0/3729540979/1000" alt="">
+                <p>&nbsp;</p>
+                 <p>中国台湾网5月27日讯 据台湾“中时电子报”报道，台湾教育事务主管部门再下“拔管”通牒，两度发文要求台大重启校长遴选。曾任台当局“行政院”发言人的台湾文化大学新闻系主任胡幼伟在脸谱网（facebook）发文表示，台湾教育事务主管部门再发文给台大，台大就再回文，台湾教育事务主管部门就再发文，台大就再回文......当双方发文、回文累积上千篇后，台大便可以出书、开门通识课，还帮校方想好书名叫“管他的千言万语！”课程名称为“当代行政程序管子学派分析”。</p>
+                <p>台湾教育事务主管部门不甩台大12日临时校务会议决议，昨再回函重申台大应“迅即重启遴选程序”。台大与台湾教育事务主管部门公文来往出现僵局，对此，根据台湾“联合报”报道，胡幼伟指出，台湾教育事务主管部门再发文给台大，台大就再回文，双方一直发文、回文其实也没有关系，等到双方累积上千篇发文及回文后，台大便可集结这些公文出书、开课。</p>
+                <p>&nbsp;</p>
+                <p>他说，这本出版的书名就叫“管他的千言万语！”还能让台大开设新的一堂通识课，以“当代行政程序管子学派分析”为课程名称开班授课，反讽这样不是很好吗？</p>
+                <p>&nbsp;</p>
+                <p>胡幼伟帮台大想好书名、通识课程，引发脸谱网（facebook）友讨论说，“也可以拍一部电影《鬼打墙》。”还有网友留言，“千言万语都是屁话，不管用啦。”（编辑 韩静）</p>   
+                <p>&nbsp;</p>
+                <img src="http://inews.gtimg.com/newsapp_bt/0/3726912548/1000" alt="">
+                <!-- 文字内容 end -->
+            </div>
+
+
+        </div>
+        
+        
+
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="mint/lib/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+        	
+        },
+
+        methods:{
+
+           
+        },
+
+        mounted: function(){
+            $('#article img').css({
+                width:'100%!important',
+                height:'auto!important'
+            });
+        }
+    })
+    </script>
+</body>
+
+</html>
