@@ -38,7 +38,10 @@
             label="图形验证码"
             placeholder="请输入图形验证码" 
             v-model="verify">
-            <img src="http://www.thinkphp.cn/member/verify.html" width="120" height="40" alt="">
+            <img 
+            :src="'http://test.51dfs.cn/kder-api/validatecode/getValidateCode.do?page=forget&t='+time" 
+            @click="time = new Date().getTime()" 
+            width="120" height="40">
             </mt-field>
             
 
@@ -80,6 +83,8 @@
                 code:'',
                 checkPsw:'',
                 verify:'',
+
+                time: '',
 
                 start: false
         	}

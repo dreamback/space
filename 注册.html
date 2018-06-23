@@ -58,6 +58,7 @@
             </p>
         </div>
     </div>
+    <script src="js/zepto.min.js"></script>
     <script src="js/vue.min.js"></script>
     <script src="mint/lib/index.js"></script>
     <script>
@@ -117,9 +118,25 @@
                     this.$toast('手机号码格式有误');
                     return;
                 }
-
-                success();//ajax发送短信的时候调用success 进入倒计时
-                //fail();//发送失败的时候调用，解除按钮的disable
+                $.ajax({
+                    url:'getMobileSmsCode.do',
+                    dataType:'json',
+                    type:'post',
+                    data:{
+                        mobile: this.mobile
+                    },
+                    success: function(res){
+                        res = res || {};
+                        if(res.code===0){
+                            success();//ajax发送短信的时候调用success 进入倒计时
+                        }else{
+                            vm.$toast(res.message||'发送失败')
+                        }
+                    },
+                    complete: function(){
+                        fail();//解除按钮的disable
+                    }
+                })
             }
 
         }
