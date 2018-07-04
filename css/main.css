@@ -28,7 +28,8 @@
 .hot-product ul li a:first-child{margin-right:5px;}
 .hot-product ul li a:last-child{margin-left:5px;}
 .hot-product ul li a:active{background:#f2f2f2;}
-.hot-product img{width:100%;}
+.hot-product .img{-webkit-background-size: cover;
+background-size: cover;background-position: 50% 50%;height: 120px;background-repeat: no-repeat;}
 .hot-product .desc{border:1px solid #EEEEEE;border-top:none;padding:10px 15px 20px;}
 .hot-product h2{font-size:14px;padding-bottom:3px;}
 .hot-product .seller{padding-top:10px;}

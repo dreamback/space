@@ -30,7 +30,7 @@
         v-model="selected"
         activeColor="#A17E41"
         > 
-          <mt-tab-item v-for="(item, index) in tabsList" :key="item.id" @click.native="tabChange(item.id, index)">
+          <mt-tab-item v-for="(item, index) in tabsList" :id="index" :key="item.id" @click.native="tabChange(item.id, index)">
             {{item.label}}
           </mt-tab-item>
         </mt-tab>
@@ -128,11 +128,12 @@
                     tabId:'',
                     sortId:'',
                     ageId:'',
+                    brandId:'',
                     pageNo:0,
                     pageSize:10
                 },
 
-                selected:0,
+                selected:1,
 
                 tabsList: [{
                     id: 1001,
@@ -177,6 +178,9 @@
                 ageSlots:[{
                   flex: 1,
                   values: [{
+                    key:0,
+                    label:'不限'
+                  },{
                     key:2001,
                     label:'男性'
                   },{
@@ -194,6 +198,9 @@
                 brandSlots:[{
                   flex: 1,
                   values: [{
+                    key:0,
+                    label:'不限'
+                  },{
                     key:3001,
                     label:'平安保险'
                   },{
@@ -205,12 +212,18 @@
         },
 
         methods: {
-            tabChange: function(id, index) {alert(1)
+            tabChange: function(id, index) {
                 this.pageParams.pageNo = 0;
                 this.currentSortName = '';
                 this.currentAgeName = '';
                 this.currentBrandName = '';
+                this.pageParams.tabId = id;
                 this.dataList = [];
+
+                this.pageParams.sortId = '';
+                this.pageParams.ageId = '';
+                this.pageParams.brandId = '';
+                // this.selected = index;
                 this.fetchData();
             },
 
@@ -218,27 +231,30 @@
 
             sortOk: function(val){
                 val = val[0];
-                this.currentSortName = val.label;
+                this.currentSortName = val.key?val.label:'';
                 this.sortVisible=false;
                 this.pageParams.pageNo = 0;
+                this.pageParams.sortId = val.key;
                 this.dataList = [];
                 this.fetchData();
             },
 
             ageOk: function(val){
                 val = val[0];
-                this.currentAgeName = val.label;
+                this.currentAgeName = val.key?val.label:'';
                 this.ageVisible=false;
                 this.pageParams.pageNo = 0;
+                this.pageParams.ageId = val.key;
                 this.dataList = [];
                 this.fetchData();
             },
 
             brandOk: function(val){
                 val = val[0];
-                this.currentBrandName = val.label;
+                this.currentBrandName = val.key?val.label:'';
                 this.brandVisible=false;
                 this.pageParams.pageNo = 0;
+                this.pageParams.brandId = val.key;
                 this.dataList = [];
                 this.fetchData();
             },
