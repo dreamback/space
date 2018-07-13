@@ -63,7 +63,7 @@
             title="被保险人是您"
             @click.native="relationshipVisible=true"
             is-link>
-            请选择
+            {{relationshipLabel||'请选择'}}
             </mt-cell>
 
             <mt-field 
@@ -170,7 +170,7 @@
   style="width:100%"
   position="bottom">
     <mt-picker 
-    title="请选择保险期限"
+    title="被保险人是您"
     :show-toolbar="true"
     :slots="relationshipSlots" 
     :ok="relationshipOk">
@@ -227,6 +227,7 @@
                 },
 
                 contactSelect:0,
+                relationshipLabel:'',
                 //生效日期
                 periodSlots:[{
                   flex: 1,
@@ -302,6 +303,7 @@
             relationshipOk:function(values){
                 console.log(values)
                 this.form.relationship = values[0].value;
+                this.relationshipLabel = values[0].label;
                 this.relationshipVisible=false;
             },
 
@@ -354,7 +356,7 @@
                         this.$toast('请输入投保人姓名');
                         return;
                     }
-                    if(this.form.relationship===''){
+                    if(this.form.relationship.value===''){
                         this.$toast('请选择被保人与您的关系');
                         return;
                     }
